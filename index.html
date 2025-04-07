@@ -2,56 +2,265 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bikas Basnet – Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bikas Basnet | Personal Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        nav {
+            background-color: #006400;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #006400;
+            min-width: 400px;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            text-align: left;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        .dropdown-content a:hover {
+            background-color: #004d00;
+            text-decoration: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 50px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { color: #2c3e50; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        p { color: #555; text-align: justify; }
+        ul { list-style-type: disc; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        .contact-icons a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        .contact-icons img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2c3e50;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .content-section {
+            display: none;
+        }
+        #home {
+            display: block;
+        }
+        .banner {
+            background-color: #0044cc;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 15px;
+        }
+        .banner img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        .banner-text {
+            color: white;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .banner-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            background-color: #006400;
+            border-radius: 5px;
+        }
+        .banner-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- 🟨 BANNER + NAVIGATION (directly included here) -->
-    <header>
-        <div class="banner">
-            <img src="profile.jpg" alt="Bikas Basnet" class="profile-pic">
-            <h1>Bikas Basnet</h1>
-            <p>
-                I am an enthusiastic graduate student in agriculture with avidity for not only molecular biology and crop improvement (genomics, plant-microbe interactions, quantitative genetics, applied aspects of plant breeding, modern plant breeding tools, product design and development), but also computational genetics programming and Biopython [including deep learning as well as machine learning]. Through field- and lab-based studies and computational tools, I have meticulously honed my skills through rigorous academic and informal coursework and immersive hands-on internships. My ardent ambition is to bridge the gap between farmers' fields and research stations through innovation exchange and capacity building. As a guiding principle, I am deeply committed to addressing the pressing food and nutrition insecurity issue in developing countries. Moreover, I am eager to collaborate on impactful projects that make a positive difference by bridging the gap between research stations and farmers' fields through capacity building as well as innovation exchange.
-            </p>
+<nav>
+    <a href="#home" onclick="showSection('home')">Home</a>
+    <a href="#projects" onclick="showSection('projects')">Projects</a>
+    <div class="dropdown">
+        <a href="#publications" onclick="showSection('publications')" class="dropbtn">Publications</a>
+        <div class="dropdown-content">
+            <a href="https://doi.org/10.1186/s13007-025-01327-2" target="_blank">2024: Enhanced Bayesian model for multienvironmental selection...</a>
+            <a href="https://doi.org/10.1016/j.heliyon.2024.e39226" target="_blank">2024: Genotypic variations in postfertility traits...</a>
+            <a href="https://doi.org/10.1016/j.egg.2024.100249" target="_blank">2024: Unraveling genotype-by-environment interaction...</a>
+            <a href="https://doi.org/10.1016/j.chnaes.2023.05.007" target="_blank">2024: Innovative farming techniques for superior okra...</a>
+            <a href="https://doi.org/10.1016/j.jafr.2022.100463" target="_blank">2023: The influence of different mulching materials...</a>
+            <a href="https://doi.org/10.5455/faa.136385" target="_blank">2023: An Extensive Review of Strawberry Diseases...</a>
+            <a href="https://doi.org/10.1155/2022/7419326" target="_blank">2022: A review on major rust resistance gene...</a>
+            <a href="https://doi.org/10.1016/j.heliyon.2022.e12593" target="_blank">2022: Quantitative trait loci and candidate genes...</a>
+            <a href="http://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">2022: Perspective of olive farming at Bajura...</a>
+            <a href="http://doi.org/10.26480/faer.02.2022.55.59" target="_blank">2022: Economics of Onion Seed Production...</a>
+            <a href="http://doi.org/10.26480/itechmag.03.2021.09.18" target="_blank">2021: Insect Pests Infestation, Diseases and Management...</a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
+    <a href="#data" onclick="showSection('data')">Data</a>
+    <a href="#cv" onclick="showSection('cv')">CV</a>
+    <a href="#contact" onclick="showSection('contact')">Contact</a>
+</nav>
 
-    <!-- 🟦 PAGE SECTIONS -->
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I’m a graduate student with a deep interest in molecular biology, crop improvement, and computational biology.</p>
-        </section>
+<div class="banner">
+    <div class="banner-content">
+        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/flag.png" alt="Nepal Flag">
+        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/7134e550-c979-4653-b08a-2de6c5178b92.jpg" alt="Copyright">
+        <span class="banner-text">© An official website of Bikas Basnet</span>
+        <a href="https://www.facebook.com/p/The-plant-hub-of-Himalayan-Nepal-100063754014744/" target="_blank" class="banner-link">Here's how we know</a>
+    </div>
+</div>
 
-        <section id="publications">
-            <h2>Publications</h2>
-            <ul>
-                <li>Basnet B. et al., 2023. *Genomic prediction of drought tolerance in lentils*. Plant Breeding Journal.</li>
-                <li>Basnet B. & Sharma L., 2022. *Machine learning applications in genotype-environment interaction*. Computers in Agriculture.</li>
-                <li>Basnet B., 2021. *Biopython pipelines for disease resistance QTL*. Bioinformatics Reports.</li>
-            </ul>
-        </section>
+<div id="home" class="content-section">
+    <div class="profile-container">
+        <h1>Welcome to the Page of Bikas Basnet</h1>
+        <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/20230227_151532.jpg" alt="Bikas Basnet" class="profile-img">
+        <p>I am an enthusiastic graduate student in agriculture with avidity for not only molecular biology and crop improvement (genomics, plant-microbe interactions, quantitative genetics, applied aspects of plant breeding, modern plant breeding tools, product design and development), but also computational genetics programming and Biopython [including deep learning as well as machine learning]. Through field- and lab-based studies and computational tools, I have meticulously honed my skills through rigorous academic and informal coursework and immersive hands-on internships. My ardent ambition is to bridge the gap between farmers' fields and research stations through innovation exchange and capacity building. As a guiding principle, I am deeply committed to addressing the pressing food and nutrition insecurity issue in developing countries. Moreover, I am eager to collaborate on impactful projects that make a positive difference by bridging the gap between research stations and farmers' fields through capacity building as well as innovation exchange.</p>
+    </div>
+</div>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:bikas.basnet@example.com">bikas.basnet@example.com</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/bikasbasnet" target="_blank">bikasbasnet</a></p>
-        </section>
-    </main>
+<div id="projects" class="content-section">
+    <div class="container">
+        <h1>Projects</h1>
+        <ul>
+            <li><strong>Project 1: Climate Resilience in Agriculture</strong> - This project focuses on enhancing the resilience of agriculture systems to climate change through sustainable farming practices and innovative technologies.</li>
+            <li><strong>Project 2: Genomic Selection in Maize</strong> - A project exploring the use of genomic selection techniques to improve maize yields and resistance to disease in various environments.</li>
+            <li><strong>Project 3: Integrated Pest Management (IPM) for Rice</strong> - A study on developing environmentally friendly pest management practices for rice cultivation, aiming to reduce chemical pesticide use.</li>
+            <li><strong>Project 4: Bioinformatics for Crop Improvement</strong> - Leveraging bioinformatics tools and genomic data to improve crop breeding strategies and accelerate the development of high-yielding varieties.</li>
+        </ul>
 
-    <footer>
-        <p>© 2025 Bikas Basnet</p>
-    </footer>
+        <h2>Assignments</h2>
+        <ul>
+            <li><strong>Assignment 1: Agricultural Impact Analysis</strong> - Analyzing the environmental impacts of various agricultural practices through a comparative study.</li>
+            <li><strong>Assignment 2: Crop Modeling</strong> - Creating models to predict crop yield based on climatic data and soil conditions.</li>
+            <li><strong>Assignment 3: Genetic Diversity in Rice</strong> - A study on the genetic variation in rice varieties across different geographical regions.</li>
+        </ul>
+    </div>
+</div>
 
-    <script src="script.js"></script>
+<div id="publications" class="content-section">
+    <div class="container">
+        <h1>Publications</h1>
+        <h2>2024</h2>
+        <ul>
+            <li><strong>Basnet, B.</strong>, Kunwar, C. B., & Upreti, U. (2024). Enhanced Bayesian model for multienvironmental selection of winter hybrids maize: assessing grain yield using ‘ProbBreed’. <i>Plant Methods, 21</i>, 8. <a href="https://doi.org/10.1186/s13007-025-01327-2" target="_blank">📄</a> (Q1)</li>
+            <li><strong>Basnet, B.</strong>, Upreti, U., & Thapaliya, K. P. (2024). Genotypic variations in postfertility traits and yield components of mung bean (Vigna radiata (L.) R. Wilczek) germplasms in Chitwan, Nepal. <i>Heliyon, 10</i>(20). <a href="https://doi.org/10.1016/j.heliyon.2024.e39226" target="_blank">📄</a> (Q1)</li>
+            <li>Kunwar, C. B., Basnet, B., Sunuwar, S., Mahato, D. N., Chaudhari, R., Upadhya, J., & Pokhrel, P. (2024). Unraveling genotype-by-environment interaction in maize using cutting edge statistical tools: Innovative empirical selection for increased yield stability. <i>Ecological Genetics and Genomics, 32</i>, 100249. <a href="https://doi.org/10.1016/j.egg.2024.100249" target="_blank">📄</a> (Q3)</li>
+            <li>Chauhan, S., Basnet, B., Adhikari, S. K., Budhathoki, P., & Shrestha, A. K. (2024). Innovative farming techniques for superior okra yield in Chitwan, Nepal: The benefits of plastic film mulch and pest exclusion net on soil properties, growth, quality, and profitability. <i>Ecological Frontiers, 44</i>(1), 23-32. <a href="https://doi.org/10.1016/j.chnaes.2023.05.007" target="_blank">📄</a> (Q1)</li>
+        </ul>
+        <h2>2023</h2>
+        <ul>
+            <li>Sharma, S., <strong>Basnet, B.</strong>, Bhattarai, K., Sedhai, A., & Khanal, K. (2023). The influence of different mulching materials on Tomato's vegetative, reproductive, and yield in Dhankuta, Nepal. <i>Journal of Agriculture and Food Research, 11</i>, 100463. <a href="https://doi.org/10.1016/j.jafr.2022.100463" target="_blank">📄</a> (Q1)</li>
+            <li>Dholi, P. K., Khatiwada, P., <strong>Basnet, B.</strong>, & Bhandari, S. (2023). An Extensive Review of Strawberry (Fragaria× ananassa) Diseases and Integrated Management Approaches: Current Understanding and Future Directions. <i>Fundamental and Applied Agriculture, 8</i>(4), 655-667. <a href="https://doi.org/10.5455/faa.136385" target="_blank">📄</a></li>
+        </ul>
+        <h2>2022</h2>
+        <ul>
+            <li><strong>Basnet, B.</strong>, Juliana, P., Bhattarai, K., & Upreti, U. (2022). A review on major rust resistance gene and amino acid changes on wheat (Triticum aestivum L). <i>Advances in Agriculture, 2022</i>(1), 7419326. <a href="https://doi.org/10.1155/2022/7419326" target="_blank">📄</a> (Q2)</li>
+            <li><strong>Basnet, B.</strong>, & Khanal, S. (2022). Quantitative trait loci and candidate genes for iron and zinc bio-fortification in genetically diverse germplasm of maize (Zea mays L): A systematic review. <i>Heliyon, 8</i>(12). <a href="https://doi.org/10.1016/j.heliyon.2022.e12593" target="_blank">📄</a> (Q1)</li>
+            <li><strong>Basnet, B.</strong> (2022). Perspective of olive farming at Bajura, Nepal: main opportunities and challenges. <i>Nepal: Main Opportunities and Challenges</i> (June 4, 2022). <a href="http://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">📄</a></li>
+            <li><strong>Basnet, B.</strong> (2022). Economics of Onion Seed Production in Western Rukum, Nepal. <i>Nepal</i> (June 4, 2022). <a href="http://doi.org/10.26480/faer.02.2022.55.59" target="_blank">📄</a></li>
+        </ul>
+        <h2>2021</h2>
+        <ul>
+            <li><strong>Basnet, B.</strong> (2021). Insect Pests Infestation, Diseases and Management Practice of Largecardamom in Nepal: A Review. <i>Tech Mag, 3</i>, 33-42. <a href="http://doi.org/10.26480/itechmag.03.2021.09.18" target="_blank">📄</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="data" class="content-section">
+    <!-- Your data content -->
+</div>
+
+<div id="cv" class="content-section">
+    <!-- Your CV content -->
+</div>
+
+<div id="contact" class="content-section">
+    <!-- Your contact content -->
+</div>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(function(section) {
+            section.style.display = 'none';
+        });
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+            selectedSection.style.display = 'block';
+        }
+    }
+    showSection('home');
+</script>
+
 </body>
 </html>
