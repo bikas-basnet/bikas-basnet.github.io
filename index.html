@@ -34,20 +34,18 @@
         ul { list-style-type: disc; padding-left: 20px; }
         li { margin-bottom: 10px; }
         .contact-icons a {
-            display: inline-block;
-            margin: 10px;
-            text-decoration: none;
-            color: #2c3e50;
-            font-size: 16px;
-        }
-        .contact-icons img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.contact-icon {
+    width: 50px; /* Size of the icon */
+    height: 50px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures image covers the circle */
+    border: 2px solid #2c3e50; /* Optional: adds border around the icon */
+}
 
         /* Circular profile image */
         .profile-img {
@@ -161,16 +159,23 @@
 <div class="container" id="contact">
     <h1>Contact</h1>
     <div class="contact-icons">
-        <a href="mailto:bikasbasnet2001@gmail.com">
-            <img src="email-icon.png" alt="Email">
+        <!-- Email link -->
+        <a href="mailto:bikasbasnet2001@gmail.com" target="_blank">
+            <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Email.png" alt="Email">
         </a>
+        
+        <!-- LinkedIn link -->
         <a href="https://www.linkedin.com/in/bikasbasnet" target="_blank">
-            <img src="linkedin-icon.png" alt="LinkedIn">
+            <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Linkedin.jpg" alt="LinkedIn">
         </a>
+        
+        <!-- GitHub link -->
         <a href="https://github.com/bikasbasnet" target="_blank">
-            <img src="github-icon.png" alt="GitHub">
+            <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/291716_github_logo_social%20network_social_icon.png" alt="GitHub">
         </a>
     </div>
+</div>
+
 </div>
 </body>
 </html>
