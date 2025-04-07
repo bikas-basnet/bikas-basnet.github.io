@@ -65,58 +65,48 @@
           align-items: center;
           text-align: center; /* This helps align text and image in the center */
         }
+/* Banner styling */
 .banner {
     background-color: #0044cc;
     color: white;
     padding: 10px 0;
-    font-size: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    font-size: 14px;
 }
 
 .banner-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15px;
 }
 
 .banner img {
-    width: 30px;
-    height: 30px;
-    margin: 0 5px;
+    height: 40px; /* Adjust height to make them aligned properly */
+    margin-right: 15px;
 }
 
 .banner-text {
-    margin-left: 10px;
-    font-weight: bold;
-}
-/* For Banner style */
-        .banner {
-    background-color: #0044cc;
     color: white;
-    padding: 10px 0;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.banner-content {
-    display: flex;
-    align-items: center;
-}
-
-.banner img {
-    width: 30px;
-    height: 30px;
-    margin: 0 5px;
-}
-
-.banner-text {
-    margin-left: 10px;
     font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.banner-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #006400;
+    border-radius: 5px;
+}
+
+.banner-link:hover {
+    text-decoration: underline;
 }
 
     </style>
