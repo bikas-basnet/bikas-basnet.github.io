@@ -69,6 +69,9 @@
         p { color: #555; text-align: justify; }
         ul { list-style-type: disc; padding-left: 20px; }
         li { margin-bottom: 10px; }
+        .contact-icons {
+            text-align: center; /* Center the icons */
+        }
         .contact-icons a {
             display: inline-block;
             margin: 10px;
@@ -76,7 +79,7 @@
             color: #2c3e50;
             font-size: 16px;
         }
-        .contact-icons img {
+        .contact-icon { /* Updated class name to match HTML */
             width: 40px;
             height: 40px;
             margin-bottom: 5px;
@@ -123,8 +126,14 @@
             padding: 0 15px;
         }
         .banner img {
+            width: 40px;
             height: 40px;
             margin-right: 15px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 2px solid #ffffff;
+            box-sizing: border-box;
+            background-color: #0044cc;
+            padding: 3px;
         }
         .banner-text {
             color: white;
@@ -197,7 +206,6 @@
             <li><strong>Project 3: Integrated Pest Management (IPM) for Rice</strong> - A study on developing environmentally friendly pest management practices for rice cultivation, aiming to reduce chemical pesticide use.</li>
             <li><strong>Project 4: Bioinformatics for Crop Improvement</strong> - Leveraging bioinformatics tools and genomic data to improve crop breeding strategies and accelerate the development of high-yielding varieties.</li>
         </ul>
-
         <h2>Assignments</h2>
         <ul>
             <li><strong>Assignment 1: Agricultural Impact Analysis</strong> - Analyzing the environmental impacts of various agricultural practices through a comparative study.</li>
@@ -245,7 +253,25 @@
 </div>
 
 <div id="contact" class="content-section">
-    <!-- Your contact content -->
+    <div class="container">
+        <h1>Contact</h1>
+        <div class="contact-icons">
+            <!-- Email link -->
+            <a href="mailto:bikasbasnet2001@gmail.com" target="_blank">
+                <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Email.png" alt="Email">
+            </a>
+            
+            <!-- LinkedIn link -->
+            <a href="https://www.linkedin.com/in/bikasbasnet" target="_blank">
+                <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Linkedin.jpg" alt="LinkedIn">
+            </a>
+            
+            <!-- GitHub link -->
+            <a href="https://github.com/bikasbasnet" target="_blank">
+                <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/291716_github_logo_social%20network_social_icon.png" alt="GitHub">
+            </a>
+        </div>
+    </div>
 </div>
 
 <script>
