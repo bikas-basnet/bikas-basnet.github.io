@@ -1,6 +1,2 @@
-// Load banner.html dynamically into the page
-fetch('banner.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('banner-placeholder').innerHTML = data;
-    });
+// You can add interactive features here if needed
+console.log("Website loaded successfully.");
