@@ -65,11 +65,64 @@
           align-items: center;
           text-align: center; /* This helps align text and image in the center */
         }
+.banner {
+    background-color: #0044cc;
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+
+.banner-text {
+    margin-left: 10px;
+    font-weight: bold;
+}
+/* For Banner style */
+        .banner {
+    background-color: #0044cc;
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+
+.banner-text {
+    margin-left: 10px;
+    font-weight: bold;
+}
 
     </style>
 </head>
 <body>
-
+<div id="banner-placeholder"></div>
 <nav>
     <a href="#home">Home</a>
     <a href="#projects">Projects</a>
@@ -177,6 +230,13 @@
 </div>
 
 </div>
+  <script>
+  fetch('banner.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('banner-placeholder').innerHTML = data;
+    });
+</script>  
 </body>
 </html>
 
