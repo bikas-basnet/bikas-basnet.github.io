@@ -272,10 +272,16 @@
     z-index: 1;
 }
 
+.footer-link {
+    text-decoration: none; /* Remove underline by default */
+    display: inline-block; /* Ensure hover effects apply correctly */
+}
+
 .logo-img {
-    width: 40px; /* Adjust size as needed */
+    width: 40px;
     height: 40px;
     margin-bottom: 5px;
+    transition: transform 0.3s ease; /* Smooth hover scaling */
 }
 
 .website-name {
@@ -283,6 +289,16 @@
     font-size: 18px;
     font-weight: bold;
     display: block;
+    transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+/* Hover effects */
+.footer-link:hover .logo-img {
+    transform: scale(1.1); /* Slightly enlarge logo on hover */
+}
+
+.footer-link:hover .website-name {
+    color: #E0E0E0; /* Light gray on hover for subtle contrast */
 }
     </style>
 </head>
@@ -352,8 +368,10 @@
         <p>I am an enthusiastic graduate student in agriculture with avidity for not only crop mprovement (genomics, plant-microbe interactions, quantitative genetics, applied aspects of plant breeding, modern plant breeding tools, product design and development), but also computational genetics programming and Biopython [including deep learning as well as machine learning]. Through field- and lab-based studies and computational tools, I have meticulously honed my skills through rigorous academic and informal coursework and immersive hands-on internships. My ardent ambition is to bridge the gap between farmers' fields and research stations through innovation exchange and capacity building. As a guiding principle, I am deeply committed to addressing the pressing food and nutrition insecurity issue in developing countries. Moreover, I am eager to collaborate on impactful projects that make a positive difference by bridging the gap between research stations and farmers' fields through capacity building as well as innovation exchange.</p>
     </div>
     <div class="footer-logo">
-        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Website%20logo.png" alt="Website Logo" class="logo-img">
-        <span class="website-name">Bikas Basnet</span>
+        <a href="https://bikasbasnettest.github.io/" target="_blank" class="footer-link">
+            <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Website%20logo.png" alt="Website Logo" class="logo-img">
+            <span class="website-name">Bikas Basnet</span>
+        </a>
     </div>
 </div>
 
