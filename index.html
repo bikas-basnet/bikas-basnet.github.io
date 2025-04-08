@@ -160,48 +160,48 @@
             display: block;
         }
         .banner {
-            background-color: #0044cc;
-            color: white;
-            padding: 8px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-        }
-        .banner-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 0 12px;
-        }
-        .banner img {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            border: 2px solid #ffffff;
-            box-sizing: border-box;
-            background-color: #0044cc;
-            padding: 3px;
-        }
-        .banner-text {
-            color: white;
-            font-weight: bold;
-            flex-grow: 1;
-            text-align: center;
-        }
-        .banner-link {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            background-color: #006400;
-            border-radius: 5px;
-        }
-        .banner-link:hover {
-            text-decoration: underline;
-        }
+    background-color: #0044cc;
+    color: white;
+    padding: 2px 0; /* Reduced from 8px 0 to shrink vertical height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px; /* Kept for now, can reduce to 10px if needed */
+}
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 12px;
+}
+.banner img {
+    width: 20px; /* Reduced from 40px */
+    height: 20px; /* Reduced from 40px */
+    margin-right: 8px; /* Reduced from 15px for proportion */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    border: 1px solid #ffffff; /* Reduced from 2px */
+    box-sizing: border-box;
+    background-color: #0044cc;
+    padding: 1px; /* Reduced from 3px */
+}
+.banner-text {
+    color: white;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+.banner-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 2px 6px; /* Reduced from 5px 10px for smaller height */
+    background-color: #006400;
+    border-radius: 5px;
+}
+.banner-link:hover {
+    text-decoration: underline;
+}
        #hsd-results {
     margin-top: 10px;
     padding: 10px;
