@@ -156,29 +156,34 @@
         .content-section {
             display: none;
         }
-        #home {
-            display: block;
-            background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            position: relative;
-        }
-        #home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
-            z-index: 0;
-        }
-        #home > * {
-            position: relative;
-            z-index: 1; /* Content above overlay */
-        }
+       #home {
+    display: block;
+    position: relative;
+    min-height: 100vh;
+    background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+    filter: blur(2px); /* Adds 20% blur effect to the background */
+    z-index: 0;
+    background-image: inherit; /* Inherits the background image from #home */
+    background-size: inherit;
+    background-position: inherit;
+    background-repeat: inherit;
+}
+#home > * {
+    position: relative;
+    z-index: 1; /* Ensures content stays above the blurred overlay */
+}
         #home h2 {
             color: #FFFFFF; /* White for main heading */
         }
@@ -422,12 +427,12 @@
             </a>
             
             <!-- LinkedIn link -->
-            <a href="https://www.linkedin.com/in/bikasbasnet" target="_blank">
+            <a href="https://www.linkedin.com/in/bikas-basnet-372a47206/" target="_blank">
                 <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Linkedin.jpg" alt="LinkedIn">
             </a>
             
             <!-- GitHub link -->
-            <a href="https://github.com/bikasbasnet" target="_blank">
+            <a href="https://github.com/Bikasbasnettest">
                 <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/291716_github_logo_social%20network_social_icon.png" alt="GitHub">
             </a>
 
