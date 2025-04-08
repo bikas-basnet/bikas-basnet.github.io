@@ -202,9 +202,11 @@
         .banner-link:hover {
             text-decoration: underline;
         }
-        iframe {
+       #hsd-results {
     margin-top: 10px;
-    display: block;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
 }
     </style>
 </head>
@@ -289,7 +291,7 @@
             <li><strong>A1: Agricultural Impact Analysis</strong> - Analyzing the environmental impacts of various agricultural practices through a comparative study.</li>
             <li><strong>A2: Crop Modeling</strong> - Creating models to predict crop yield based on climatic data and soil conditions.</li>
             <li><strong>A3: Tukey HSD Analysis</strong> - Results of a Tukey HSD test for experimental design analysis:
-                    <iframe src="https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html" width="100%" height="300px" style="border: none;"></iframe>
+                    <div id="hsd-results"></div>
                 </li>
         </ul>
     </div>
@@ -378,6 +380,16 @@
         }
     }
     showSection('home');
+
+    fetch('https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('hsd-results').innerHTML = data;
+    })
+    .catch(error => {
+        console.error('Error fetching HSD data:', error);
+        document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html" target="_blank">View directly</a>';
+    });
 </script>
 
 </body>
