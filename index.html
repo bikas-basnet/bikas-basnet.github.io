@@ -310,19 +310,40 @@
 }
      /* Add image sequence styles */
         .image-sequence {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .image-sequence img {
-            max-width: 200px;
-            height: auto;
-            border: 2px solid #006400;
-            border-radius: 5px;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative; /* Allow absolute positioning of images */
+    height: 220px; /* Fixed height to contain images */
+}
 
+.image-sequence img {
+    max-width: 200px;
+    height: auto;
+    border: 2px solid #006400;
+    border-radius: 5px;
+    position: absolute; /* Stack images in the same spot */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade */
+}
+
+/* Class for active image */
+.image-sequence img.active {
+    opacity: 1; /* Visible when active */
+    animation: fadeInOut 4s ease-in-out infinite; /* Fade animation */
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; } /* Fully visible */
+    80% { opacity: 1; } /* Stay visible */
+    100% { opacity: 0; } /* Fade out */
+}
         .footer-logo {
     position: absolute;
     bottom: 20px;
@@ -575,6 +596,60 @@
         console.error('Error fetching HSD data:', error);
         document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html" target="_blank">View directly</a>';
     });
+
+
+    // Function to cycle through RRA images
+function cycleRRAImages() {
+    const images = document.querySelectorAll('#RRA .image-sequence img');
+    let currentIndex = 0;
+
+    function showNextImage() {
+        // Remove active class from all images
+        images.forEach(img => img.classList.remove('active'));
+
+        // Add active class to the current image
+        images[currentIndex].classList.add('active');
+
+        // Move to the next image, loop back to 0 if at the end
+        currentIndex = (currentIndex + 1) % images.length;
+
+        // Schedule the next image after 4 seconds (matches animation duration)
+        setTimeout(showNextImage, 4000);
+    }
+
+    // Start the cycle
+    showNextImage();
+}
+
+// Call the function when the RRA section is shown
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(function(section) {
+        section.style.display = 'none';
+    });
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+        // Start image cycling when RRA is shown
+        if (sectionId === 'RRA') {
+            cycleRRAImages();
+        }
+    }
+}
+
+// Initial call to show home section
+showSection('home');
+
+// Existing fetch code for HSD data
+fetch('https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html')
+.then(response => response.text())
+.then(data => {
+    document.getElementById('hsd-results').innerHTML = data;
+})
+.catch(error => {
+    console.error('Error fetching HSD data:', error);
+    document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html" target="_blank">View directly</a>';
+});
 </script>
 
 </body>
