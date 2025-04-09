@@ -278,12 +278,12 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
-    filter: blur(3px); /* 12px blur effect */
+    filter: blur(0px); /* 0px blur effect */
     z-index: 0; /* Behind content */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: slidePubBackgroundBlur 10s infinite; /* Sync with background */
+    animation: slidePubBackgroundBlur 5s infinite; /* Sync with background */
 }
 
 /* Ensure content stays above the background */
@@ -291,6 +291,24 @@
     position: relative;
     z-index: 1;
 }
+#publications h1 {
+            color: #FFFFFF;
+        }
+        #publications h2 {
+            color: #FFFFFF;
+            border-bottom: 2px solid #FFFFFF;
+        }
+        #publications ul li {
+            color: #FFFFFF;
+        }
+        #publications ul li a {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        #publications ul li a:hover {
+            color: #E0E0E0;
+            text-decoration: none;
+        }
 
 /* Keyframes for the background image cycle */
 @keyframes slidePubBackground {
