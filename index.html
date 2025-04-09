@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bikas Basnet | Personal Website</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+       body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
         nav {
             background-color: #006400;
             color: white;
@@ -63,25 +63,27 @@
             padding: 50px;
             max-width: 1000px;
             margin: auto;
+            position: relative;
+            height: 100%; /* Ensures container fills its parent */
         }
         h1 { color: #2c3e50; text-align: center; }
         h2 { 
-    color: #2c3e50; 
-    border-bottom: 2px solid #006400; 
-    padding-bottom: 5px; 
-    margin-bottom: 15px; 
-    text-align: center; /* Added to center the text */
-}
-       p { 
-    color: #555; 
-    text-align: justify; 
-    padding-left: 20px; /* One tab indent on left */
-    padding-right: 20px; /* One tab indent on right */
-}
+            color: #2c3e50; 
+            border-bottom: 2px solid #006400; 
+            padding-bottom: 5px; 
+            margin-bottom: 15px; 
+            text-align: center;
+        }
+        p { 
+            color: #555; 
+            text-align: justify; 
+            padding-left: 20px;
+            padding-right: 20px;
+        }
         ul { list-style-type: disc; padding-left: 20px; }
         li { margin-bottom: 10px; }
         .contact-icons {
-            text-align: center; /* Center the icons */
+            text-align: center;
         }
         .contact-icons a {
             display: inline-block;
@@ -90,7 +92,7 @@
             color: #2c3e50;
             font-size: 16px;
         }
-        .contact-icon { /* Updated class name to match HTML */
+        .contact-icon {
             width: 40px;
             height: 40px;
             margin-bottom: 5px;
@@ -98,158 +100,13 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* contact footer style */
-        .contact-footer {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Space between logo and text */
-}
-
-.address-text {
-    color: #2c3e50; /* Matches default text color */
-    font-size: 14px;
-    line-height: 1.5; /* Improves readability */
-}
-
-.address-text p {
-    margin: 5px 0; /* Spacing between address lines */
-}
-
-.address-text strong {
-    color: #006400; /* Matches nav bar color for emphasis */
-}
-
-/* Reuse existing footer styles */
-.footer-link {
-    text-decoration: none;
-    display: inline-block;
-}
-
-.logo-img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 5px;
-    transition: transform 0.3s ease;
-}
-
-.footer-link:hover .logo-img {
-    transform: scale(1.1);
-}
-  
-     #contact {
-    position: relative;
-    min-height: 100vh; /* Ensures section is tall enough */
-}
-
-.container {
-    padding: 50px;
-    max-width: 1000px;
-    margin: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%; /* Fills parent height */
-}
-
-.contact-layout {
-    display: flex;
-    justify-content: space-between; /* Pushes map to right */
-    align-items: flex-end; /* Aligns map to bottom */
-    flex-wrap: wrap; /* Allows stacking on smaller screens */
-    margin-top: auto; /* Pushes this to bottom of container */
-    width: 100%;
-}
-
-.container {
-    padding: 50px;
-    max-width: 1000px;
-    margin: auto;
-    position: relative;
-}
-
-.contact-footer {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    max-width: 70%;
-}
-
-.address-text {
-    color: #2c3e50;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.address-text p {
-    margin: 5px 0;
-}
-
-.address-text strong {
-    color: #006400;
-}
-
-.footer-link {
-    text-decoration: none;
-    display: inline-block;
-}
-
-.logo-img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 5px;
-    transition: transform 0.3s ease;
-}
-
-.footer-link:hover .logo-img {
-    transform: scale(1.1);
-}
-
-/* Ensure no overlap on smaller screens */
-@media (max-width: 768px) {
-    .contact-layout {
-        flex-direction: column;
-        align-items: center;
-    }
-    .map-container {
-        margin-left: 0;
-        margin-top: 20px; /* Space above map on mobile */
-    }
-}
-/* Adjust contact-footer to avoid overlap with map */
-.contact-footer {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    max-width: 70%; /* Prevents overlap with map on smaller screens */
-}
-.profile-img {
+        .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #2c3e50;
-            margin: 0 20px; /* Space on both sides */
+            margin: 0 20px;
         }
         .profile-container {
             display: flex;
@@ -257,23 +114,23 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            gap: 20px; /* Space between elements */
-            flex-wrap: wrap; /* Responsive wrapping */
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .profile-side-left {
             flex: 1;
-            min-width: 200px; /* Minimum width for responsiveness */
+            min-width: 200px;
             text-align: left;
             padding: 20px;
         }
         .profile-side-right {
             flex: 1;
-            min-width: 200px; /* Minimum width for responsiveness */
+            min-width: 200px;
             display: flex;
-            flex-direction: row; /* Horizontal layout */
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            gap: 20px; /* Space between Google Scholar and ORCID */
+            gap: 20px;
             padding: 20px;
         }
         .profile-link {
@@ -286,13 +143,13 @@
             font-weight: bold;
         }
         .profile-link img {
-            width: 40px; /* Standard width */
-            height: 40px; /* Standard height */
-            object-fit: contain; /* Maintain aspect ratio without stretching */
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
             margin-bottom: 5px;
-            background-color: #fff; /* Optional: white background for consistency */
-            padding: 2px; /* Optional: slight padding for cleaner look */
-            border-radius: 5px; /* Optional: rounded corners */
+            background-color: #fff;
+            padding: 2px;
+            border-radius: 5px;
         }
         .profile-link:hover {
             color: #006400;
@@ -301,7 +158,7 @@
         .content-section {
             display: none;
         }
-       #home {
+        #home {
             display: block;
             position: relative;
             min-height: 100vh;
@@ -310,7 +167,7 @@
             background-repeat: no-repeat;
             animation: slideBackground 12s infinite;
         }
-        #Inheritancehome::before {
+        #home::before {
             content: '';
             position: absolute;
             top: 0;
@@ -330,7 +187,7 @@
             z-index: 1;
         }
         #home h2 {
-            color: #ffffff;
+            color: #FFFFFF;
             font-size: 2em;
             white-space: nowrap;
             overflow: hidden;
@@ -338,8 +195,8 @@
             animation: 
                 typing 4s steps(30, end) infinite,
                 blink-caret 0.75s step-end infinite;
-            text-align: center; /* Center the text */
-            margin: 20px auto; /* Center horizontally with margin */
+            text-align: center;
+            margin: 20px auto;
         }
         @keyframes typing {
             0% { width: 0; }
@@ -348,7 +205,7 @@
         }
         @keyframes blink-caret {
             from, to { border-color: transparent; }
-            50% { border-color: #FFD700; }
+            50% { border-color: #FFFFFF; }
         }
         #home h3 {
             color: #FFFFFF;
@@ -356,13 +213,16 @@
         #home p {
             color: #FFFFFF;
         }
-       #home .intro-text {
-            background-color: #64ff33;
+        #home .intro-text {
+            background-color: #006400;
             color: #000000;
             padding: 20px;
             max-width: 800px;
             margin: 20px auto;
             text-align: justify;
+            box-shadow: 0 0 30px 20px rgba(0, 100, 0, 0.5);
+            position: relative;
+            z-index: 1;
         }
         #home ul li {
             color: #FFFFFF;
@@ -404,7 +264,7 @@
                 background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
             }
         }
-#projects {
+        #projects {
             position: relative;
             min-height: 100vh;
             background-size: cover;
@@ -464,81 +324,73 @@
             }
         }
         #publications {
-    position: relative; /* For pseudo-element positioning */
-    min-height: 100vh; /* Ensure full visibility */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: slidePubBackground 10s infinite; /* 10-second cycle */
-}
-
-/* Overlay with blur effect */
-#publications::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
-    filter: blur(2px); /* 0px blur effect */
-    z-index: 0; /* Behind content */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: slidePubBackgroundBlur 5s infinite; /* Sync with background */
-}
-
-/* Ensure content stays above the background */
-#publications > * {
-    position: relative;
-    z-index: 1;
-}
-#publications h1 {
-            color: #654321;
+            position: relative;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slidePubBackground 10s infinite;
+        }
+        #publications::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            filter: blur(12px);
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slidePubBackgroundBlur 10s infinite;
+        }
+        #publications > * {
+            position: relative;
+            z-index: 1;
+        }
+        #publications h1 {
+            color: #FFFFFF;
         }
         #publications h2 {
-            color: #000000;
+            color: #FFFFFF;
             border-bottom: 2px solid #FFFFFF;
         }
         #publications ul li {
-            color: #000000;
+            color: #FFFFFF;
         }
         #publications ul li a {
-            color: #000000;
+            color: #FFFFFF;
             text-decoration: underline;
         }
         #publications ul li a:hover {
             color: #E0E0E0;
             text-decoration: none;
         }
-
-/* Keyframes for the background image cycle */
-@keyframes slidePubBackground {
-    0% {
-        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-    }
-    50% {
-        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
-    }
-    100% {
-        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-    }
-}
-
-/* Keyframes for the blurred overlay */
-@keyframes slidePubBackgroundBlur {
-    0% {
-        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-    }
-    50% {
-        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
-    }
-    100% {
-        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-    }
-}
- .banner {
+        @keyframes slidePubBackground {
+            0% {
+                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+            }
+            50% {
+                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
+            }
+            100% {
+                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+            }
+        }
+        @keyframes slidePubBackgroundBlur {
+            0% {
+                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+            }
+            50% {
+                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
+            }
+            100% {
+                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+            }
+        }
+        .banner {
             background-color: #0044cc;
             color: white;
             padding: 2px 0;
@@ -547,119 +399,138 @@
             align-items: center;
             font-size: 12px;
         }
-.banner-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 12px;
-}
-.banner img {
-    width: 20px; /* Reduced from 40px */
-    height: 20px; /* Reduced from 40px */
-    margin-right: 8px; /* Reduced from 15px for proportion */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 1px solid #ffffff; /* Reduced from 2px */
-    box-sizing: border-box;
-    background-color: #0044cc;
-    padding: 1px; /* Reduced from 3px */
-}
-.banner-text {
-    color: white;
-    font-weight: bold;
-    flex-grow: 1;
-    text-align: center;
-}
-.banner-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 2px 6px; /* Reduced from 5px 10px for smaller height */
-    background-color: #006400;
-    border-radius: 5px;
-}
-.banner-link:hover {
-    text-decoration: underline;
-}
-       #hsd-results {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-     /* Add image sequence styles */
+        .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 12px;
+        }
+        .banner img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 1px solid #ffffff;
+            box-sizing: border-box;
+            background-color: #0044cc;
+            padding: 1px;
+        }
+        .banner-text {
+            color: white;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .banner-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 2px 6px;
+            background-color: #006400;
+            border-radius: 5px;
+        }
+        .banner-link:hover {
+            text-decoration: underline;
+        }
+        #hsd-results {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
         .image-sequence {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-    position: relative;
-    height: 500px; /* Increased from 220px to fit larger images */
-}
-
-.image-sequence img {
-    max-width: 400px; /* Increased from 200px for a larger frame */
-    max-height: 450px; /* Optional: limits height to maintain aspect ratio */
-    height: auto;
-    border: 2px solid #006400;
-    border-radius: 5px;
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.image-sequence img.active {
-    opacity: 1;
-    animation: fadeInOut 4s ease-in-out infinite;
-}
-
-@keyframes fadeInOut {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
-}
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+            height: 500px;
+        }
+        .image-sequence img {
+            max-width: 400px;
+            max-height: 450px;
+            height: auto;
+            border: 2px solid #006400;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .image-sequence img.active {
+            opacity: 1;
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
         .footer-logo {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 1;
-}
-
-.footer-link {
-    text-decoration: none; /* Remove underline by default */
-    display: inline-block; /* Ensure hover effects apply correctly */
-}
-
-.logo-img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 5px;
-    transition: transform 0.3s ease; /* Smooth hover scaling */
-}
-
-.website-name {
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: bold;
-    display: block;
-    transition: color 0.3s ease; /* Smooth color change on hover */
-}
-
-/* Hover effects */
-.footer-link:hover .logo-img {
-    transform: scale(1.1); /* Slightly enlarge logo on hover */
-}
-
-.footer-link:hover .website-name {
-    color: #E0E0E0; /* Light gray on hover for subtle contrast */
-}
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 1;
+        }
+        .contact-footer {
+            position: absolute;
+            bottom: 0; /* Adjusted to sit flush with bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            max-width: 70%;
+            padding-bottom: 10px; /* Optional buffer */
+        }
+        .address-text {
+            color: #2c3e50;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .address-text p {
+            margin: 5px 0;
+        }
+        .address-text strong {
+            color: #006400;
+        }
+        .footer-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+            transition: transform 0.3s ease;
+        }
+        .website-name {
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover .logo-img {
+            transform: scale(1.1);
+        }
+        .footer-link:hover .website-name {
+            color: #E0E0E0;
+        }
+        #contact {
+            position: relative;
+            min-height: 100vh; /* Ensures full viewport height */
+        }
     </style>
 </head>
 <body>
