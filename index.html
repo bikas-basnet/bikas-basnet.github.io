@@ -143,13 +143,40 @@
     transform: scale(1.1);
 }
   
-        .map-container {
-    position: absolute;
-    bottom: 0px; /* No padding from bottom */
-    right: 0px;  /* No padding from right */
+     #contact {
+    position: relative;
+    min-height: 100vh; /* Ensures section is tall enough */
+}
+
+.container {
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; /* Fills parent height */
+}
+
+.contact-layout {
+    display: flex;
+    justify-content: space-between; /* Pushes map to right */
+    align-items: flex-end; /* Aligns map to bottom */
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    margin-top: auto; /* Pushes this to bottom of container */
+    width: 100%;
+}
+
+.contact-footer {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px; /* Space above map */
+}
+
+.map-container {
     width: 300px;
     height: 200px;
-    z-index: 2;
+    margin-left: 20px; /* Space between footer and map */
 }
 
 .map-container iframe {
@@ -159,14 +186,17 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Ensure .container has no padding/margin affecting the map */
-.container {
-    padding: 50px 0; /* Remove right/left padding for this test */
-    max-width: 1000px;
-    margin: auto;
-    position: relative;
+/* Ensure no overlap on smaller screens */
+@media (max-width: 768px) {
+    .contact-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+    .map-container {
+        margin-left: 0;
+        margin-top: 20px; /* Space above map on mobile */
+    }
 }
-
 /* Adjust contact-footer to avoid overlap with map */
 .contact-footer {
     position: absolute;
