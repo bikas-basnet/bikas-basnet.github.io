@@ -405,6 +405,18 @@
     margin: auto;
 }
 
+#data {
+    display: none; /* Hidden by default, shown via JS */
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
 #data h2 {
     color: #FFFFFF;
     border-bottom: 2px solid #006400;
@@ -426,13 +438,30 @@
 }
 
 #data ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style: none; /* Remove default bullets */
+    padding-left: 40px; /* Space for the circular image */
 }
 
 #data li {
     margin-bottom: 10px;
     color: #FFFFFF;
+    position: relative;
+    padding-left: 30px; /* Space for the circular image */
+}
+
+#data li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Size of the circular image */
+    height: 20px;
+    background-image: url('https://bikasbasnettest.github.io/Khaptadi%20image.jpg'); /* Correct GitHub Pages URL */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; /* Makes it circular */
+    border: 2px solid #76ff33; /* Optional border for visibility */
 }
 
 #data .pdf-link {
@@ -457,7 +486,7 @@
     background: rgba(0, 0, 0, 0.3); /* Matches your other sections */
     filter: blur(12px);
     z-index: 0;
-    background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); /* Example background */
+    background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); /* Section background */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -733,9 +762,9 @@
         <h2>Data</h2>
         <p>Date of birth: 27 Dec 2001 AD</p>
         <hr>
+        <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
         <ul>
             <li>
-                <h2>खप्तडी बस्नेत वंशावली</h2>
                 <a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">
                     Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)
                 </a>
