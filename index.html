@@ -449,34 +449,34 @@
     gap: 10px;
     justify-content: center;
     margin-top: 20px;
-    position: relative; /* Allow absolute positioning of images */
-    height: 220px; /* Fixed height to contain images */
+    position: relative;
+    height: 500px; /* Increased from 220px to fit larger images */
 }
 
 .image-sequence img {
-    max-width: 200px;
+    max-width: 400px; /* Increased from 200px for a larger frame */
+    max-height: 450px; /* Optional: limits height to maintain aspect ratio */
     height: auto;
     border: 2px solid #006400;
     border-radius: 5px;
-    position: absolute; /* Stack images in the same spot */
-    top: 0;
+    position: absolute;
+    top: 50%; /* Center vertically */
     left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.5s ease-in-out; /* Smooth fade */
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* Class for active image */
 .image-sequence img.active {
-    opacity: 1; /* Visible when active */
-    animation: fadeInOut 4s ease-in-out infinite; /* Fade animation */
+    opacity: 1;
+    animation: fadeInOut 4s ease-in-out infinite;
 }
 
 @keyframes fadeInOut {
     0% { opacity: 0; }
-    20% { opacity: 1; } /* Fully visible */
-    80% { opacity: 1; } /* Stay visible */
-    100% { opacity: 0; } /* Fade out */
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
 }
         .footer-logo {
     position: absolute;
