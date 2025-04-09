@@ -259,6 +259,64 @@
                 background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
             }
         }
+
+        #publications {
+    position: relative; /* For pseudo-element positioning */
+    min-height: 100vh; /* Ensure full visibility */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: slidePubBackground 10s infinite; /* 10-second cycle */
+}
+
+/* Overlay with blur effect */
+#publications::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+    filter: blur(12px); /* 12px blur effect */
+    z-index: 0; /* Behind content */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: slidePubBackgroundBlur 10s infinite; /* Sync with background */
+}
+
+/* Ensure content stays above the background */
+#publications > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Keyframes for the background image cycle */
+@keyframes slidePubBackground {
+    0% {
+        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+    }
+    50% {
+        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
+    }
+    100% {
+        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+    }
+}
+
+/* Keyframes for the blurred overlay */
+@keyframes slidePubBackgroundBlur {
+    0% {
+        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+    }
+    50% {
+        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
+    }
+    100% {
+        background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
+    }
+}
  .banner {
             background-color: #0044cc;
             color: white;
