@@ -388,6 +388,82 @@
                 background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
             }
         }
+        /* Existing .content-section styling (already in your CSS) */
+.content-section {
+    display: none; /* Keep this as is for your navigation logic */
+}
+
+/* New styling for pedigree section */
+#pedigree {
+    display: none; /* Hidden by default, shown via JS or nav */
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+#pedigree h2 {
+    color: #FFFFFF;
+    border-bottom: 2px solid #006400;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#pedigree p {
+    color: #FFFFFF;
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#pedigree ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#pedigree li {
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.pdf-link {
+    text-decoration: none;
+    color: #76ff33; /* Bright green to match your intro-text */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.pdf-link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* Optional background for pedigree section */
+#pedigree::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Matches your other sections */
+    filter: blur(12px);
+    z-index: 0;
+    background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); /* Example background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#pedigree > * {
+    position: relative;
+    z-index: 1;
+}
         .banner {
             background-color: #0044cc;
             color: white;
@@ -649,8 +725,23 @@
     </div>
 </div>
 
-<div id="data" class="content-section">
+<div id="pedigree" class="content-section">
+    <h2>Pedigree of Khabtari Basnet</h2>
     <p>Date of birth: 27 Dec 2001 AD</p>
+    <ul>
+        <li>
+            <a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">
+                Pedigree of Khabtari Basnet (Up to 15 Bansalat)
+            </a>
+        </li>
+        <li>
+            <a href="https://bikasbasnettest.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">
+                Pedigree of Khabtari Basnet ( Lafrom 15 Bansalat)
+            </a>
+        </li>
+    </ul>
+</div>
+    </ul>
 </div>
 
 <div id="RRA" class="content-section">
