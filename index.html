@@ -167,23 +167,55 @@
     width: 100%;
 }
 
+.container {
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+}
+
 .contact-footer {
-    flex: 1;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    margin-bottom: 20px; /* Space above map */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 70%;
 }
 
-.map-container {
-    width: 300px;
-    height: 200px;
-    margin-left: 20px; /* Space between footer and map */
+.address-text {
+    color: #2c3e50;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-.map-container iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.address-text p {
+    margin: 5px 0;
+}
+
+.address-text strong {
+    color: #006400;
+}
+
+.footer-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+.footer-link:hover .logo-img {
+    transform: scale(1.1);
 }
 
 /* Ensure no overlap on smaller screens */
@@ -829,10 +861,7 @@
                 <p><strong>Permanent Address Line 1:</strong> Sunderharaincha Municipality-9, Jharnapool, Biratchowk, Morang, Nepal</p>
                 <p><strong>Permanent Address Line 2:</strong> Dharma Devi Municipality-4, Mamling, Sankhuwasabha, Nepal</p>
             </div>
-        <!-- Google Maps Embed -->
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.978564230155!2d84.42937437507527!3d27.685959876195058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994e5f7b2f8e5b3%3A0x6e8c8e8c8e8c8e8c!2sBharatpur%2C%20Nepal!5e0!3m2!1sen!2sus!4v1698765432100" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+
     </div>
 </div>
 
