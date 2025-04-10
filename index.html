@@ -20,9 +20,7 @@
             font-weight: bold;
             display: inline-block;
         }
-        nav a:hover {
-            text-decoration: underline;
-        }
+        nav a:hover { text-decoration: underline; }
         .dropdown {
             position: relative;
             display: inline-block;
@@ -53,12 +51,8 @@
             background-color: #004d00;
             text-decoration: none;
         }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown:hover .dropbtn {
-            text-decoration: underline;
-        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover .dropbtn { text-decoration: underline; }
         .container {
             padding: 50px;
             max-width: 1000px;
@@ -80,24 +74,157 @@
         }
         ul { list-style-type: disc; padding-left: 20px; }
         li { margin-bottom: 10px; }
-        .contact-icons {
+        .content-section { display: none; }
+        #home {
+            display: block;
+            position: relative;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slideBackground 12s infinite;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            filter: blur(2px);
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slideBackgroundBlur 12s infinite;
+        }
+        #home > * { position: relative; z-index: 1; }
+        #home h2 {
+            color: #FFFFFF;
+            font-size: 2em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #FFFFFF;
+            animation: typing 4s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+            text-align: center;
+            margin: 20px auto;
+        }
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #FFD700; }
+        }
+        #home h3 { color: #FFFFFF; }
+        #home .intro-text {
+            background-color: #76ff33;
+            color: #000000;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: justify;
+            box-shadow: 0 0 30px 20px rgba(0, 100, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        #home ul li { color: #FFFFFF; }
+        #home .profile-link { color: #FFFFFF; }
+        @keyframes slideBackground {
+            0% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); }
+            25% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata.jpg'); }
+            50% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata%202.jpg'); }
+            75% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/DNA.jpg'); }
+            100% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); }
+        }
+        @keyframes slideBackgroundBlur {
+            0% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); }
+            25% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata.jpg'); }
+            50% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata%202.jpg'); }
+            75% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/DNA.jpg'); }
+            100% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); }
+        }
+        .notices-trigger {
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000 !important; /* Enforce black color */
+            text-align: center;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 200px;
+            transition: background 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        .notices-trigger:hover { background: rgba(255, 255, 255, 1); }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .modal-content {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 10% auto;
+            padding: 20px;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(118, 255, 51, 0.5);
+            z-index: 1001;
+        }
+        .modal-content h2 {
+            color: #000000 !important; /* Enforce black color */
+            border-bottom: 2px solid #006400;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #76ff33;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .close-modal:hover { color: #006400; }
+        .modal-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .notice-item {
+            flex: 1 1 300px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 5px;
             text-align: center;
         }
-        .contact-icons a {
+        .notice-item h3 { color: #000000; font-size: 18px; margin-bottom: 10px; }
+        .notice-item p { color: #000000; font-size: 14px; margin-bottom: 10px; padding: 0; }
+        .notice-item a {
             display: inline-block;
-            margin: 10px;
             text-decoration: none;
-            color: #2c3e50;
-            font-size: 16px;
+            color: #76ff33;
+            font-weight: bold;
+            padding: 5px 10px;
+            background: rgba(0, 100, 0, 0.7);
+            border-radius: 5px;
+            transition: color 0.3s ease, background 0.3s ease;
         }
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .notice-item a:hover { color: #FFFFFF; background: rgba(0, 100, 0, 1); }
         .profile-img {
             width: 150px;
             height: 150px;
@@ -149,428 +276,22 @@
             padding: 2px;
             border-radius: 5px;
         }
-        .profile-link:hover {
-            color: #006400;
-            text-decoration: underline;
+        .profile-link:hover { color: #006400; text-decoration: underline; }
+        #projects { position: relative; min-height: 100vh; }
+        #publications { position: relative; min-height: 100vh; }
+        #data { position: relative; min-height: 100vh; }
+        #RRA { position: relative; min-height: 100vh; }
+        #cv { position: relative; min-height: 100vh; }
+        #contact { position: relative; min-height: 100vh; }
+        .banner {
+            background-color: #0044cc;
+            color: white;
+            padding: 2px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
         }
-        .content-section {
-            display: none;
-        }
-        #home {
-            display: block;
-            position: relative;
-            min-height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slideBackground 12s infinite;
-        }
-        #home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            filter: blur(2px);
-            z-index: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slideBackgroundBlur 12s infinite;
-        }
-        #home > * {
-            position: relative;
-            z-index: 1;
-        }
-        #home h2 {
-            color: #FFFFFF;
-            font-size: 2em;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #FFFFFF;
-            animation: 
-                typing 4s steps(30, end) infinite,
-                blink-caret 0.75s step-end infinite;
-            text-align: center;
-            margin: 20px auto;
-        }
-        @keyframes typing {
-            0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #FFD700; }
-        }
-        #home h3 {
-            color: #FFFFFF;
-        }
-        #home p {
-            color: #FFFFFF;
-        }
-        #home .intro-text {
-            background-color: #76ff33;
-            color: #000000;
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            text-align: justify;
-            box-shadow: 0 0 30px 20px rgba(0, 100, 0, 0.5);
-            position: relative;
-            z-index: 1;
-        }
-        #home ul li {
-            color: #FFFFFF;
-        }
-        #home .profile-link {
-            color: #FFFFFF;
-        }
-        @keyframes slideBackground {
-            0% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
-            }
-            25% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata.jpg');
-            }
-            50% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata%202.jpg');
-            }
-            75% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/DNA.jpg');
-            }
-            100% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
-            }
-        }
-        @keyframes slideBackgroundBlur {
-            0% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
-            }
-            25% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata.jpg');
-            }
-            50% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Stomata%202.jpg');
-            }
-            75% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/DNA.jpg');
-            }
-            100% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
-            }
-        }
-/* Existing styles unchanged, only modifying notices-related CSS */
-    .notices-trigger {
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: bold;
-        color: #000000 !important; /* Enforce black color with higher specificity */
-        text-align: center;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 5px;
-        margin: 20px auto;
-        max-width: 200px;
-        transition: background 0.3s ease;
-        position: relative;
-        z-index: 2;
-    }
-    .notices-trigger:hover { background: rgba(255, 255, 255, 1); }
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-    }
-    .modal-content {
-        position: relative;
-        background: rgba(255, 255, 255, 0.9);
-        margin: 10% auto;
-        padding: 20px;
-        max-width: 700px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(118, 255, 51, 0.5);
-        z-index: 1001;
-    }
-    .modal-content h2 {
-        color: #000000 !important; /* Enforce black color with higher specificity */
-        border-bottom: 2px solid #006400;
-        padding-bottom: 10px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .close-modal {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        color: #76ff33;
-        font-size: 28px;
-        cursor: pointer;
-    }
-    .close-modal:hover { color: #006400; }
-    .modal-flex {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
-    .notice-item {
-        flex: 1 1 300px;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 15px;
-        border-radius: 5px;
-        text-align: center;
-    }
-    .notice-item h3 { color: #000000; font-size: 18px; margin-bottom: 10px; }
-    .notice-item p { color: #000000; font-size: 14px; margin-bottom: 10px; padding: 0; }
-    .notice-item a {
-        display: inline-block;
-        text-decoration: none;
-        color: #76ff33;
-        font-weight: bold;
-        padding: 5px 10px;
-        background: rgba(0, 100, 0, 0.7);
-        border-radius: 5px;
-        transition: color 0.3s ease, background 0.3s ease;
-    }
-    .notice-item a:hover { color: #FFFFFF; background: rgba(0, 100, 0, 1); }
-        
-        #projects {
-            position: relative;
-            min-height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slideProjBackground 10s infinite;
-        }
-        #projects::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            filter: blur(12px);
-            z-index: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slideProjBackgroundBlur 10s infinite;
-        }
-        #projects > * {
-            position: relative;
-            z-index: 1;
-        }
-        #projects h1 {
-            color: #FFFFFF;
-        }
-        #projects h2 {
-            color: #FFFFFF;
-            border-bottom: 2px solid #FFFFFF;
-        }
-        #projects ul li {
-            color: #FFFFFF;
-        }
-        @keyframes slideProjBackground {
-            0% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg');
-            }
-            50% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Seed%20bank.jpg');
-            }
-            100% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg');
-            }
-        }
-        @keyframes slideProjBackgroundBlur {
-            0% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg');
-            }
-            50% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Seed%20bank.jpg');
-            }
-            100% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg');
-            }
-        }
-        #publications {
-            position: relative;
-            min-height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slidePubBackground 10s infinite;
-        }
-        #publications::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            filter: blur(12px);
-            z-index: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slidePubBackgroundBlur 10s infinite;
-        }
-        #publications > * {
-            position: relative;
-            z-index: 1;
-        }
-        #publications h1 {
-            color: #654321;
-        }
-        #publications h2 {
-            color: #000000;
-            border-bottom: 2px solid #FFFFFF;
-        }
-        #publications ul li {
-            color: #000000;
-        }
-        #publications ul li a {
-            color: #000000;
-            text-decoration: underline;
-        }
-        #publications ul li a:hover {
-            color: #E0E0E0;
-            text-decoration: none;
-        }
-        @keyframes slidePubBackground {
-            0% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-            }
-            50% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
-            }
-            100% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-            }
-        }
-        @keyframes slidePubBackgroundBlur {
-            0% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-            }
-            50% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg');
-            }
-            100% {
-                background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg');
-            }
-        }
-        /* Existing .content-section styling (already in your CSS) */
-.content-section {
-    display: none; /* Keep this as is for your navigation logic */
-}
-
-#data {
-    display: none; /* Hidden by default, shown via JS */
-    position: relative;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 50px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-#data::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Matches your other sections */
-    filter: blur(15px);
-    z-index: 0;
-    background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); /* Section background */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#data > * {
-    position: relative;
-    z-index: 1;
-}
-
-#data h2 {
-    color: #FFFFFF;
-    border-bottom: 2px solid #006400;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-#data p {
-    color: #FFFFFF;
-    text-align: center;
-    padding: 0 20px;
-    margin-bottom: 20px;
-}
-
-#data hr {
-    border: 1px solid #76ff33; /* Bright green to match your theme */
-    margin: 20px 0;
-}
-
-#data ul {
-    list-style: none; /* Remove default bullets */
-    padding-left: 40px; /* Space for the circular image */
-}
-
-#data li {
-    margin-bottom: 10px;
-    color: #FFFFFF;
-    position: relative;
-    padding-left: 30px; /* Space for the circular image */
-}
-
-#data li:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px; /* Size of the circular image */
-    height: 20px;
-    background-image: url('https://bikasbasnettest.github.io/Khaptadi%20image.jpg'); /* Correct GitHub Pages URL */
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%; /* Makes it circular */
-    border: 2px solid #76ff33; /* Optional border for visibility */
-}
-
-#data .pdf-link,
-#data .ppt-link {
-    text-decoration: none;
-    color: #76ff33; /* Bright green to match your intro-text */
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-#data .pdf-link:hover,
-#data .ppt-link:hover {
-    color: #FFFFFF;
-    text-decoration: underline;
-}
-
-/* Optional: Differentiate PPT link visually */
-#data .ppt-link {
-    font-style: italic; /* Makes PPT link stand out from PDFs */
-}
         .banner-content {
             display: flex;
             align-items: center;
@@ -578,41 +299,7 @@
             width: 100%;
             padding: 0 12px;
         }
-
-#data .certs-awards {
-    cursor: pointer;
-}
-
-#data .submenu {
-    display: none;
-    position: absolute;
-    left: 70px;
-    top: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 2;
-    min-width: 250px;
-}
-
-#data .certs-awards:hover .submenu {
-    display: block;
-}
-
-#data .submenu li {
-    margin: 5px 0;
-    padding-left: 30px;
-    color: #FFFFFF;
-}
-
-#data .submenu li:before {
-    width: 15px;
-    height: 15px;
-    border: 2px solid #76ff33;
-    background-image: url('https://bikasbasnettest.github.io/Khaptadi%20image.jpg');
-}
-        
-.banner img {
+        .banner img {
             width: 25px;
             height: 25px;
             margin-right: 8px;
@@ -628,16 +315,6 @@
             flex-grow: 1;
             text-align: center;
         }
-        .banner {
-    background-color: #0044cc; /* Dark blue (your original color) */
-    /* Alternative: #0000FF for pure blue, or #1E90FF for a lighter blue */
-    color: white;
-    padding: 2px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-}
         .banner-link {
             color: white;
             text-decoration: none;
@@ -646,9 +323,7 @@
             background-color: #006400;
             border-radius: 5px;
         }
-        .banner-link:hover {
-            text-decoration: underline;
-        }
+        .banner-link:hover { text-decoration: underline; }
         #hsd-results {
             margin-top: 10px;
             padding: 10px;
@@ -677,16 +352,7 @@
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
-        .image-sequence img.active {
-            opacity: 1;
-            animation: fadeInOut 5s ease-in-out infinite;
-        }
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; }
-        }
+        .image-sequence img.active { opacity: 1; }
         .footer-logo {
             position: absolute;
             bottom: 20px;
@@ -712,16 +378,9 @@
             font-size: 14px;
             line-height: 1.5;
         }
-        .address-text p {
-            margin: 5px 0;
-        }
-        .address-text strong {
-            color: #006400;
-        }
-        .footer-link {
-            text-decoration: none;
-            display: inline-block;
-        }
+        .address-text p { margin: 5px 0; }
+        .address-text strong { color: #006400; }
+        .footer-link { text-decoration: none; display: inline-block; }
         .logo-img {
             width: 40px;
             height: 40px;
@@ -735,279 +394,266 @@
             display: block;
             transition: color 0.3s ease;
         }
-        .footer-link:hover .logo-img {
-            transform: scale(1.1);
+        .footer-link:hover .logo-img { transform: scale(1.1); }
+        .footer-link:hover .website-name { color: #E0E0E0; }
+        .contact-icons { text-align: center; }
+        .contact-icons a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
         }
-        .footer-link:hover .website-name {
-            color: #E0E0E0;
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#projects" onclick="showSection('projects')">Projects</a>
+        <div class="dropdown">
+            <a href="#publications" onclick="showSection('publications')" class="dropbtn">Publications</a>
+            <div class="dropdown-content">
+                <a href="https://doi.org/10.1186/s13007-025-01327-2" target="_blank">2025: Enhanced Bayesian model...</a>
+                <a href="https://doi.org/10.1016/j.heliyon.2024.e39226" target="_blank">2024: Genotypic variations...</a>
+                <a href="https://doi.org/10.1016/j.egg.2024.100249" target="_blank">2024: Unraveling genotype-by-environment...</a>
+                <a href="https://doi.org/10.1016/j.chnaes.2023.05.007" target="_blank">2024: Innovative farming techniques...</a>
+                <a href="https://doi.org/10.1016/j.jafr.2022.100463" target="_blank">2023: The influence of mulching...</a>
+                <a href="https://doi.org/10.5455/faa.136385" target="_blank">2023: An Extensive Review...</a>
+                <a href="https://doi.org/10.1155/2022/7419326" target="_blank">2022: A review on rust resistance...</a>
+                <a href="https://doi.org/10.1016/j.heliyon.2022.e12593" target="_blank">2022: Quantitative trait loci...</a>
+                <a href="http://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">2022: Perspective of olive farming...</a>
+                <a href="http://doi.org/10.26480/faer.02.2022.55.59" target="_blank">2022: Economics of Onion Seed...</a>
+                <a href="http://doi.org/10.26480/itechmag.03.2021.09.18" target="_blank">2021: Insect Pests Infestation...</a>
+            </div>
+        </div>
+        <a href="#data" onclick="showSection('data')">Data</a>
+        <a href="#RRA" onclick="showSection('RRA')">RRA</a>
+        <a href="#cv" onclick="showSection('cv')">CV</a>
+        <a href="#contact" onclick="showSection('contact')">Contact</a>
+        <a href="#Student Blog" onclick="showSection('Student Blog')">Students Blog</a>
+    </nav>
 
-<nav>
-    <a href="#home" onclick="showSection('home')">Home</a>
-    <a href="#projects" onclick="showSection('projects')">Projects</a>
-    <div class="dropdown">
-        <a href="#publications" onclick="showSection('publications')" class="dropbtn">Publications</a>
-        <div class="dropdown-content">
-            <a href="https://doi.org/10.1186/s13007-025-01327-2" target="_blank">2025: Enhanced Bayesian model for multienvironmental selection...</a>
-            <a href="https://doi.org/10.1016/j.heliyon.2024.e39226" target="_blank">2024: Genotypic variations in postfertility traits...</a>
-            <a href="https://doi.org/10.1016/j.egg.2024.100249" target="_blank">2024: Unraveling genotype-by-environment interaction...</a>
-            <a href="https://doi.org/10.1016/j.chnaes.2023.05.007" target="_blank">2024: Innovative farming techniques for superior okra...</a>
-            <a href="https://doi.org/10.1016/j.jafr.2022.100463" target="_blank">2023: The influence of different mulching materials...</a>
-            <a href="https://doi.org/10.5455/faa.136385" target="_blank">2023: An Extensive Review of Strawberry Diseases...</a>
-            <a href="https://doi.org/10.1155/2022/7419326" target="_blank">2022: A review on major rust resistance gene...</a>
-            <a href="https://doi.org/10.1016/j.heliyon.2022.e12593" target="_blank">2022: Quantitative trait loci and candidate genes...</a>
-            <a href="http://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">2022: Perspective of olive farming at Bajura...</a>
-            <a href="http://doi.org/10.26480/faer.02.2022.55.59" target="_blank">2022: Economics of Onion Seed Production...</a>
-            <a href="http://doi.org/10.26480/itechmag.03.2021.09.18" target="_blank">2021: Insect Pests Infestation, Diseases and Management...</a>
+    <div class="banner">
+        <div class="banner-content">
+            <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/flag.png" alt="Nepal Flag">
+            <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/7134e550-c979-4653-b08a-2de6c5178b92.jpg" alt="Copyright">
+            <span class="banner-text">© An official website of Bikas Basnet</span>
+            <a href="https://www.facebook.com/p/The-plant-hub-of-Himalayan-Nepal-100063754014744/" target="_blank" class="banner-link">Here's how we know</a>
         </div>
     </div>
-    <a href="#data" onclick="showSection('data')">Data</a>
-    <a href="#RRA" onclick="showSection('RRA')">RRA</a>
-    <a href="#cv" onclick="showSection('cv')">CV</a>
-    <a href="#contact" onclick="showSection('contact')">Contact</a>
-    <a href="#Student Blog" onclick="showSection('Student Blog')">Students Blog</a>
-</nav>
 
-<div class="banner">
-    <div class="banner-content">
-        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/flag.png" alt="Nepal Flag">
-        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/7134e550-c979-4653-b08a-2de6c5178b92.jpg" alt="Copyright">
-        <span class="banner-text">© An official website of Bikas Basnet</span>
-        <a href="https://www.facebook.com/p/The-plant-hub-of-Himalayan-Nepal-100063754014744/" target="_blank" class="banner-link">Here's how we know</a>
-    </div>
-</div>
-
-<div id="home" class="content-section">
-    <h2>Welcome to the Digital Home of Bikas Basnet</h2>
-  <!-- Trigger for Notices Modal -->
-        <!-- Inside #home -->
-<div id="home" class="content-section">
-    <div class="container">
-        <h2>Welcome to the Digital Home of Bikas Basnet</h2>
-        <div class="notices-trigger">Current Notices</div>
-        <div id="notices-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">×</span>
-                <h2>Current Notices</h2>
-                <div class="modal-flex">
-                    <div class="notice-item">
-                        <h3>Notice 2</h3>
-                        <p>New features are being added to the portfolio onwards April 10, 2025.</p>
-                        <a href="https://bikasbasnettest.github.io/" target="_blank" class="pdf-link">View Details</a>
+    <div id="home" class="content-section">
+        <div class="container">
+            <h2>Welcome to the Digital Home of Bikas Basnet</h2>
+            <div class="notices-trigger">Current Notices</div>
+            <div id="notices-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">×</span>
+                    <h2>Current Notices</h2>
+                    <div class="modal-flex">
+                        <div class="notice-item">
+                            <h3>Notice 2</h3>
+                            <p>New features are being added to the portfolio onwards April 10, 2025.</p>
+                            <a href="https://bikasbasnettest.github.io/" target="_blank" class="pdf-link">View Details</a>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="profile-container">
+                <div class="profile-side-left">
+                    <h3>Key Interests</h3>
+                    <ul>
+                        <li>Genomics & Plant Breeding</li>
+                        <li>Plant-Microbe Interactions</li>
+                        <li>Quantitative Genetics</li>
+                        <li>Computational Biology, Data Science & Machine Learning</li>
+                        <li>Crop Science</li>
+                    </ul>
+                </div>
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/20230227_151532.jpg" alt="Bikas Basnet" class="profile-img">
+                <div class="profile-side-right">
+                    <a href="https://scholar.google.com.hk/citations?user=UIIyoiMAAAAJ" target="_blank" class="profile-link">
+                        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Google%20scholar%20logo.png" alt="Google Scholar">
+                        Google Scholar
+                    </a>
+                    <a href="https://orcid.org/0000-0003-0579-6039" target="_blank" class="profile-link">
+                        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Orchid%20pHOTO.png" alt="ORCID">
+                        ORCID
+                    </a>
+                </div>
+            </div>
+            <p class="intro-text">I am an enthusiastic graduate student in agriculture with avidity for not only crop improvement (genomics, plant-microbe interactions, quantitative genetics, applied aspects of plant breeding, modern plant breeding tools, product design and development), but also computational genetics programming and Biopython [including deep learning as well as machine learning]. Through field- and lab-based studies and computational tools, I have meticulously honed my skills through rigorous academic and informal coursework and immersive hands-on internships. My ardent ambition is to bridge the gap between farmers' fields and research stations through innovation exchange and capacity building. As a guiding principle, I am deeply committed to addressing the pressing food and nutrition insecurity issue in developing countries. Moreover, I am eager to collaborate on impactful projects that make a positive difference by bridging the gap between research stations and farmers' fields through capacity building as well as innovation exchange.</p>
+            <hr>
+            <div class="footer-logo">
+                <a href="https://bikasbasnettest.github.io/" target="_blank" class="footer-link">
+                    <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Website%20logo.png" alt="Website Logo" class="logo-img">
+                    <span class="website-name">© 2025-The Author (Website created and deployed by Mr Bikas Basnet)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects" class="content-section">
+        <div class="container">
+            <h1>Projects</h1>
+            <ul>
+                <li><strong>Project 1: Study of climate-smart practices</strong> - This project focuses on climate-smart practices, green jobs, and green enterprises at Lumbini Saskiritk Municipality and Samarimai Rural Municipality.</li>
+                <li><strong>Project 2: Multivariate selection of Maize Hybrids</strong> - A project focused on selection of prime-yielding and Stable genotypes</li>
+                <li><strong>Project 3: Screening of 761+ wheat lines and 62 released wheat varieties</strong> - Selection of resistance genotypes against spot blotch and leaf rust on local races</li>
+                <li><strong>Project 4: Deep learning for Crop Improvement</strong> - Training of 10k+ plant leaf samples to develop a UAV vehicle for real-time solution</li>
+            </ul>
+            <h2>Assignments</h2>
+            <ul>
+                <li><strong>A1: Agricultural Impact Analysis</strong> - Analyzing the environmental impacts of various agricultural practices through a comparative study.</li>
+                <li><strong>A2: Crop Modeling</strong> - Creating models to predict crop yield based on climatic data and soil conditions.</li>
+                <li><strong>A3: 3 factors RCBD-split plot Analysis</strong> - Data Transformation and Results of 3-factor split plot design:
+                    <div id="hsd-results"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="publications" class="content-section">
+        <div class="container">
+            <h1>Publications</h1>
+            <h2>2025</h2>
+            <ul>
+                <li>🔬<strong>Basnet, B.</strong>, Kunwar, C. B., & Upreti, U. (2025). Enhanced Bayesian model for multienvironmental selection of winter maize hybrids: assessing grain yield using ‘ProbBreed’. <i>Plant Methods, 21</i>, 8. <a href="https://doi.org/10.1186/s13007-025-01327-2" target="_blank">📄</a> (Q1)</li>
+            </ul>
+            <h2>2024</h2>
+            <ul>
+                <li>🔬<strong>Basnet, B.</strong>, Upreti, U., & Thapaliya, K. P. (2024). Genotypic variations in postfertility traits and yield components of mung bean (Vigna radiata (L.) R. Wilczek) germplasms in Chitwan, Nepal. <i>Heliyon, 10</i>(20). <a href="https://doi.org/10.1016/j.heliyon.2024.e39226" target="_blank">📄</a> (Q1)</li>
+                <li>🔬Kunwar, C. B., <strong>Basnet, B.</strong>, Sunuwar, S., Mahato, D. N., Chaudhari, R., Upadhya, J., & Pokhrel, P. (2024). Unraveling genotype-by-environment interaction in maize using cutting-edge statistical tools: Innovative empirical selection for increased yield stability. <i>Ecological Genetics and Genomics, 32</i>, 100249. <a href="https://doi.org/10.1016/j.egg.2024.100249" target="_blank">📄</a> (Q3)</li>
+                <li>🔬Chauhan, S., <strong>Basnet, B.</strong>, Adhikari, S. K., Budhathoki, P., & Shrestha, A. K. (2024). Innovative farming techniques for superior okra yield in Chitwan, Nepal: The benefits of plastic film mulch and pest exclusion net on soil properties, growth, quality, and profitability. <i>Ecological Frontiers, 44</i>(1), 23-32. <a href="https://doi.org/10.1016/j.chnaes.2023.05.007" target="_blank">📄</a> (Q1)</li>
+            </ul>
+            <h2>2023</h2>
+            <ul>
+                <li>🔬Sharma, S., <strong>Basnet, B.</strong>, Bhattarai, K., Sedhai, A., & Khanal, K. (2023). The influence of different mulching materials on Tomato's vegetative, reproductive, and yield in Dhankuta, Nepal. <i>Journal of Agriculture and Food Research, 11</i>, 100463. <a href="https://doi.org/10.1016/j.jafr.2022.100463" target="_blank">📄</a> (Q1)</li>
+                <li>🔬Dholi, P. K., Khatiwada, P., <strong>Basnet, B.</strong>, & Bhandari, S. (2023). An Extensive Review of Strawberry (Fragaria× ananassa) Diseases and Integrated Management Approaches: Current Understanding and Future Directions. <i>Fundamental and Applied Agriculture, 8</i>(4), 655-667. <a href="https://doi.org/10.5455/faa.136385" target="_blank">📄</a></li>
+            </ul>
+            <h2>2022</h2>
+            <ul>
+                <li>🔬<strong>Basnet, B.</strong>, Juliana, P., Bhattarai, K., & Upreti, U. (2022). A review on major rust resistance gene and amino acid changes on wheat (Triticum aestivum L). <i>Advances in Agriculture, 2022</i>(1), 7419326. <a href="https://doi.org/10.1155/2022/7419326" target="_blank">📄</a> (Q2)</li>
+                <li>🔬<strong>Basnet, B.</strong>, & Khanal, S. (2022). Quantitative trait loci and candidate genes for iron and zinc bio-fortification in genetically diverse germplasm of maize (Zea mays L): A systematic review. <i>Heliyon, 8</i>(12). <a href="https://doi.org/10.1016/j.heliyon.2022.e12593" target="_blank">📄</a> (Q1)</li>
+                <li>🔬<strong>Basnet, B.</strong> (2022). Perspective of olive farming at Bajura, Nepal: main opportunities and challenges. <i>Nepal: Main Opportunities and Challenges</i> (June 4, 2022). <a href="https://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">📄</a></li>
+                <li>🔬<strong>Basnet, B.</strong> (2022). Economics of Onion Seed Production in Western Rukum, Nepal. <i>Nepal</i> (June 4, 2022). <a href="http://doi.org/10.26480/faer.02.2022.55.59" target="_blank">📄</a></li>
+            </ul>
+            <h2>2021</h2>
+            <ul>
+                <li>🔬<strong>Basnet, B.</strong> (2021). Insect Pests Infestation, Diseases and Management Practice of Largecardamom in Nepal: A Review. <i>Tech Mag, 3</i>, 33-42. <a href="http://doi.org/10.26480/itechmag.03.2021.09.18" target="_blank">📄</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="data" class="content-section">
+        <div class="container">
+            <hr>
+            <ul>
+                <li>Date of birth: 27 Dec 2001 AD</li>
+                <li class="certs-awards">
+                    Certifications and Awards
+                    <ul class="submenu">
+                        <li><a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate%20of%20Participation%20105.pdf" target="_blank" class="pdf-link">Certificate of Participation</a></li>
+                        <li><a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_HORTI_Recognised.pdf" target="_blank" class="pdf-link">Scientific Horticulture Journal Reviewer certificate- Elsevier</a></li>
+                        <li><a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_STRESS_Recognised.pdf" target="_blank" class="pdf-link">Plant Stress Journal Reviewer Certificate- Elsevier</a></li>
+                        <li><a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="pdf-link">Scientific Reports Nature Journal Reviewer Certificate</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <h2>Thesis Dissertation PPT</h2>
+            <ul>
+                <li><a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">UG Defense Slide (Thesis Presentation of Quantitative Genetics)</a></li>
+            </ul>
+            <hr>
+            <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
+            <ul>
+                <li><a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)</a></li>
+                <li><a href="https://bikasbasnettest.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटबाट/From 15 Bansalat)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="RRA" class="content-section">
+        <div class="container">
+            <h1>Research and Recreational Activity</h1>
+            <p>This section is dedicated to Research and Recreational Activities (RRA). Below are images showcasing various research activities and fun😎, huh!</p>
+            <hr>
+            <div class="image-sequence">
+                <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13007-025-01327-2/MediaObjects/13007_2025_1327_Fig10_HTML.png" alt="Research Figure 1">
+                <img src="https://ars.els-cdn.com/content/image/1-s2.0-S2405844024152577-gr3_lrg.jpg" alt="PPP Nep 1 Package Diagram">
+                <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs43170-024-00266-7/MediaObjects/43170_2024_266_Fig15_HTML.png" alt="Research Figure 2">
+                <img src="https://github.com/Bikasbasnettest/genome.gff-file-learing-output/raw/main/Final%2Cplot.jpeg" alt="Circos Plot">
+                <img src="https://github.com/Bikasbasnettest/Circular-Manhatton-Plot-Updated-Code-IN-R-Programming/raw/main/Cir_Manhtn.Circular_manhattan_plot.jpg" alt="Manhattan Plot">
+                <img src="https://github.com/Bikasbasnettest/Path-diagram/raw/main/Path%20digram%20in%20R.jpeg" alt="Path Diagram">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Cardamom%20field.jpg" alt="Healthy Cardamom Field">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Graduate%20copy.jpg" alt="Graduate Photo">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Lab%20activity.jpg" alt="Lab Intern Activity">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Peace.jpg" alt="Travel Photo">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Rice%20photo.jpg" alt="Belgudi Rice Field">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Rust%20spore.jpg" alt="Leaf Rust Teliospore">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/SPAD%20meter.jpg" alt="SPAD Field">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Tassel%20griain.jpg" alt="Sil Grain Development">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Triticale.jpg" alt="Triticale Field">
+                <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Enozy.jpg" alt="Recreational Photo">
+            </div>
+        </div>
+    </div>
+
+    <div id="cv" class="content-section">
+        <div class="container">
+            <h1>CV</h1>
+            <p>CV content to be added here.</p>
+        </div>
+    </div>
+
+    <div id="contact" class="content-section">
+        <div class="container">
+            <h1>Contact</h1>
+            <div class="contact-icons">
+                <a href="mailto:bikasbasnet2001@gmail.com" target="_blank">
+                    <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Email.png" alt="Email">
+                </a>
+                <a href="https://www.linkedin.com/in/bikas-basnet-372a47206/" target="_blank">
+                    <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Linkedin.jpg" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Bikasbasnettest" target="_blank">
+                    <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/291716_github_logo_social%20network_social_icon.png" alt="GitHub">
+                </a>
+                <a href="tel:+9779865509334" target="_blank">
+                    <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Contact%20logo.jpg" alt="Phone">
+                </a>
+            </div>
+            <div class="contact-footer">
+                <a href="https://bikasbasnettest.github.io/" target="_blank" class="footer-link">
+                    <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Address%20image.png" alt="Address Logo" class="logo-img">
+                </a>
+                <div class="address-text">
+                    <p><strong>Temporary Address:</strong> Bharatpur Metropolitan City-18, Chanauli, Chitwan, Nepal</p>
+                    <p><strong>Permanent Address Line 1:</strong> Sunderharaincha Municipality-9, Jharnapool, Biratchowk, Morang, Nepal</p>
+                    <p><strong>Permanent Address Line 2:</strong> Dharma Devi Municipality-4, Mamling, Sankhuwasabha, Nepal</p>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="profile-container">
-        <div class="profile-side-left">
-            <h3>Key Interests</h3>
-            <ul>
-                <li>Genomics & Plant Breeding</li>
-                <li>Plant-Microbe Interactions</li>
-                <li>Quantitative Genetics</li>
-                <li>Computational Biology, Data Science & Machine Learning</li>
-                <li>Crop Science</li>
-            </ul>
-        </div>
-        <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/20230227_151532.jpg" alt="Bikas Basnet" class="profile-img">
-        <div class="profile-side-right">
-            <a href="https://scholar.google.com.hk/citations?user=UIIyoiMAAAAJ" target="_blank" class="profile-link">
-                <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Google%20scholar%20logo.png" alt="Google Scholar">
-                Google Scholar
-            </a>
-            <a href="https://orcid.org/0000-0003-0579-6039" target="_blank" class="profile-link">
-                <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Orchid%20pHOTO.png" alt="ORCID">
-                ORCID
-            </a>
+
+    <div id="Student Blog" class="content-section">
+        <div class="container">
+            <h1>Students Blog</h1>
+            <p>Students Blog content to be added here.</p>
         </div>
     </div>
-    <p class="intro-text">I am an enthusiastic graduate student in agriculture with avidity for not only crop improvement (genomics, plant-microbe interactions, quantitative genetics, applied aspects of plant breeding, modern plant breeding tools, product design and development), but also computational genetics programming and Biopython [including deep learning as well as machine learning]. Through field- and lab-based studies and computational tools, I have meticulously honed my skills through rigorous academic and informal coursework and immersive hands-on internships. My ardent ambition is to bridge the gap between farmers' fields and research stations through innovation exchange and capacity building. As a guiding principle, I am deeply committed to addressing the pressing food and nutrition insecurity issue in developing countries. Moreover, I am eager to collaborate on impactful projects that make a positive difference by bridging the gap between research stations and farmers' fields through capacity building as well as innovation exchange.</p>
-    <hr>
-    <div class="footer-logo">
-        <a href="https://bikasbasnettest.github.io/" target="_blank" class="footer-link">
-            <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Website%20logo.png" alt="Website Logo" class="logo-img">
-            <span class="website-name"> © 2025-The Author (Website created and deployed by Mr Bikas Basnet)</span>
-        </a>
-    </div>
-</div>
 
-<div id="projects" class="content-section">
-    <div class="container">
-        <h1>Projects</h1>
-        <ul>
-            <li><strong>Project 1: Study of climate-smart practices </strong> - This project focuses on climate-smart practices, green jobs, and green enterprises at Lumbini Saskiritk Municipality and Samarimai Rural Municipality.</li>
-            <li><strong>Project 2: Multivariate selection of Maize Hybrids</strong> - A project focused on selection of prime-yielding and Stable genotypes</li>
-            <li><strong>Project 3: Screening of 761+ wheat lines and 62 released wheat varieties</strong> - Selection of resistance genotypes against spot blotch and leaf rust on local races</li>
-            <li><strong>Project 4: Deep learning for Crop Improvement</strong> - Training of 10k+ plant leaf samples to develop a UAV vehicle for real-time solution</li>
-        </ul>
-        <h2>Assignments</h2>
-        <ul>
-            <li><strong>A1: Agricultural Impact Analysis</strong> - Analyzing the environmental impacts of various agricultural practices through a comparative study.</li>
-            <li><strong>A2: Crop Modeling</strong> - Creating models to predict crop yield based on climatic data and soil conditions.</li>
-            <li><strong>A3: 3 factors RCBD-split plot Analysis</strong> - Data Transformation and Results of 3-factor split plot design:
-                <div id="hsd-results"></div>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div id="publications" class="content-section">
-    <div class="container">
-        <h1>Publications</h1>
-        <h2>2025</h2>
-        <ul>
-            <li>🔬<strong>Basnet, B.</strong>, Kunwar, C. B., & Upreti, U. (2025). Enhanced Bayesian model for multienvironmental selection of winter maize hybrids: assessing grain yield using ‘ProbBreed’. <i>Plant Methods, 21</i>, 8. <a href="https://doi.org/10.1186/s13007-025-01327-2" target="_blank">📄</a> (Q1)</li>
-        </ul>
-        <h2>2024</h2>
-        <ul>
-            <li>🔬<strong>Basnet, B.</strong>, Upreti, U., & Thapaliya, K. P. (2024). Genotypic variations in postfertility traits and yield components of mung bean (Vigna radiata (L.) R. Wilczek) germplasms in Chitwan, Nepal. <i>Heliyon, 10</i>(20). <a href="https://doi.org/10.1016/j.heliyon.2024.e39226" target="_blank">📄</a> (Q1)</li>
-            <li>🔬Kunwar, C. B., <strong>Basnet, B.</strong>, Sunuwar, S., Mahato, D. N., Chaudhari, R., Upadhya, J., & Pokhrel, P. (2024). Unraveling genotype-by-environment interaction in maize using cutting-edge statistical tools: Innovative empirical selection for increased yield stability. <i>Ecological Genetics and Genomics, 32</i>, 100249. <a href="https://doi.org/10.1016/j.egg.2024.100249" target="_blank">📄</a> (Q3)</li>
-            <li>🔬Chauhan, S., <strong>Basnet, B.</strong>, Adhikari, S. K., Budhathoki, P., & Shrestha, A. K. (2024). Innovative farming techniques for superior okra yield in Chitwan, Nepal: The benefits of plastic film mulch and pest exclusion net on soil properties, growth, quality, and profitability. <i>Ecological Frontiers, 44</i>(1), 23-32. <a href="https://doi.org/10.1016/j.chnaes.2023.05.007" target="_blank">📄</a> (Q1)</li>
-        </ul>
-        <h2>2023</h2>
-        <ul>
-            <li>🔬Sharma, S., <strong>Basnet, B.</strong>, Bhattarai, K., Sedhai, A., & Khanal, K. (2023). The influence of different mulching materials on Tomato's vegetative, reproductive, and yield in Dhankuta, Nepal. <i>Journal of Agriculture and Food Research, 11</i>, 100463. <a href="https://doi.org/10.1016/j.jafr.2022.100463" target="_blank">📄</a> (Q1)</li>
-            <li>🔬Dholi, P. K., Khatiwada, P., <strong>Basnet, B.</strong>, & Bhandari, S. (2023). An Extensive Review of Strawberry (Fragaria× ananassa) Diseases and Integrated Management Approaches: Current Understanding and Future Directions. <i>Fundamental and Applied Agriculture, 8</i>(4), 655-667. <a href="https://doi.org/10.5455/faa.136385" target="_blank">📄</a></li>
-        </ul>
-        <h2>2022</h2>
-        <ul>
-            <li>🔬<strong>Basnet, B.</strong>, Juliana, P., Bhattarai, K., & Upreti, U. (2022). A review on major rust resistance gene and amino acid changes on wheat (Triticum aestivum L). <i>Advances in Agriculture, 2022</i>(1), 7419326. <a href="https://doi.org/10.1155/2022/7419326" target="_blank">📄</a> (Q2)</li>
-            <li>🔬<strong>Basnet, B.</strong>, & Khanal, S. (2022). Quantitative trait loci and candidate genes for iron and zinc bio-fortification in genetically diverse germplasm of maize (Zea mays L): A systematic review. <i>Heliyon, 8</i>(12). <a href="https://doi.org/10.1016/j.heliyon.2022.e12593" target="_blank">📄</a> (Q1)</li>
-            <li>🔬<strong>Basnet, B.</strong> (2022). Perspective of olive farming at Bajura, Nepal: main opportunities and challenges. <i>Nepal: Main Opportunities and Challenges</i> (June 4, 2022). <a href="https://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">📄</a></li>
-            <li>🔬<strong>Basnet, B.</strong> (2022). Economics of Onion Seed Production in Western Rukum, Nepal. <i>Nepal</i> (June 4, 2022). <a href="http://doi.org/10.26480/faer.02.2022.55.59" target="_blank">📄</a></li>
-        </ul>
-        <h2>2021</h2>
-        <ul>
-            <li>🔬<strong>Basnet, B.</strong> (2021). Insect Pests Infestation, Diseases and Management Practice of Largecardamom in Nepal: A Review. <i>Tech Mag, 3</i>, 33-42. <a href="http://doi.org/10.26480/itechmag.03.2021.09.18" target="_blank">📄</a></li>
-        </ul>
-    </div>
-</div>
-
-<div id="data" class="content-section">
-    <div class="container">
-        <hr>
-        <ul>
-            <li>Date of birth: 27 Dec 2001 AD</li>
-            <!-- Certifications and Awards Subsection -->
-            <li class="certs-awards">
-                Certifications and Awards
-                <ul class="submenu">
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate%20of%20Participation%20105.pdf" target="_blank" class="pdf-link">
-                            Certificate of Participation
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_HORTI_Recognised.pdf" target="_blank" class="pdf-link">
-                            Scientific Horticulture Journal Reviewer certificate- Elsevier 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_STRESS_Recognised.pdf" target="_blank" class="pdf-link">
-                            Plant Stress Journal Reviewer Certificate- Elsevier
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="pdf-link">
-                            Scientific Reports Nature Journal Reviewer Certificate
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <hr>
-        <h2>Thesis Dissertation PPT</h2>
-        <ul>
-            <li>
-                <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">
-                    UG Defense Slide (Thesis Presentation of Quantitative Genetics)
-                </a>
-            </li>
-        </ul>
-        <hr>
-        <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
-        <ul>
-            <li>
-                <a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">
-                    Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)
-                </a>
-            </li>
-            <li>
-                <a href="https://bikasbasnettest.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">
-                    Pedigree of Khabtari Basnet (१५ वंशलटबाट/From 15 Bansalat)
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div id="RRA" class="content-section">
-    <div class="container">
-        <h1>Research and Recreational Activity</h1>
-        <p>This section is dedicated to Research and Recreational Activities (RRA). Below are images showcasing various research activities and fun😎, huh!</p>
-        <hr>
-        <div class="image-sequence">
-            <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13007-025-01327-2/MediaObjects/13007_2025_1327_Fig10_HTML.png">
-            <img src="https://ars.els-cdn.com/content/image/1-s2.0-S2405844024152577-gr3_lrg.jpg" alt="PPP Nep 1 Package Diagram">
-            <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs43170-024-00266-7/MediaObjects/43170_2024_266_Fig15_HTML.png">
-            <img src="https://github.com/Bikasbasnettest/genome.gff-file-learing-output/raw/main/Final%2Cplot.jpeg" alt="Circos Plot">
-            <img src="https://github.com/Bikasbasnettest/Circular-Manhatton-Plot-Updated-Code-IN-R-Programming/raw/main/Cir_Manhtn.Circular_manhattan_plot.jpg" alt="Manhattan Plot">
-            <img src="https://github.com/Bikasbasnettest/Path-diagram/raw/main/Path%20digram%20in%20R.jpeg" alt="Path Diagram">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Cardamom%20field.jpg" alt="Healthy Cardamom Field">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Graduate%20copy.jpg" alt="Graduate Photo">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Lab%20activity.jpg" alt="Lab Intern Activity">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Peace.jpg" alt="Travel">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Rice%20photo.jpg" alt="Belgudi Rice Field">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Rust%20spore.jpg" alt="Leaf Rust Teliospore">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/SPAD%20meter.jpg" alt="SPAD Field">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Tassel%20griain.jpg" alt="Sil Grain Development">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Triticale.jpg" alt="Triticale">
-            <img src="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/Enozy.jpg" alt="Triticale">
-        </div>
-    </div>
-</div>
-
-<div id="cv" class="content-section">
-    <!-- Your CV content -->
-</div>
-
-<div id="contact" class="content-section">
-    <div class="container">
-        <h1>Contact</h1>
-        <div class="contact-icons">
-            <a href="mailto:bikasbasnet2001@gmail.com" target="_blank">
-                <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Email.png" alt="Email">
-            </a>
-            <a href="https://www.linkedin.com/in/bikas-basnet-372a47206/" target="_blank">
-                <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Linkedin.jpg" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/Bikasbasnettest">
-                <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/291716_github_logo_social%20network_social_icon.png" alt="GitHub">
-            </a>
-            <a href="tel:+9779865509334" target="_blank">
-                <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Contact%20logo.jpg" alt="Phone">
-            </a>
-        </div>
-        <div class="contact-footer">
-            <a href="https://bikasbasnettest.github.io/" target="_blank" class="footer-link">
-                <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Address%20image.png" alt="Address Logo" class="logo-img">
-            </a>
-            <div class="address-text">
-                <p><strong>Temporary Address:</strong> Bharatpur Metropolitan City-18, Chanauli, Chitwan, Nepal</p>
-                <p><strong>Permanent Address Line 1:</strong> Sunderharaincha Municipality-9, Jharnapool, Biratchowk, Morang, Nepal</p>
-                <p><strong>Permanent Address Line 2:</strong> Dharma Devi Municipality-4, Mamling, Sankhuwasabha, Nepal</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-   // Show section function
+    <script>
+        // Show section function
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => section.style.display = 'none');
@@ -1035,7 +681,6 @@
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) modal.style.display = 'none';
             });
-            // Add keyboard accessibility
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && modal.style.display === 'block') {
                     modal.style.display = 'none';
@@ -1066,6 +711,6 @@
 
         // Initialize home section
         showSection('home');
-</script>
+    </script>
 </body>
 </html>
