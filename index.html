@@ -405,16 +405,25 @@
     margin: auto;
 }
 
-#data {
-    display: none; /* Hidden by default, shown via JS */
-    position: relative;
-    min-height: 100vh;
+#data::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Matches your other sections */
+    filter: blur(12px);
+    z-index: 0;
+    background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); /* Section background */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 50px;
-    max-width: 1000px;
-    margin: auto;
+}
+
+#data > * {
+    position: relative;
+    z-index: 1;
 }
 
 #data h2 {
@@ -464,47 +473,24 @@
     border: 2px solid #76ff33; /* Optional border for visibility */
 }
 
-#data .pdf-link {
+#data .pdf-link,
+#data .ppt-link {
     text-decoration: none;
     color: #76ff33; /* Bright green to match your intro-text */
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-#data .pdf-link:hover {
+#data .pdf-link:hover,
+#data .ppt-link:hover {
     color: #FFFFFF;
     text-decoration: underline;
 }
 
-#data::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Matches your other sections */
-    filter: blur(12px);
-    z-index: 0;
-    background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg'); /* Section background */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* Optional: Differentiate PPT link visually */
+#data .ppt-link {
+    font-style: italic; /* Makes PPT link stand out from PDFs */
 }
-
-#data > * {
-    position: relative;
-    z-index: 1;
-}
-        .banner {
-            background-color: #0044cc;
-            color: white;
-            padding: 2px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-        }
         .banner-content {
             display: flex;
             align-items: center;
@@ -760,18 +746,19 @@
 <div id="data" class="content-section">
     <div class="container">
         <h2>Data</h2>
-        <p>Date of birth: 27 Dec 2001 AD</p>
+        <ul>
+            <li>Date of birth: 27 Dec 2001 AD</li>
+        </ul>
         <hr>
         <h2>Thesis Dissertation PPT</h2>
         <ul>
             <li>
-                <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/blob/main/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">
+                <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/raw/main/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">
                     UG Defense Slide (Thesis Presentation of Quantitative Genetics)
                 </a>
             </li>
         </ul>
-    </div>
-</div>
+        <hr>
         <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
         <ul>
             <li>
