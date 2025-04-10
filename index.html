@@ -262,29 +262,22 @@
                 background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/RB.jpg');
             }
         }
-
-/* Notices Trigger */
-        .notices-trigger {
+.notices-trigger {
             cursor: pointer;
             font-size: 20px;
             font-weight: bold;
-            color: #000000; /* Black text */
+            color: #000000;
             text-align: center;
             padding: 10px;
-            background: rgba(255, 255, 255, 0.8); /* Light background */
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 5px;
             margin: 20px auto;
             max-width: 200px;
             transition: background 0.3s ease;
             position: relative;
-            z-index: 2; /* Above #home::before */
+            z-index: 2;
         }
-
-        .notices-trigger:hover {
-            background: rgba(255, 255, 255, 1);
-        }
-
-        /* Modal Styles */
+        .notices-trigger:hover { background: rgba(255, 255, 255, 1); }
         .modal {
             display: none;
             position: fixed;
@@ -293,12 +286,11 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 1000; /* Above all #home content */
+            z-index: 1000;
         }
-
         .modal-content {
             position: relative;
-            background: rgba(255, 255, 255, 0.9); /* Light background */
+            background: rgba(255, 255, 255, 0.9);
             margin: 10% auto;
             padding: 20px;
             max-width: 700px;
@@ -306,15 +298,13 @@
             box-shadow: 0 0 10px rgba(118, 255, 51, 0.5);
             z-index: 1001;
         }
-
         .modal-content h2 {
-            color: #000000; /* Black text */
+            color: #000000;
             border-bottom: 2px solid #006400;
             padding-bottom: 10px;
             text-align: center;
             margin-bottom: 20px;
         }
-
         .close-modal {
             position: absolute;
             top: 10px;
@@ -323,38 +313,22 @@
             font-size: 28px;
             cursor: pointer;
         }
-
-        .close-modal:hover {
-            color: #006400;
-        }
-
+        .close-modal:hover { color: #006400; }
         .modal-flex {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
-
         .notice-item {
             flex: 1 1 300px;
-            background: rgba(255, 255, 255, 0.8); /* Light background */
+            background: rgba(255, 255, 255, 0.8);
             padding: 15px;
             border-radius: 5px;
             text-align: center;
         }
-
-        .notice-item h3 {
-            color: #000000; /* Black text */
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .notice-item p {
-            color: #000000; /* Black text */
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
+        .notice-item h3 { color: #000000; font-size: 18px; margin-bottom: 10px; }
+        .notice-item p { color: #000000; font-size: 14px; margin-bottom: 10px; padding: 0; }
         .notice-item a {
             display: inline-block;
             text-decoration: none;
@@ -365,11 +339,8 @@
             border-radius: 5px;
             transition: color 0.3s ease, background 0.3s ease;
         }
-
-        .notice-item a:hover {
-            color: #FFFFFF;
-            background: rgba(0, 100, 0, 1);
-        }
+        .notice-item a:hover { color: #FFFFFF; background: rgba(0, 100, 0, 1); }
+        
         #projects {
             position: relative;
             min-height: 100vh;
@@ -1030,66 +1001,65 @@
 </div>
 
 <script>
-    // Modal functionality for notices
-const trigger = document.querySelector('.notices-trigger');
-const modal = document.getElementById('notices-modal');
-const closeBtn = document.querySelector('.close-modal');
-
-// Open modal when "Current Notices" is clicked
-trigger.addEventListener('click', () => {
-    modal.style.display = 'block';
-});
-
-// Close modal when the close button (×) is clicked
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-// Close modal when clicking outside the modal content
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.content-section');
-        sections.forEach(function(section) {
-            section.style.display = 'none';
-        });
-        const selectedSection = document.getElementById(sectionId);
-        if (selectedSection) {
-            selectedSection.style.display = 'block';
-            if (sectionId === 'RRA') {
-                cycleRRAImages();
+   // Show section function
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.style.display = 'none');
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+                if (sectionId === 'RRA') cycleRRAImages();
             }
         }
-    }
-    function cycleRRAImages() {
-        const images = document.querySelectorAll('#RRA .image-sequence img');
-        let currentIndex = 0;
 
-        function showNextImage() {
-            images.forEach(img => img.classList.remove('active'));
-            images[currentIndex].classList.add('active');
-            currentIndex = (currentIndex + 1) % images.length;
-            setTimeout(showNextImage, 4000);
+        // Modal functionality for notices
+        const triggers = document.querySelectorAll('.notices-trigger');
+        const modals = document.querySelectorAll('.modal');
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const modal = trigger.nextElementSibling;
+                if (modal && modal.classList.contains('modal')) {
+                    modal.style.display = 'block';
+                }
+            });
+        });
+        modals.forEach(modal => {
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', () => modal.style.display = 'none');
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.style.display = 'none';
+            });
+            // Add keyboard accessibility
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // RRA image cycling
+        function cycleRRAImages() {
+            const images = document.querySelectorAll('#RRA .image-sequence img');
+            let currentIndex = 0;
+            images[0].classList.add('active');
+            setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 4000);
         }
 
-        showNextImage();
-    }
+        // Fetch HSD data
+        fetch('https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('hsd-results').innerHTML = data)
+            .catch(error => {
+                console.error('Error fetching HSD data:', error);
+                document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/blob/main/HSD-data.html" target="_blank">View on GitHub</a>';
+            });
 
-    showSection('home');
-
-    fetch('https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('hsd-results').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Error fetching HSD data:', error);
-        document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html" target="_blank">View directly</a>';
-    });
+        // Initialize home section
+        showSection('home');
 </script>
-
 </body>
 </html>
