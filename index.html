@@ -277,8 +277,82 @@
             border-radius: 5px;
         }
         .profile-link:hover { color: #006400; text-decoration: underline; }
-        #projects { position: relative; min-height: 100vh; }
-        #publications { position: relative; min-height: 100vh; }
+        #projects {
+            position: relative;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slideProjBackground 10s infinite;
+        }
+        #projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            filter: blur(12px);
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slideProjBackgroundBlur 10s infinite;
+        }
+        #projects > * { position: relative; z-index: 1; }
+        #projects h1 { color: #FFFFFF; }
+        #projects h2 { color: #FFFFFF; border-bottom: 2px solid #FFFFFF; }
+        #projects ul li { color: #FFFFFF; }
+        @keyframes slideProjBackground {
+            0% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg'); }
+            50% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Seed%20bank.jpg'); }
+            100% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg'); }
+        }
+        @keyframes slideProjBackgroundBlur {
+            0% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg'); }
+            50% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Seed%20bank.jpg'); }
+            100% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Drone.jpg'); }
+        }
+        #publications {
+            position: relative;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slidePubBackground 10s infinite;
+        }
+        #publications::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            filter: blur(12px);
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: slidePubBackgroundBlur 10s infinite;
+        }
+        #publications > * { position: relative; z-index: 1; }
+        #publications h1 { color: #654321; }
+        #publications h2 { color: #000000; border-bottom: 2px solid #FFFFFF; }
+        #publications ul li { color: #000000; }
+        #publications ul li a { color: #000000; text-decoration: underline; }
+        #publications ul li a:hover { color: #E0E0E0; text-decoration: none; }
+        @keyframes slidePubBackground {
+            0% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg'); }
+            50% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg'); }
+            100% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg'); }
+        }
+        @keyframes slidePubBackgroundBlur {
+            0% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg'); }
+            50% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg'); }
+            100% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg'); }
+        }
         #data { position: relative; min-height: 100vh; }
         #RRA { position: relative; min-height: 100vh; }
         #cv { position: relative; min-height: 100vh; }
@@ -352,7 +426,16 @@
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
-        .image-sequence img.active { opacity: 1; }
+        .image-sequence img.active {
+            opacity: 1;
+            animation: fadeInOut 5s ease-in-out infinite;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
         .footer-logo {
             position: absolute;
             bottom: 20px;
@@ -688,16 +771,19 @@
             });
         });
 
-        // RRA image cycling
+        // RRA image cycling (original style)
         function cycleRRAImages() {
             const images = document.querySelectorAll('#RRA .image-sequence img');
             let currentIndex = 0;
-            images[0].classList.add('active');
-            setInterval(() => {
-                images[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % images.length;
+
+            function showNextImage() {
+                images.forEach(img => img.classList.remove('active'));
                 images[currentIndex].classList.add('active');
-            }, 4000);
+                currentIndex = (currentIndex + 1) % images.length;
+                setTimeout(showNextImage, 4000);
+            }
+
+            showNextImage();
         }
 
         // Fetch HSD data
