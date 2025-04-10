@@ -151,7 +151,7 @@
             cursor: pointer;
             font-size: 20px;
             font-weight: bold;
-            color: #000000 !important; /* Enforce black color */
+            color: #000000 !important;
             text-align: center;
             padding: 10px;
             background: rgba(255, 255, 255, 0.8);
@@ -184,7 +184,7 @@
             z-index: 1001;
         }
         .modal-content h2 {
-            color: #000000 !important; /* Enforce black color */
+            color: #000000 !important;
             border-bottom: 2px solid #006400;
             padding-bottom: 10px;
             text-align: center;
@@ -353,11 +353,39 @@
             50% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice%202.jpg'); }
             100% { background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Rice.jpg'); }
         }
-        #data { position: relative; min-height: 100vh; }
+        #data {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Deeplearning.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #data::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            filter: blur(1px);
+            z-index: 0;
+            background-image: url('https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Deeplearning.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #data > * {
+            position: relative;
+            z-index: 1;
+        }
+        #data ul li { color: #FFFFFF; }
+        #data h2 { color: #FFFFFF; border-bottom: 2px solid #FFFFFF; }
         #RRA { position: relative; min-height: 100vh; }
         #cv { position: relative; min-height: 100vh; }
         #contact { position: relative; min-height: 100vh; }
-        #Student-Blog { position: relative; min-height: 100vh; } /* Fixed ID to match nav */
+        #Student-Blog { position: relative; min-height: 100vh; }
         .banner {
             background-color: #0044cc;
             color: white;
@@ -439,8 +467,8 @@
         }
         .footer-logo {
             text-align: center;
-            margin-top: 20px; /* Space above to avoid overlap */
-            position: relative; /* In flow, not absolute */
+            margin-top: 20px;
+            position: relative;
             z-index: 1;
         }
         .contact-footer {
@@ -520,7 +548,7 @@
         <a href="#RRA" onclick="showSection('RRA')">RRA</a>
         <a href="#cv" onclick="showSection('cv')">CV</a>
         <a href="#contact" onclick="showSection('contact')">Contact</a>
-        <a href="#Student-Blog" onclick="showSection('Student-Blog')">Students Blog</a> <!-- Fixed href and onclick -->
+        <a href="#Student-Blog" onclick="showSection('Student-Blog')">Students Blog</a>
     </nav>
 
     <div class="banner">
@@ -635,63 +663,63 @@
         </div>
     </div>
 
-   <div id="data" class="content-section">
-    <div class="container">
-        <hr>
-        <ul>
-            <li>Date of birth: 27 Dec 2001 AD</li>
-            <!-- Certifications and Awards Subsection -->
-            <li class="certs-awards">
-                Certifications and Awards
-                <ul class="submenu">
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate%20of%20Participation%20105.pdf" target="_blank" class="pdf-link">
-                            Certificate of Participation
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_HORTI_Recognised.pdf" target="_blank" class="pdf-link">
-                            Scientific Horticulture Journal Reviewer certificate- Elsevier 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_STRESS_Recognised.pdf" target="_blank" class="pdf-link">
-                            Plant Stress Journal Reviewer Certificate- Elsevier
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="pdf-link">
-                            Scientific Reports Nature Journal Reviewer Certificate
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <hr>
-        <h2>Thesis Dissertation PPT</h2>
-        <ul>
-            <li>
-                <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">
-                    UG Defense Slide (Thesis Presentation of Quantitative Genetics)
-                </a>
-            </li>
-        </ul>
-        <hr>
-        <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
-        <ul>
-            <li>
-                <a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">
-                    Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)
-                </a>
-            </li>
-            <li>
-                <a href="https://bikasbasnettest.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">
-                    Pedigree of Khabtari Basnet (१५ वंशलटबाट/From 15 Bansalat)
-                </a>
-            </li>
-        </ul>
+    <div id="data" class="content-section">
+        <div class="container">
+            <hr>
+            <ul>
+                <li>Date of birth: 27 Dec 2001 AD</li>
+                <!-- Certifications and Awards Subsection -->
+                <li class="certs-awards">
+                    Certifications and Awards
+                    <ul class="submenu">
+                        <li>
+                            <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate%20of%20Participation%20105.pdf" target="_blank" class="pdf-link">
+                                Certificate of Participation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_HORTI_Recognised.pdf" target="_blank" class="pdf-link">
+                                Scientific Horticulture Journal Reviewer certificate- Elsevier 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Certificate_STRESS_Recognised.pdf" target="_blank" class="pdf-link">
+                                Plant Stress Journal Reviewer Certificate- Elsevier
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="pdf-link">
+                                Scientific Reports Nature Journal Reviewer Certificate
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <h2>Thesis Dissertation PPT</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">
+                        UG Defense Slide (Thesis Presentation of Quantitative Genetics)
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
+            <ul>
+                <li>
+                    <a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">
+                        Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bikasbasnettest.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">
+                        Pedigree of Khabtari Basnet (१५ वंशलटबाट/From 15 Bansalat)
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
     <div id="RRA" class="content-section">
         <div class="container">
@@ -721,13 +749,12 @@
 
     <div id="cv" class="content-section">
         <div class="container">
-            <p>Contact Bikas Basnet for Updated CV</p>
+            <p>For updated CV, please contact Bikas Basnet.</p>
         </div>
     </div>
 
     <div id="contact" class="content-section">
         <div class="container">
-            <h1>Contact</h1>
             <div class="contact-icons">
                 <a href="mailto:bikasbasnet2001@gmail.com" target="_blank">
                     <img class="contact-icon" src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Email.png" alt="Email">
@@ -755,16 +782,15 @@
         </div>
     </div>
 
-    <div id="Student-Blog" class="content-section"> <!-- Fixed ID -->
+    <div id="Student-Blog" class="content-section">
         <div class="container">
-            <p>Students blogs and experts view is coming soon...</p>
+            <p>Students Blog and experts view are coming soon...</p>
         </div>
     </div>
 
     <script>
-        // Show section function
         function showSection(sectionId) {
-            console.log('Showing section:', sectionId); // Debug log
+            console.log('Showing section:', sectionId);
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => {
                 section.style.display = 'none';
@@ -776,18 +802,17 @@
                     cycleRRAImages();
                 }
             } else {
-                console.error('Section not found:', sectionId); // Debug error
+                console.error('Section not found:', sectionId);
             }
         }
 
-        // Modal functionality for notices
         document.addEventListener('DOMContentLoaded', () => {
             const triggers = document.querySelectorAll('.notices-trigger');
             const modals = document.querySelectorAll('.modal');
 
             triggers.forEach(trigger => {
                 trigger.addEventListener('click', () => {
-                    console.log('Notice trigger clicked'); // Debug log
+                    console.log('Notice trigger clicked');
                     const modal = trigger.nextElementSibling;
                     if (modal && modal.classList.contains('modal')) {
                         modal.style.display = 'block';
@@ -813,7 +838,6 @@
             });
         });
 
-        // RRA image cycling (original style)
         function cycleRRAImages() {
             const images = document.querySelectorAll('#RRA .image-sequence img');
             let currentIndex = 0;
@@ -828,7 +852,6 @@
             showNextImage();
         }
 
-        // Fetch HSD data
         fetch('https://raw.githubusercontent.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/main/HSD-data.html')
             .then(response => response.text())
             .then(data => document.getElementById('hsd-results').innerHTML = data)
@@ -837,7 +860,6 @@
                 document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/Bikasbasnettest/Experimental-Design-Aanlysis-code/blob/main/HSD-data.html" target="_blank">View on GitHub</a>';
             });
 
-        // Initialize home section
         document.addEventListener('DOMContentLoaded', () => {
             showSection('home');
         });
