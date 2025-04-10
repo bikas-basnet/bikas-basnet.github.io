@@ -399,7 +399,8 @@
         #cv { position: relative; min-height: 100vh; }
         #contact { position: relative; min-height: 100vh; }
         #Student-Blog { position: relative; min-height: 100vh; }
-       .banner {
+        
+     .banner {
     background-color: #0044cc;
     color: white;
     padding: 2px 0;
@@ -431,11 +432,11 @@
 .research-section {
     display: flex;
     align-items: center;
-    cursor: pointer; /* Makes it look clickable */
+    cursor: pointer;
 }
 
 .research-section:hover {
-    opacity: 0.8; /* Slight fade on hover for feedback */
+    opacity: 0.8;
 }
 
 .research-logo {
@@ -469,25 +470,76 @@
 }
 
 .research-info {
-    display: none; /* Hidden by default */
-    background-color: #f0f0f0; /* Light gray background */
-    color: #333; /* Dark text for contrast */
-    padding: 10px;
-    margin: 5px 12px; /* Aligns with banner padding */
+    display: none;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 15px;
+    margin: 5px 12px;
     border-radius: 5px;
     font-size: 14px;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.research-info p {
-    margin: 0 0 10px 0; /* Spacing below paragraph */
+.research-details h3 {
+    color: #0044cc; /* Matches banner color */
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.research-details p {
+    margin: 0 0 10px 0;
+}
+
+.research-details ul {
+    list-style-type: none; /* Removes default bullets */
+    padding: 0;
+    margin: 10px 0;
+}
+
+.research-details ul li {
+    padding: 5px 0;
+    position: relative;
+}
+
+.research-details ul li:before {
+    content: "✓"; /* Checkmark icon */
+    color: #006400; /* Dark green from banner link */
+    margin-right: 8px;
+}
+
+.research-details hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 10px 0;
+}
+
+.fund-status {
+    font-size: 16px;
+}
+
+.amount {
+    color: #006400; /* Green for emphasis */
+    font-weight: bold;
+}
+
+.donate-call {
+    font-size: 18px;
+    color: #0044cc; /* Blue for emphasis */
+    margin: 10px 0 0 0;
+}
+
+.donate-call strong {
+    font-size: 20px;
+    text-transform: uppercase;
 }
 
 .qr-code {
-    width: 100px; /* Adjust size as needed */
+    width: 100px;
     height: 100px;
     display: block;
-    margin: 0 auto; /* Centers the QR code */
+    margin: 10px auto 0;
 }
         #hsd-results {
             margin-top: 10px;
@@ -626,7 +678,19 @@
     </div>
 </div>
 <div id="research-info" class="research-info">
-    <p>The Research Endowment Fund supports innovative projects and academic research in Nepal, fostering scientific advancement and community development. Contributions help sustain cutting-edge studies in various fields.</p>
+    <div class="research-details">
+        <h3>Research Endowment Fund</h3>
+        <p>The fund supports innovative projects and academic research in Nepal, fostering scientific advancement and community development. Contributions sustain cutting-edge studies, including:</p>
+        <ul>
+            <li>Diversity study of flora and fauna (phenotypic and genomic scale)</li>
+            <li>Habitat conservation efforts</li>
+            <li>Climate-resilient ideas and innovation promotion</li>
+            <li>Location-specific innovations for farmers, like mechanization</li>
+        </ul>
+        <hr>
+        <p class="fund-status">Total fund collected: <span class="amount">NRs 5000</span></p>
+        <p class="donate-call"><strong>Donate for the Future!</strong></p>
+    </div>
     <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Esewa%20QR%20code.jpg" alt="Esewa QR Code" class="qr-code">
 </div>
 
@@ -859,7 +923,7 @@
 
     <div id="Student-Blog" class="content-section">
         <div class="container">
-            <p>Students Blog and experts view are coming soon...</p>
+            <p> Students' Blog and experts' views are coming soon...</p>
         </div>
     </div>
 
