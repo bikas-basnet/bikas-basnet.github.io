@@ -437,9 +437,11 @@
             100% { opacity: 0; }
         }
         .footer-logo {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             text-align: center;
-            margin-top: 20px; /* Add space above to avoid overlap */
-            position: relative; /* Remove absolute positioning to stay in flow */
             z-index: 1;
         }
         .contact-footer {
@@ -636,7 +638,6 @@
 
     <div id="data" class="content-section">
         <div class="container">
-            <h1>Data</h1>
             <hr>
             <ul>
                 <li>Date of birth: 27 Dec 2001 AD</li>
@@ -651,12 +652,12 @@
                 </li>
             </ul>
             <hr>
-            <h1>Thesis Dissertation PPT</h1>
+            <h2>Thesis Dissertation PPT</h2>
             <ul>
                 <li><a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">UG Defense Slide (Thesis Presentation of Quantitative Genetics)</a></li>
             </ul>
             <hr>
-            <h1>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h1>
+            <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
             <ul>
                 <li><a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)</a></li>
                 <li><a href="https://bikasbasnettest.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटबाट/From 15 Bansalat)</a></li>
@@ -730,7 +731,7 @@
     <div id="Student Blog" class="content-section">
         <div class="container">
             <h1>Students Blog</h1>
-            <p>Students Blogs are coming soon.......</p>
+            <p>Students Blog content to be added here.</p>
         </div>
     </div>
 
@@ -761,7 +762,7 @@
             const closeBtn = modal.querySelector('.close-modal');
             closeBtn.addEventListener('click', () => modal.style.display = 'none');
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.style.display = 'none');
+                if (e.target === modal) modal.style.display = 'none';
             });
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && modal.style.display === 'block') {
