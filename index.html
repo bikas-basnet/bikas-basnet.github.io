@@ -357,6 +357,7 @@
         #RRA { position: relative; min-height: 100vh; }
         #cv { position: relative; min-height: 100vh; }
         #contact { position: relative; min-height: 100vh; }
+        #Student-Blog { position: relative; min-height: 100vh; } /* Fixed ID to match nav */
         .banner {
             background-color: #0044cc;
             color: white;
@@ -437,11 +438,9 @@
             100% { opacity: 0; }
         }
         .footer-logo {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
             text-align: center;
+            margin-top: 20px; /* Space above to avoid overlap */
+            position: relative; /* In flow, not absolute */
             z-index: 1;
         }
         .contact-footer {
@@ -521,7 +520,7 @@
         <a href="#RRA" onclick="showSection('RRA')">RRA</a>
         <a href="#cv" onclick="showSection('cv')">CV</a>
         <a href="#contact" onclick="showSection('contact')">Contact</a>
-        <a href="#Student Blog" onclick="showSection('Student Blog')">Students Blog</a>
+        <a href="#Student-Blog" onclick="showSection('Student-Blog')">Students Blog</a> <!-- Fixed href and onclick -->
     </nav>
 
     <div class="banner">
@@ -638,6 +637,7 @@
 
     <div id="data" class="content-section">
         <div class="container">
+            <h1>Data</h1>
             <hr>
             <ul>
                 <li>Date of birth: 27 Dec 2001 AD</li>
@@ -652,12 +652,12 @@
                 </li>
             </ul>
             <hr>
-            <h2>Thesis Dissertation PPT</h2>
+            <h1>Thesis Dissertation PPT</h1>
             <ul>
                 <li><a href="https://github.com/Bikasbasnettest/Bikasbasnettest.github.io/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">UG Defense Slide (Thesis Presentation of Quantitative Genetics)</a></li>
             </ul>
             <hr>
-            <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
+            <h1>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h1>
             <ul>
                 <li><a href="https://bikasbasnettest.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)</a></li>
                 <li><a href="https://bikasbasnettest.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटबाट/From 15 Bansalat)</a></li>
@@ -728,7 +728,7 @@
         </div>
     </div>
 
-    <div id="Student Blog" class="content-section">
+    <div id="Student-Blog" class="content-section"> <!-- Fixed ID -->
         <div class="container">
             <h1>Students Blog</h1>
             <p>Students Blog content to be added here.</p>
@@ -738,36 +738,52 @@
     <script>
         // Show section function
         function showSection(sectionId) {
+            console.log('Showing section:', sectionId); // Debug log
             const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.style.display = 'none');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
             const selectedSection = document.getElementById(sectionId);
             if (selectedSection) {
                 selectedSection.style.display = 'block';
-                if (sectionId === 'RRA') cycleRRAImages();
+                if (sectionId === 'RRA') {
+                    cycleRRAImages();
+                }
+            } else {
+                console.error('Section not found:', sectionId); // Debug error
             }
         }
 
         // Modal functionality for notices
-        const triggers = document.querySelectorAll('.notices-trigger');
-        const modals = document.querySelectorAll('.modal');
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const modal = trigger.nextElementSibling;
-                if (modal && modal.classList.contains('modal')) {
-                    modal.style.display = 'block';
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            const triggers = document.querySelectorAll('.notices-trigger');
+            const modals = document.querySelectorAll('.modal');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    console.log('Notice trigger clicked'); // Debug log
+                    const modal = trigger.nextElementSibling;
+                    if (modal && modal.classList.contains('modal')) {
+                        modal.style.display = 'block';
+                    }
+                });
             });
-        });
-        modals.forEach(modal => {
-            const closeBtn = modal.querySelector('.close-modal');
-            closeBtn.addEventListener('click', () => modal.style.display = 'none');
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.style.display = 'none';
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal.style.display === 'block') {
+
+            modals.forEach(modal => {
+                const closeBtn = modal.querySelector('.close-modal');
+                closeBtn.addEventListener('click', () => {
                     modal.style.display = 'none';
-                }
+                });
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                    }
+                });
             });
         });
 
@@ -796,7 +812,9 @@
             });
 
         // Initialize home section
-        showSection('home');
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
     </script>
 </body>
 </html>
