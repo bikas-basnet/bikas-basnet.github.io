@@ -399,47 +399,96 @@
         #cv { position: relative; min-height: 100vh; }
         #contact { position: relative; min-height: 100vh; }
         #Student-Blog { position: relative; min-height: 100vh; }
-        .banner {
-            background-color: #0044cc;
-            color: white;
-            padding: 2px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-        }
-        .banner-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 0 12px;
-        }
-        .banner img {
-            width: 25px;
-            height: 25px;
-            margin-right: 8px;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            border: 1px solid #ffffff;
-            box-sizing: border-box;
-            background-color: #0044cc;
-            padding: 1px;
-        }
-        .banner-text {
-            color: white;
-            font-weight: bold;
-            flex-grow: 1;
-            text-align: center;
-        }
-        .banner-link {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 2px 6px;
-            background-color: #006400;
-            border-radius: 5px;
-        }
-        .banner-link:hover { text-decoration: underline; }
+       .banner {
+    background-color: #0044cc;
+    color: white;
+    padding: 2px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 12px;
+}
+
+.banner img {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    background-color: #0044cc;
+    padding: 1px;
+}
+
+.research-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Makes it look clickable */
+}
+
+.research-section:hover {
+    opacity: 0.8; /* Slight fade on hover for feedback */
+}
+
+.research-logo {
+    margin-left: 8px;
+}
+
+.research-text {
+    color: white;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.banner-text {
+    color: white;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.banner-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 2px 6px;
+    background-color: #006400;
+    border-radius: 5px;
+}
+
+.banner-link:hover {
+    text-decoration: underline;
+}
+
+.research-info {
+    display: none; /* Hidden by default */
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text for contrast */
+    padding: 10px;
+    margin: 5px 12px; /* Aligns with banner padding */
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.research-info p {
+    margin: 0 0 10px 0; /* Spacing below paragraph */
+}
+
+.qr-code {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    display: block;
+    margin: 0 auto; /* Centers the QR code */
+}
         #hsd-results {
             margin-top: 10px;
             padding: 10px;
@@ -565,15 +614,23 @@
     </nav>
 
     <div class="banner">
-        <div class="banner-content">
-            <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/flag.png" alt="Nepal Flag">
-            <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/7134e550-c979-4653-b08a-2de6c5178b92.jpg" alt="Copyright">
-            <span class="banner-text">© An official website of Bikas Basnet</span>
-            <a href="https://www.facebook.com/p/The-plant-hub-of-Himalayan-Nepal-100063754014744/" target="_blank" class="banner-link">Here's how we know</a>
+    <div class="banner-content">
+        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/flag.png" alt="Nepal Flag">
+        <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/7134e550-c979-4653-b08a-2de6c5178b92.jpg" alt="Copyright">
+        <div class="research-section" onclick="toggleResearchInfo()">
+            <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/NAN.jpg" alt="Research Endowment Fund Logo" class="research-logo">
+            <span class="research-text">Research Endowment Fund</span>
         </div>
+        <span class="banner-text">© An official website of Bikas Basnet</span>
+        <a href="https://www.facebook.com/p/The-plant-hub-of-Himalayan-Nepal-100063754014744/" target="_blank" class="banner-link">Here's how we know</a>
     </div>
+</div>
+<div id="research-info" class="research-info">
+    <p>The Research Endowment Fund supports innovative projects and academic research in Nepal, fostering scientific advancement and community development. Contributions help sustain cutting-edge studies in various fields.</p>
+    <img src="https://raw.githubusercontent.com/Bikasbasnettest/Bikasbasnettest.github.io/main/Esewa%20QR%20code.jpg" alt="Esewa QR Code" class="qr-code">
+</div>
 
-    <div id="home" class="content-section">
+<div id="home" class="content-section">
         <div class="container">
             <h2>Welcome to the Digital Home of Bikas Basnet</h2>
             <div class="notices-trigger">Current Notices</div>
@@ -583,7 +640,7 @@
                     <h2>Current Notices</h2>
                     <div class="modal-flex">
                         <div class="notice-item">
-                            <h3>Notice 2</h3>
+                            <h3>Notice-1</h3>
                             <p>New features are being added to the portfolio onwards April 10, 2025.</p>
                             <a href="https://bikasbasnettest.github.io/" target="_blank" class="pdf-link">View Details</a>
                         </div>
@@ -807,6 +864,14 @@
     </div>
 
     <script>
+    function toggleResearchInfo() {
+    var info = document.getElementById("research-info");
+    if (info.style.display === "block") {
+        info.style.display = "none";
+    } else {
+        info.style.display = "block";
+    }
+}
         function showSection(sectionId) {
             console.log('Showing section:', sectionId);
             const sections = document.querySelectorAll('.content-section');
