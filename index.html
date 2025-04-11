@@ -948,17 +948,21 @@ document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             alert("Right-click is disabled!");
         });
+
         (function() {
             let devtoolsOpen = false;
+            let initialWidthDiff = window.outerWidth - window.innerWidth;
+            let initialHeightDiff = window.outerHeight - window.innerHeight;
+
             setInterval(() => {
-                if (window.outerWidth - window.innerWidth > 150 || 
-                    window.outerHeight - window.innerHeight > 150 || 
-                    window.console || window.devtools) {
-                    if (!devtoolsOpen) {
-                        devtoolsOpen = true;
-                        document.body.innerHTML = '';
-                        alert("Inspect tool detected! Page content hidden.");
-                    }
+                let currentWidthDiff = window.outerWidth - window.innerWidth;
+                let currentHeightDiff = window.outerHeight - window.innerHeight;
+                if ((currentWidthDiff > initialWidthDiff + 50 || 
+                     currentHeightDiff > initialHeightDiff + 50) && 
+                     !devtoolsOpen) {
+                    devtoolsOpen = true;
+                    document.body.innerHTML = '';
+                    alert("Inspect tool detected! Page content hidden.");
                 }
             }, 500);
         })();
