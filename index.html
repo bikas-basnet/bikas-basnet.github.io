@@ -944,6 +944,25 @@
     </div>
 
     <script>
+document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert("Right-click is disabled!");
+        });
+        (function() {
+            let devtoolsOpen = false;
+            setInterval(() => {
+                if (window.outerWidth - window.innerWidth > 150 || 
+                    window.outerHeight - window.innerHeight > 150 || 
+                    window.console || window.devtools) {
+                    if (!devtoolsOpen) {
+                        devtoolsOpen = true;
+                        document.body.innerHTML = '';
+                        alert("Inspect tool detected! Page content hidden.");
+                    }
+                }
+            }, 500);
+        })();
+     
     function toggleResearchInfo() {
     var info = document.getElementById("research-info");
     if (info.style.display === "block") {
