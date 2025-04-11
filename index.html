@@ -944,11 +944,18 @@
     </div>
 
     <script>
+       // Obfuscated HTML in Base64
+        (function() {
+            const obfuscated = "PCFET0NUWVBFIGh0bWw+PGh0bWwgbGFuZz0iZW4iPjxoZWFkPjxtZXRhIGNoYXJzZXQ9IlVURi04Ij48bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+PHRpdGxlPkJpa2FzIEJhc25ldCB8IFBlcnNvbmFsIFdlYnNpdGU8L3RpdGxlPjxtZXRhIG5hbWU9ImRlc2NyaXB0aW9uIiBjb250ZW50PSJCaWthcyBCYXNuZXQncyB3ZWJzaXRlIHdpdGggcHJvamVjdHMgYW5kIHNraWxscy4iPjxtZXRhIHByb3BlcnR5PSJvZzp0aXRsZSIgY29udGVudD0iQmlrYXMgQmFzbmV0IHwgUGVyc29uYWwgV2Vic2l0ZSI+PG1ldGEgcHJvcGVydHk9Im9nOmRlc2NyaXB0aW9uIiBjb250ZW50PSJFeHBsb3JlIEJpa2FzIEJhc25ldCdzIHBvcnRmb2xpbzogd2ViIGRldmVsb3BtZW50LCBwcm9qZWN0cywgYW5kIHNraWxscy4iPjxtZXRhIHByb3BlcnR5PSJvZzppbWFnZSIgY29udGVudD0iaHR0cHM6Ly9iaWthc2Jhc25ldHRlc3QuZ2l0aHViLmlvL2ltYWdlcy9iaWthcy1wb3J0Zm9saW8uanBnIj48bWV0YSBwcm9wZXJ0eT0ib2c6dXJsIiBjb250ZW50PSJodHRwczovL2Jpa2FzYmFzbmV0dGVzdC5naXRodWIuaW8vIj48bWV0YSBwcm9wZXJ0eT0ib2c6dHlwZSIgY29udGVudD0id2Vic2l0ZSI+PG1ldGEgbmFtZT0idHdpdHRlcjpjYXJkIiBjb250ZW50PSJzdW1tYXJ5X2xhcmdlX2ltYWdlIj48bWV0YSBuYW1lPSJ0d2l0dGVyOnRpdGxlIiBjb250ZW50PSJCaWthcyBCYXNuZXQgfCBQZXJzb25hbCBXZWJzaXRlIj48bWV0YSBuYW1lPSJ0d2l0dGVyOmRlc2NyaXB0aW9uIiBjb250ZW50PSJFeHBsb3JlIEJpa2FzIEJhc25ldCdzIHBvcnRmb2xpbzogd2ViIGRldmVsb3BtZW50LCBwcm9qZWN0cywgYW5kIHNraWxscy4iPjxtZXRhIG5hbWU9InR3aXR0ZXI6aW1hZ2UiIGNvbnRlbnQ9Imh0dHBzOi8vYmlrYXNiYXNuZXR0ZXN0LmdpdGh1Yi5pby9pbWFnZXMvYmlrYXMtcG9ydGZvbGlvLmpwZyI+PHN0eWxlPmJvZHkgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IG1hcmdpbjogMDsgcGFkZGluZzogMDsgfSB7IG5hdiB7IGJhY2tncm91bmQtY29sb3I6ICMwMDY0MDA7IGNvbG9yOiB3aGl0ZTsgcGFkZGluZzogMTJweDsgdGV4dC1hbGlnbjogY2VudGVyOyB9IDwvc3R5bGU+PC9oZWFkPjxib2R5PjxuYXY+ICAgIDxhIGhyZWY9IiNob21lIiBzdHlsZT0iY29sb3I6IHdoaXRlOyBtYXJnaW46IDAgMTVweDsiPkhomeU8L2E+ICAgIDxhIGhyZWY9IiNwcm9qZWN0cyIgc3R5bGU9ImNvbG9yOiB3aGl0ZTsgbWFyZ2luOiAwIDE1cHg7Ij5Qcm9qZWN0czwvYT4gICAgPGEgaHJlZj0iI3B1YmxpY2F0aW9ucyIgc3R5bGU9ImNvbG9yOiB3aGl0ZTsgbWFyZ2luOiAwIDE1cHg7Ij5QdWJsaWNhdGlvbnM8L2E+PC9uYXY+PHNlY3Rpb24gaWQ9ImhvbWUiPjxoMT5CaWthcyBCYXNuZXQncyBQb3J0Zm9saW88L2gxPjpwPldlYiBkZXZlbG9wZXIgYW5kIGNyZWF0b3IuPC9wPjwvc2VjdGlvbj48c2VjdGlvbiBpZD0icHVibGljYXRpb25zIj48aDI+UHVibGljYXRpb25zPC9oMj48cD5NeSBwdWJsaWNhdGlvbnMgZ28gaGVyZS48L3A+PC9zZWN0aW9uPjwvYm9keT48L2h0bWw+";
+            document.documentElement.innerHTML = atob(obfuscated);
+        })();
+       
+       // Right-click protection
 document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             alert("Right-click is disabled!");
         });
-
+// Inspect protection
         (function() {
             let devtoolsOpen = false;
             let initialWidthDiff = window.outerWidth - window.innerWidth;
