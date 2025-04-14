@@ -422,7 +422,33 @@
         #cv { position: relative; min-height: 100vh; }
         #contact { position: relative; min-height: 100vh; }
         #Student-Blog { position: relative; min-height: 100vh; }
-        
+
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f5e050; /* Festive yellow to match Nepali vibrancy */
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid #d32f2f; /* Red border to complement your site */
+}
+
+.ticker {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1.5em;
+    color: #d32f2f; /* Red text for festive feel */
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+       
      .banner {
     background-color: #0044cc;
     color: white;
@@ -687,7 +713,13 @@
         <a href="#contact" onclick="showSection('contact')">Contact</a>
         <a href="#Student-Blog" onclick="showSection('Student-Blog')">Students Blog</a>
     </nav>
-
+   
+<div class="ticker-container">
+    <div class="ticker">
+        नयाँ वर्ष २०८२ को शुभकामना!🌸 तपाईंलाई समृद्धि र दिर्घायुको कामना!
+    </div>
+</div>
+   
     <div class="banner">
     <div class="banner-content">
         <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/flag.png" alt="Nepal Flag">
@@ -1060,6 +1092,22 @@ document.addEventListener('contextmenu', function(e) {
         document.addEventListener('DOMContentLoaded', () => {
             showSection('home');
         });
+
+       
+document.addEventListener('DOMContentLoaded', () => {
+        const ticker = document.querySelector('.ticker');
+        const messages = [
+            'नयाँ वर्ष २०८२ को शुभकामना!🌸 तपाईंलाई समृद्धि र दिर्घायुको कामना!',
+        ];
+        let index = 0;
+
+        setInterval(() => {
+            ticker.textContent = messages[index];
+            index = (index + 1) % messages.length;
+        }, 20000)
+
+
+       
     </script>
 </body>
 </html>
