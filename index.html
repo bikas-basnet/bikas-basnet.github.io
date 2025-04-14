@@ -426,17 +426,27 @@
 .ticker-container {
     width: 100%;
     overflow: hidden;
-    background-color: #f5e050; /* Festive yellow to match Nepali vibrancy */
+    background-color: #f5e050;
     padding: 10px 0;
     font-family: Arial, sans-serif;
-    border-bottom: 2px solid #d32f2f; /* Red border to complement your site */
+    border-bottom: 2px solid #d32f2f;
+    z-index: 5; /* Below nav */
+}
+
+nav {
+    background-color: #006400;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    position: relative;
+    z-index: 10; /* Above ticker */
 }
 
 .ticker {
     display: inline-block;
     white-space: nowrap;
     font-size: 1.5em;
-    color: #d32f2f; /* Red text for festive feel */
+    color: #d32f2f;
     animation: scroll 10s linear infinite;
 }
 
@@ -986,128 +996,118 @@
     </div>
 
     <script> 
-       // Right-click protection
+      <script>
+// Right-click protection
 document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            alert("Right-click is disabled!");
-        });
-// Inspect protection
-        (function() {
-            let devtoolsOpen = false;
-            let initialWidthDiff = window.outerWidth - window.innerWidth;
-            let initialHeightDiff = window.outerHeight - window.innerHeight;
+    e.preventDefault();
+    alert("Right-click is disabled!");
+});
 
-            setInterval(() => {
-                let currentWidthDiff = window.outerWidth - window.innerWidth;
-                let currentHeightDiff = window.outerHeight - window.innerHeight;
-                if ((currentWidthDiff > initialWidthDiff + 50 || 
-                     currentHeightDiff > initialHeightDiff + 50) && 
-                     !devtoolsOpen) {
-                    devtoolsOpen = true;
-                    document.body.innerHTML = '';
-                    alert("Inspect tool detected! Page content hidden.");
-                }
-            }, 500);
-        })();
-     
-    function toggleResearchInfo() {
+// Inspect protection
+(function() {
+    let devtoolsOpen = false;
+    let initialWidthDiff = window.outerWidth - window.innerWidth;
+    let initialHeightDiff = window.outerHeight - window.innerHeight;
+
+    setInterval(() => {
+        let currentWidthDiff = window.outerWidth - window.innerWidth;
+        let currentHeightDiff = window.outerHeight - window.innerHeight;
+        if ((currentWidthDiff > initialWidthDiff + 50 || 
+             currentHeightDiff > initialHeightDiff + 50) && 
+             !devtoolsOpen) {
+            devtoolsOpen = true;
+            document.body.innerHTML = '';
+            alert("Inspect tool detected! Page content hidden.");
+        }
+    }, 500);
+})();
+
+function toggleResearchInfo() {
     var info = document.getElementById("research-info");
-    if (info.style.display === "block") {
-        info.style.display = "none";
+    info.style.display = info.style.display === "block" ? "none" : "block";
+}
+
+function showSection(sectionId) {
+    console.log('Showing section:', sectionId);
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => section.style.display = 'none');
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+        if (sectionId === 'RRA') {
+            cycleRRAImages();
+        }
     } else {
-        info.style.display = "block";
+        console.error('Section not found:', sectionId);
     }
 }
-        function showSection(sectionId) {
-            console.log('Showing section:', sectionId);
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-            const selectedSection = document.getElementById(sectionId);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
-                if (sectionId === 'RRA') {
-                    cycleRRAImages();
-                }
-            } else {
-                console.error('Section not found:', sectionId);
-            }
-        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const triggers = document.querySelectorAll('.notices-trigger');
-            const modals = document.querySelectorAll('.modal');
+function cycleRRAImages() {
+    const images = document.querySelectorAll('#RRA .image-sequence img');
+    let currentIndex = 0;
 
-            triggers.forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    console.log('Notice trigger clicked');
-                    const modal = trigger.nextElementSibling;
-                    if (modal && modal.classList.contains('modal')) {
-                        modal.style.display = 'block';
-                    }
-                });
-            });
+    function showNextImage() {
+        images.forEach(img => img.classList.remove('active'));
+        images[currentIndex].classList.add('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        setTimeout(showNextImage, 4000);
+    }
 
-            modals.forEach(modal => {
-                const closeBtn = modal.querySelector('.close-modal');
-                closeBtn.addEventListener('click', () => {
-                    modal.style.display = 'none';
-                });
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && modal.style.display === 'block') {
-                        modal.style.display = 'none';
-                    }
-                });
-            });
-        });
+    showNextImage();
+}
 
-        function cycleRRAImages() {
-            const images = document.querySelectorAll('#RRA .image-sequence img');
-            let currentIndex = 0;
-
-            function showNextImage() {
-                images.forEach(img => img.classList.remove('active'));
-                images[currentIndex].classList.add('active');
-                currentIndex = (currentIndex + 1) % images.length;
-                setTimeout(showNextImage, 4000);
-            }
-
-            showNextImage();
-        }
-
-        fetch('https://raw.githubusercontent.com/bikas-basnet/Experimental-Design-Aanlysis-code/main/HSD-data.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('hsd-results').innerHTML = data)
-            .catch(error => {
-                console.error('Error fetching HSD data:', error);
-                document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/bikas-basnet/Experimental-Design-Aanlysis-code/blob/main/HSD-data.html" target="_blank">View on GitHub</a>';
-            });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            showSection('home');
-        });
-
-       
 document.addEventListener('DOMContentLoaded', () => {
-        const ticker = document.querySelector('.ticker');
-        const messages = [
-            'नयाँ वर्ष २०८२ को शुभकामना!🌸 तपाईंलाई समृद्धि र दिर्घायुको कामना!',
-        ];
-        let index = 0;
+    // Initialize home section
+    showSection('home');
 
-        setInterval(() => {
-            ticker.textContent = messages[index];
-            index = (index + 1) % messages.length;
-        }, 20000)
+    // Notices modal handling
+    const triggers = document.querySelectorAll('.notices-trigger');
+    const modals = document.querySelectorAll('.modal');
 
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            console.log('Notice trigger clicked');
+            const modal = trigger.nextElementSibling;
+            if (modal && modal.classList.contains('modal')) {
+                modal.style.display = 'block';
+            }
+        });
+    });
 
-       
+    modals.forEach(modal => {
+        const closeBtn = modal.querySelector('.close-modal');
+        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', e => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+    });
+
+    // Ticker animation
+    const ticker = document.querySelector('.ticker');
+    const messages = [
+        'नयाँ वर्ष २०८२ को शुभकामना! 🌸 तपाईंलाई समृद्धि र दिर्घायुको कामना!'
+    ];
+    let index = 0;
+
+    setInterval(() => {
+        ticker.textContent = messages[index];
+        index = (index + 1) % messages.length;
+    }, 10000); // Match 10s animation duration
+
+    // Fetch HSD data
+    fetch('https://raw.githubusercontent.com/bikas-basnet/Experimental-Design-Aanlysis-code/main/HSD-data.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('hsd-results').innerHTML = data)
+        .catch(error => {
+            console.error('Error fetching HSD data:', error);
+            document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/bikas-basnet/Experimental-Design-Aanlysis-code/blob/main/HSD-data.html" target="_blank">View on GitHub</a>';
+        });
+});   
     </script>
 </body>
 </html>
