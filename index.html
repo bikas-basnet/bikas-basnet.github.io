@@ -78,17 +78,21 @@
         }
         .dropdown:hover .dropdown-content { display: block; }
         .dropdown:hover .dropbtn { text-decoration: underline; }
-        .ticker-container {
-            width: 100%;
-            height: 15px;
-            overflow: hidden;
-            background-color: #f5e050;
-            padding: 10px 0;
-            font-family: Arial, sans-serif;
-            border-bottom: 2px solid #d32f2f;
-            position: relative;
-            z-index: 10; /* Below nav, above banner */
-        }
+        
+    .ticker-container {
+    width: 100%;
+    height: 15px;
+    overflow: hidden;
+    background-color: #f5e050;
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid #d32f2f;
+    position: relative;
+    z-index: 10;
+    display: flex; /* Add Flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: flex-start; /* Optional: align text start for scrolling */
+}
         .ticker {
     display: inline-block;
     white-space: nowrap;
