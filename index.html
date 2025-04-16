@@ -589,6 +589,7 @@
         }
  /* Styles for the contact section background */
 /* Styles for the contact section background */
+/* Styles for the contact section background */
 #contact {
     background-image: url('https://raw.githubusercontent.com/bikas-basnet/Loaction-map-in-R/main/nepal_all_districts_temp.gif');
     background-size: contain; /* Zooms out to show entire map without cropping */
@@ -596,8 +597,8 @@
     background-repeat: no-repeat; /* Prevents tiling */
     background-color: #f0f0f0; /* Fallback color for empty space */
     position: relative; /* Allows overlay and absolute positioning */
-    padding: 50px 0 150px; /* Space for footer */
-    min-height: 600px; /* Sufficient height for content */
+    padding: 50px 0 180px; /* Increased bottom padding for footer */
+    min-height: 700px; /* Increased height to ensure footer space */
 }
 
 /* Semi-transparent overlay for better visibility */
@@ -618,7 +619,6 @@
     z-index: 2; /* Above overlay */
     max-width: 1200px; /* Adjust as needed */
     margin: 0 auto; /* Centers horizontally */
-    text-align: center; /* Fallback centering */
     width: 100%; /* Ensures full width */
 }
 
@@ -627,7 +627,7 @@
     display: flex;
     justify-content: center; /* Centers icons horizontally */
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    margin: 20px 0 80px; /* Top margin for spacing, bottom to avoid footer overlap */
+    margin: 30px 0 100px; /* Top margin for spacing, bottom to avoid footer overlap */
 }
 
 .contact-icons a {
@@ -710,14 +710,14 @@
 @media (max-width: 768px) {
     #contact {
         background-size: contain; /* Maintains full map visibility */
-        padding: 30px 0 120px; /* Adjusted for mobile */
-        min-height: 400px; /* Shorter for mobile */
+        padding: 30px 0 140px; /* Adjusted for mobile */
+        min-height: 500px; /* Shorter for mobile */
     }
 
     .contact-icons {
-        margin: 15px 0 60px; /* Adjusted for mobile */
-        flex-direction: column; /* Stack icons vertically on small screens */
-        align-items: center; /* Centers icons vertically in column */
+        margin: 20px 0 80px; /* Adjusted for mobile */
+        flex-direction: column; /* Stack icons vertically */
+        align-items: center; /* Centers icons in column */
     }
 
     .contact-icon {
