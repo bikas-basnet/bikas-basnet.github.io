@@ -590,6 +590,7 @@
  /* Styles for the contact section background */
 /* Styles for the contact section background */
 /* Styles for the contact section background */
+/* Styles for the contact section background */
 #contact {
     background-image: url('https://raw.githubusercontent.com/bikas-basnet/Loaction-map-in-R/main/nepal_all_districts_temp.gif');
     background-size: contain; /* Zooms out to show entire map without cropping */
@@ -597,8 +598,8 @@
     background-repeat: no-repeat; /* Prevents tiling */
     background-color: #f0f0f0; /* Fallback color for empty space */
     position: relative; /* Allows overlay and absolute positioning */
-    padding: 50px 0 180px; /* Increased bottom padding for footer */
-    min-height: 700px; /* Increased height to ensure footer space */
+    padding: 50px 0 200px; /* Increased bottom padding for footer */
+    min-height: 800px; /* Increased height to ensure footer space */
 }
 
 /* Semi-transparent overlay for better visibility */
@@ -620,6 +621,7 @@
     max-width: 1200px; /* Adjust as needed */
     margin: 0 auto; /* Centers horizontally */
     width: 100%; /* Ensures full width */
+    min-height: 100%; /* Spans section height */
 }
 
 /* Contact icons styles */
@@ -627,7 +629,7 @@
     display: flex;
     justify-content: center; /* Centers icons horizontally */
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    margin: 30px 0 100px; /* Top margin for spacing, bottom to avoid footer overlap */
+    margin: 30px 0 120px; /* Top margin for spacing, bottom to avoid footer overlap */
 }
 
 .contact-icons a {
@@ -651,10 +653,10 @@
 
 /* Contact footer styles */
 .contact-footer {
-    position: absolute;
-    bottom: 20px; /* Anchors footer at the bottom */
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute !important; /* Ensures absolute positioning */
+    bottom: 20px !important; /* Anchors footer at the bottom */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     text-align: center;
     z-index: 2; /* Above overlay */
     display: flex;
@@ -687,7 +689,7 @@
 
 /* Address text styles */
 .address-text {
-    color: #ffffff; /* White for contrast */
+    color: #00ff00; /* green color for contrast */
     font-size: 14px;
     line-height: 1.5;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Shadow for readability */
@@ -700,6 +702,7 @@
 
 .address-text p {
     margin: 5px 0;
+    color: #00ff00;
 }
 
 .address-text strong {
@@ -710,12 +713,12 @@
 @media (max-width: 768px) {
     #contact {
         background-size: contain; /* Maintains full map visibility */
-        padding: 30px 0 140px; /* Adjusted for mobile */
-        min-height: 500px; /* Shorter for mobile */
+        padding: 30px 0 160px; /* Adjusted for mobile */
+        min-height: 600px; /* Adjusted for mobile */
     }
 
     .contact-icons {
-        margin: 20px 0 80px; /* Adjusted for mobile */
+        margin: 20px 0 100px; /* Adjusted for mobile */
         flex-direction: column; /* Stack icons vertically */
         align-items: center; /* Centers icons in column */
     }
@@ -726,14 +729,15 @@
     }
 
     .contact-footer {
-        bottom: 10px; /* Closer to bottom on mobile */
+        bottom: 10px !important; /* Closer to bottom on mobile */
         padding: 0 10px; /* Adjust padding */
     }
 
     .address-text {
         font-size: 12px; /* Smaller text on mobile */
         padding: 6px 10px; /* Adjust padding */
-        max-width: 90%; /* Responsive width */
+        max-width: 90%; 
+        color: #00ff00;/* Responsive width */
     }
 
     .logo-img {
