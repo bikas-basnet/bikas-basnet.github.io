@@ -593,65 +593,147 @@
             position: relative;
             z-index: 1;
         }
-        .contact-footer {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .address-text {
-            color: #2c3e50;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .address-text p { margin: 5px 0; }
-        .address-text strong { color: #006400; }
-        .footer-link { text-decoration: none; display: inline-block; }
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
-            transition: transform 0.3s ease;
-        }
-        .website-name {
-            color: #FFFFFF;
-            font-size: 18px;
-            font-weight: bold;
-            display: block;
-            transition: color 0.3s ease;
-        }
-        .footer-link:hover .logo-img { transform: scale(1.1); }
-        .footer-link:hover .website-name { color: #E0E0E0; }
-        .contact-icons { text-align: center; }
-        .contact-icons a {
-            display: inline-block;
-            margin: 10px;
-            text-decoration: none;
-            color: #2c3e50;
-            font-size: 16px;
-        }
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #contact {
+       /* Styles for the contact section background */
+#contact {
     background-image: url('https://raw.githubusercontent.com/bikas-basnet/Loaction-map-in-R/main/nepal_all_districts_temp.gif');
-    background-size: cover; /* Scales GIF to cover the section */
+    background-size: 150%; /* Zooms out the GIF (adjust value as needed) */
     background-position: center; /* Centers the GIF */
     background-repeat: no-repeat; /* Prevents GIF from repeating */
     position: relative; /* Allows overlay positioning */
     padding: 50px 0; /* Adjust padding for spacing */
     min-height: 400px; /* Ensures section has visible height */
+}
+
+/* Semi-transparent overlay for better icon visibility */
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay with 40% opacity */
+    z-index: 1; /* Places overlay behind content */
+}
+
+/* Container styles */
+.container {
+    position: relative; /* Ensures content stays above overlay */
+    z-index: 2; /* Places container above overlay */
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the container */
+    text-align: center; /* Centers icons */
+}
+
+/* Contact footer styles */
+.contact-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Address text styles */
+.address-text {
+    color: #2c3e50;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.address-text p {
+    margin: 5px 0;
+}
+
+.address-text strong {
+    color: #006400;
+}
+
+/* Footer link styles */
+.footer-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+.website-name {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover .logo-img {
+    transform: scale(1.1);
+}
+
+.footer-link:hover .website-name {
+    color: #E0E0E0;
+}
+
+/* Contact icons styles */
+.contact-icons {
+    text-align: center;
+}
+
+.contact-icons a {
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Added for visibility */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #contact {
+        background-size: 200%; /* Further zooms out for smaller screens */
+        padding: 30px 0; /* Reduce padding */
+    }
+
+    .contact-icon {
+        width: 35px; /* Slightly smaller icons on mobile */
+        height: 35px;
+    }
+
+    .contact-footer {
+        bottom: 10px; /* Adjust footer position for smaller screens */
+    }
+
+    .address-text {
+        font-size: 12px; /* Smaller text on mobile */
+    }
+
+    .website-name {
+        font-size: 16px; /* Smaller website name on mobile */
+    }
 }
     </style>
 </head>
