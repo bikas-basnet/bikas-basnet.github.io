@@ -617,14 +617,36 @@
     position: relative; /* Supports absolute positioning of footer */
     z-index: 2; /* Above overlay */
     max-width: 1200px; /* Adjust as needed */
-    margin: 0 auto; /* Centers the container */
-    text-align: center; /* Centers content */
-    min-height: 100%; /* Spans section height */
+    margin: 0 auto; /* Centers horizontally */
+    text-align: center; /* Fallback centering */
+    width: 100%; /* Ensures full width */
 }
 
-/* Contact icons styles (minimal to prevent overlap) */
+/* Contact icons styles */
 .contact-icons {
-    margin-bottom: 80px; /* Space to avoid overlap with footer */
+    display: flex;
+    justify-content: center; /* Centers icons horizontally */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    margin: 20px 0 80px; /* Top margin for spacing, bottom to avoid footer overlap */
+}
+
+.contact-icons a {
+    display: inline-block;
+    margin: 10px; /* Spacing between icons */
+    text-decoration: none;
+}
+
+.contact-icon {
+    width: 40px; /* Standard size for icons */
+    height: 40px;
+    display: block;
+    margin: 0 auto; /* Centers icon within link */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Glow for visibility */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
 /* Contact footer styles */
@@ -652,7 +674,7 @@
 }
 
 .logo-img {
-    width: 40px;
+    width: 40px; /* Standard size for logo */
     height: 40px;
     margin-bottom: 5px;
     transition: transform 0.3s ease;
@@ -693,7 +715,14 @@
     }
 
     .contact-icons {
-        margin-bottom: 60px; /* Less space on mobile */
+        margin: 15px 0 60px; /* Adjusted for mobile */
+        flex-direction: column; /* Stack icons vertically on small screens */
+        align-items: center; /* Centers icons vertically in column */
+    }
+
+    .contact-icon {
+        width: 35px; /* Smaller icons on mobile */
+        height: 35px;
     }
 
     .contact-footer {
