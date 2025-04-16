@@ -588,163 +588,131 @@
             100% { opacity: 0; }
         }
  /* Styles for the contact section background */
-/* Styles for the contact section background */
-/* Styles for the contact section background */
-/* Styles for the contact section background */
 #contact {
     background-image: url('https://raw.githubusercontent.com/bikas-basnet/Loaction-map-in-R/main/nepal_all_districts_temp.gif');
-    background-size: contain; /* Zooms out to show entire map without cropping */
-    background-position: center; /* Centers the map */
-    background-repeat: no-repeat; /* Prevents tiling */
-    background-color: #f0f0f0; /* Fallback color for empty space */
-    position: relative; /* Allows overlay and absolute positioning */
-    padding: 50px 0 200px; /* Increased bottom padding for footer */
-    min-height: 800px; /* Increased height to ensure footer space */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #f0f0f0;
+    position: relative;
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Semi-transparent overlay for better visibility */
+/* Dark overlay */
 #contact::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
-    z-index: 1; /* Places overlay behind content */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
-/* Container styles */
+/* Container for content */
 .container {
-    position: relative; /* Supports absolute positioning of footer */
-    z-index: 2; /* Above overlay */
-    max-width: 1200px; /* Adjust as needed */
-    margin: 0 auto; /* Centers horizontally */
-    width: 100%; /* Ensures full width */
-    min-height: 100%; /* Spans section height */
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Contact icons styles */
+/* Contact icons row */
 .contact-icons {
     display: flex;
-    justify-content: center; /* Centers icons horizontally */
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    margin: 30px 0 120px; /* Top margin for spacing, bottom to avoid footer overlap */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 80px; /* Space above footer */
 }
 
 .contact-icons a {
-    display: inline-block;
-    margin: 10px; /* Spacing between icons */
+    margin: 10px;
     text-decoration: none;
 }
 
 .contact-icon {
-    width: 40px; /* Standard size for icons */
+    width: 40px;
     height: 40px;
     display: block;
-    margin: 0 auto; /* Centers icon within link */
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Glow for visibility */
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+    transition: transform 0.3s ease;
 }
 
 .contact-icon:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.1);
 }
 
-/* Contact footer styles */
+/* Footer always at the bottom */
 .contact-footer {
-    position: absolute !important; /* Ensures absolute positioning */
-    bottom: 20px !important; /* Anchors footer at the bottom */
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    z-index: 2;
     text-align: center;
-    z-index: 2; /* Above overlay */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Spacing between logo and address */
-    width: 100%; /* Spans container width */
-    padding: 0 20px; /* Padding for mobile */
-    box-sizing: border-box; /* Prevents padding issues */
+    gap: 10px;
 }
 
-/* Footer link styles */
+/* Footer logo */
 .footer-link {
     text-decoration: none;
-    display: inline-block;
-    order: 1; /* Places logo above address-text */
 }
 
 .logo-img {
-    width: 40px; /* Standard size for logo */
+    width: 40px;
     height: 40px;
-    margin-bottom: 5px;
     transition: transform 0.3s ease;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Glow for visibility */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
 }
 
 .footer-link:hover .logo-img {
     transform: scale(1.1);
 }
 
-/* Address text styles */
+/* Address box */
 .address-text {
-    color: #00ff00; /* green color for contrast */
+    color: #ffffff;
     font-size: 14px;
     line-height: 1.5;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Shadow for readability */
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    padding: 8px 12px; /* Padding for text box */
-    border-radius: 5px; /* Rounded corners */
-    order: 2; /* Ensures address-text appears below logo */
-    max-width: 600px; /* Limits width for readability */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 14px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    max-width: 600px;
+    text-align: center;
 }
 
-.address-text p {
-    margin: 5px 0;
-    color: #00ff00;
-}
-
-.address-text strong {
-    color: #00ff00; /* Brighter green for emphasis */
-}
-
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
     #contact {
-        background-size: contain; /* Maintains full map visibility */
-        padding: 30px 0 160px; /* Adjusted for mobile */
-        min-height: 600px; /* Adjusted for mobile */
+        min-height: 100vh;
     }
 
     .contact-icons {
-        margin: 20px 0 100px; /* Adjusted for mobile */
-        flex-direction: column; /* Stack icons vertically */
-        align-items: center; /* Centers icons in column */
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 60px;
     }
 
     .contact-icon {
-        width: 35px; /* Smaller icons on mobile */
+        width: 35px;
         height: 35px;
-    }
-
-    .contact-footer {
-        bottom: 10px !important; /* Closer to bottom on mobile */
-        padding: 0 10px; /* Adjust padding */
-    }
-
-    .address-text {
-        font-size: 12px; /* Smaller text on mobile */
-        padding: 6px 10px; /* Adjust padding */
-        max-width: 90%; 
-        color: #00ff00;/* Responsive width */
     }
 
     .logo-img {
-        width: 35px; /* Smaller logo on mobile */
+        width: 35px;
         height: 35px;
     }
+
+    .address-text {
+        font-size: 12px;
+        max-width: 90%;
+    }
 }
+
     </style>
 </head>
 <body>
