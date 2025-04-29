@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student & Expert Blog Haven</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+    body {
+      background: linear-gradient(135deg, #1a3c34, #4ade80);
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #1a3c34;
+    }
+    .navbar {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .navbar a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #15803d;
+      transform: translateY(-2px);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar a.active {
+      color: #15803d;
+      font-weight: 700;
+    }
+    .photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f7fafc;
+      box-shadow: 0 0 20px rgba(74, 222, 128, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .photo:hover {
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 0 30px rgba(74, 222, 128, 0.9);
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(30px);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+      animation-delay: calc(0.15s * var(--index));
+    }
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .content p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: opacity 0.3s ease;
+    }
+    .content p:hover {
+      opacity: 0.85;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2.5rem;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom:Iris: 0;
+      left: 0;
+      width: 60%;
+      height: 5px;
+      background: linear-gradient(to right, #15803d, #4ade80);
+      border-radius: 2px;
+    }
+    .read-more {
+      font-family: 'Poppins', sans-serif;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .read-more:hover {
+      color: #15803d;
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar py-4">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Blog Haven</h1>
+      <div class="space-x-8">
+        <a href="#expert-views" class="text-gray-700 hover:text-green-800">Expert Views</a>
+        <a href="#student-blogs" class="text-gray-700 hover:text-green-800">Student Blogs</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container max-w-6xl mx-auto px-6 py-16">
+    <!-- Expert Views Section -->
+    <section id="expert-views" class="mb-20">
+      <h2 class="section-title text-4xl font-bold text-white">Expert Insights</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Expert 1 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 1">
+          <img src="https://via.placeholder.com/130?text=Expert1" alt="Expert 1" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Open Source Future</h3>
+          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <div class="content text-gray-700">
+            <p>Open source thrives with tools like the GitHub Student Developer Pack. As a tech veteran, I’ve witnessed its global impact. Students leverage GitKraken for seamless Git workflows and DigitalOcean for scalable testing. These tools democratize innovation, enabling contributions to AI, web, and IoT projects. Mentorship is key—guide students through small fixes to build confidence. Open source fosters collaboration and diversity. My advice: master Git basics, engage in issues, and document well. The Pack empowers students to shape tech’s future through inclusive, community-driven development.</p>
+          </div>
+          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+        </div>
+        <!-- Expert 2 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 2">
+          <img src="https://via.placeholder.com/130?text=Expert2" alt="Expert 2" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Scaling Student Work</h3>
+          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <div class="content text-gray-700">
+            <p>The GitHub Student Developer Pack transforms student projects into professional portfolios. As a CTO, I’ve scaled student apps using GitKraken for version control and DigitalOcean for cloud hosting. Start with Git fundamentals—branching, merging, pull requests. Use Notion, a Pack perk, for project planning. Clear documentation and community feedback are vital. I helped a student team deploy a machine learning model globally with these tools. The Pack’s resources empower experimentation. Focus on modularity and testing to elevate your work from classroom to real-world impact.</p>
+          </div>
+          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+        </div>
+        <!-- Expert 3 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 3">
+          <img src="https://via.placeholder.com/130?text=Expert3" alt="Expert 3" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Mentoring Coders</h3>
+          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <div class="content text-gray-700">
+            <p>Mentoring students via the GitHub Student Developer Pack is rewarding. As a maintainer, I guide newcomers using GitKraken for Git tasks and DigitalOcean for testing. Students contribute to data or UI projects, starting with small fixes. The Pack’s tools, like free credits, enable bold experiments. I teach issue etiquette and code reviews. Open source builds skills and networks. My tip: follow repo guidelines, ask questions, and iterate. The Pack lets students shine in global communities, creating impactful tech solutions.</p>
+          </div>
+          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student Blogs Section -->
+    <section id="student-blogs">
+      <h2 class="section-title text-4xl font-bold text-white">Student Stories</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Student 1 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 4">
+          <img src="https://via.placeholder.com/130?text=Student1" alt="Student 1" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Open Source Quest</h3>
+          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <div class="content text-gray-700">
+            <p>I’m a CS student who dove into open source with the GitHub Student Developer Pack. I fixed a CSS bug in a note-taking app. GitKraken simplified commits, and DigitalOcean enabled live testing. My pull request earned kind feedback, teaching me GitHub workflows and teamwork. I’m now exploring machine learning projects. The Pack’s tools make open source vibrant!</p>
+          </div>
+          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+        </div>
+        <!-- Student 2 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 5">
+          <img src="https://via.placeholder.com/130?text=Student2" alt="Student 2" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">First Commit Joy</h3>
+          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <div class="content text-gray-700">
+            <p>With the GitHub Student Developer Pack, I contributed to a task app, fixing a JavaScript bug. GitKraken’s visuals guided me, and DigitalOcean hosted my demo. The community’s support was incredible, and my pull request merged! I learned Git branching and collaboration. I’m now eyeing AI repos. The Pack rocks!</p>
+          </div>
+          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+        </div>
+        <!-- Student 3 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 6">
+          <img src="https://via.placeholder.com/130?text=Student3" alt="Student 3" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Code Adventure</h3>
+          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <div class="content text-gray-700">
+            <p>The GitHub Student Developer Pack opened open source for me. I tweaked a Python script in a data app. GitKraken streamlined my work, and DigitalOcean hosted tests. My pull request got great feedback. I learned GitHub’s community spirit. I’m now hooked, aiming for web dev projects!</p>
+          </div>
+          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+        </div>
+        <!-- Student 4 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 7">
+          <img src="https://via.placeholder.com/130?text=Student4" alt="Student 4" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Connect & Code</h3>
+          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <div class="content text-gray-700">
+            <p>Using the GitHub Student Developer Pack, I joined a chat app project, fixing a UI glitch with CSS. GitKraken was a lifesaver, and DigitalOcean enabled testing. My pull request was approved fast. I learned Git commands and collaboration. I’m now exploring blockchain repos. The Pack is epic!</p>
+          </div>
+          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Smooth scrolling for navbar links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Highlight active nav link on scroll
+    window.addEventListener('scroll', () => {
+      const sections = ['expert-views', 'student-blogs'];
+      const navLinks = document.querySelectorAll('.navbar a');
+      let current = '';
+
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element.getBoundingClientRect().top <= 150) {
+          current = section;
+        }
+      });
+
+      navLinks.forEach(link => {
+        const isActive = link.getAttribute('href').slice(1) === current;
+        link.classList.toggle('active', isActive);
+        link.classList.toggle('text-gray-700', !isActive);
+      });
+    });
+  </script>
+</body>
+</html>
