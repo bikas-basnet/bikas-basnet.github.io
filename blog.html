@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Haven - Expert Views & Student Blogs</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Haven - Expert Views & Student Blogs</title>
+    <meta name="description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
+
+    <!-- Open Graph tags -->
+    <meta property="og:site_name" content="Bikas Basnet">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog Haven - Expert Views & Student Blogs">
+    <meta property="og:description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
+    <meta property="og:url" content="https://bikas-basnet.github.io/blog.html">
+    <meta property="og:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog Haven - Expert Views & Student Blogs">
+    <meta name="twitter:description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
+    <meta name="twitter:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:creator" content="@YourTwitterHandle">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
     body {
@@ -141,7 +164,7 @@
         <!-- Expert 1 -->
         <div class="card rounded-2xl shadow-lg p-8" style="--index: 1">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Roshan Ghimire</h3>
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Mr Roshan Ghimire</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Masters of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
           <p class="text-sm text-gray-500 text-center mb-4">March 15, 2025</p>
           <div class="content text-gray-700">
@@ -152,7 +175,7 @@
         <!-- Expert 2 -->
         <div class="card rounded-2xl shadow-lg p-8" style="--index: 2">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/SD.jpg" alt="Santosh Bhandari" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Santosh Bhandari</h3>
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Mr Santosh Bhandari</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master in Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
           <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
           <div class="content text-gray-700">
@@ -175,6 +198,30 @@
   </div>
 
   <script>
+    // Right-click protection
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert("Right-click is disabled!");
+        });
+
+        // Inspect protection
+        (function() {
+            let devtoolsOpen = false;
+            let initialWidthDiff = window.outerWidth - window.innerWidth;
+            let initialHeightDiff = window.outerHeight - window.innerHeight;
+
+            setInterval(() => {
+                let currentWidthDiff = window.outerWidth - window.innerWidth;
+                let currentHeightDiff = window.outerHeight - window.innerHeight;
+                if ((currentWidthDiff > initialWidthDiff + 50 || 
+                     currentHeightDiff > initialHeightDiff + 50) && 
+                     !devtoolsOpen) {
+                    devtoolsOpen = true;
+                    document.body.innerHTML = '';
+                    alert("Inspect tool detected! Page content hidden.");
+                }
+            }, 500);
+        })();
     // Smooth scrolling for navbar links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
