@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student & Expert Blog Haven</title>
+  <title>Blog Haven - Expert Views & Student Blogs</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
@@ -83,7 +83,7 @@
     .section-title::after {
       content: '';
       position: absolute;
-      bottom:Iris: 0;
+      bottom: -8px;
       left: 0;
       width: 60%;
       height: 5px;
@@ -97,6 +97,23 @@
     .read-more:hover {
       color: #15803d;
       transform: translateX(5px);
+    }
+    .content-section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+      animation-delay: 0.3s;
+    }
+    .content-section p {
+      font-size: 1.1rem;
+      color: #1a3c34;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.8;
     }
   </style>
 </head>
@@ -117,34 +134,26 @@
     <!-- Expert Views Section -->
     <section id="expert-views" class="mb-20">
       <h2 class="section-title text-4xl font-bold text-white">Expert Insights</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Expert 1 -->
         <div class="card rounded-2xl shadow-lg p-8" style="--index: 1">
-          <img src="https://via.placeholder.com/130?text=Expert1" alt="Expert 1" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Open Source Future</h3>
-          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Roshan Ghimire</h3>
+          <p class="text-sm text-gray-500 text-center mb-2">Masters of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
+          <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
           <div class="content text-gray-700">
-            <p>Open source thrives with tools like the GitHub Student Developer Pack. As a tech veteran, I’ve witnessed its global impact. Students leverage GitKraken for seamless Git workflows and DigitalOcean for scalable testing. These tools democratize innovation, enabling contributions to AI, web, and IoT projects. Mentorship is key—guide students through small fixes to build confidence. Open source fosters collaboration and diversity. My advice: master Git basics, engage in issues, and document well. The Pack empowers students to shape tech’s future through inclusive, community-driven development.</p>
+            <p>In Nepal, horticulture faces critical challenges including soil degradation from excessive agrochemical use and monocropping, youth reluctance toward farming due to low profitability and migration, dysfunctional value chains marked by inadequate storage, transportation, and marketing infrastructure, climate change-induced disasters (e.g., extreme rainfall in 2024), and dependence on imported seeds despite efforts under the National Seed Vision (2013–2025). However, prospects include agroecology initiatives aiming for a 20-year transition (2025–2045) to climate-resilient farming, rising demand for organic produce, and community-led adaptations by women farmers. The sector’s scope lies in leveraging indigenous knowledge, protected cultivation, and policy reforms to enhance seed systems, mechanization, and market access, while addressing productivity gaps and fostering collaboration across federal and local levels.</p>
           </div>
           <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
         </div>
         <!-- Expert 2 -->
         <div class="card rounded-2xl shadow-lg p-8" style="--index: 2">
-          <img src="https://via.placeholder.com/130?text=Expert2" alt="Expert 2" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Scaling Student Work</h3>
-          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
+          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/SD.jpg" alt="Santosh Bhandari" class="photo mx-auto mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Santosh Bhandari</h3>
+          <p class="text-sm text-gray-500 text-center mb-2">Master in Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
+          <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
           <div class="content text-gray-700">
-            <p>The GitHub Student Developer Pack transforms student projects into professional portfolios. As a CTO, I’ve scaled student apps using GitKraken for version control and DigitalOcean for cloud hosting. Start with Git fundamentals—branching, merging, pull requests. Use Notion, a Pack perk, for project planning. Clear documentation and community feedback are vital. I helped a student team deploy a machine learning model globally with these tools. The Pack’s resources empower experimentation. Focus on modularity and testing to elevate your work from classroom to real-world impact.</p>
-          </div>
-          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
-        </div>
-        <!-- Expert 3 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 3">
-          <img src="https://via.placeholder.com/130?text=Expert3" alt="Expert 3" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Mentoring Coders</h3>
-          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
-          <div class="content text-gray-700">
-            <p>Mentoring students via the GitHub Student Developer Pack is rewarding. As a maintainer, I guide newcomers using GitKraken for Git tasks and DigitalOcean for testing. Students contribute to data or UI projects, starting with small fixes. The Pack’s tools, like free credits, enable bold experiments. I teach issue etiquette and code reviews. Open source builds skills and networks. My tip: follow repo guidelines, ask questions, and iterate. The Pack lets students shine in global communities, creating impactful tech solutions.</p>
+            <p>In Nepal, plant breeding and genetics face challenges such as policy gaps, over-reliance on imported seeds, limited adoption of advanced biotech tools (e.g., CRISPR), and climate-induced stresses (e.g., droughts, pests), alongside systemic issues like underfunded research and regulatory barriers to genetic material exports. However, opportunities emerge through collaborative initiatives (e.g., NARC-IRRI partnerships for submergence-tolerant rice), agroecological transitions prioritizing indigenous landraces (e.g., aromatic rice), and policy reforms like the National Seed Vision, aiming to boost climate-resilient varieties and decentralized seed systems. The future scope hinges on integrating precision breeding, strengthening public-private partnerships, and leveraging Nepal’s rich agro-biodiversity to address food security and sustainability while bridging gaps in research capacity and market access.</p>
           </div>
           <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
         </div>
@@ -152,48 +161,11 @@
     </section>
 
     <!-- Student Blogs Section -->
-    <section id="student-blogs">
+    <section id="student-blogs" class="mb-20">
       <h2 class="section-title text-4xl font-bold text-white">Student Stories</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Student 1 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 4">
-          <img src="https://via.placeholder.com/130?text=Student1" alt="Student 1" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Open Source Quest</h3>
-          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
-          <div class="content text-gray-700">
-            <p>I’m a CS student who dove into open source with the GitHub Student Developer Pack. I fixed a CSS bug in a note-taking app. GitKraken simplified commits, and DigitalOcean enabled live testing. My pull request earned kind feedback, teaching me GitHub workflows and teamwork. I’m now exploring machine learning projects. The Pack’s tools make open source vibrant!</p>
-          </div>
-          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
-        </div>
-        <!-- Student 2 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 5">
-          <img src="https://via.placeholder.com/130?text=Student2" alt="Student 2" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">First Commit Joy</h3>
-          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
-          <div class="content text-gray-700">
-            <p>With the GitHub Student Developer Pack, I contributed to a task app, fixing a JavaScript bug. GitKraken’s visuals guided me, and DigitalOcean hosted my demo. The community’s support was incredible, and my pull request merged! I learned Git branching and collaboration. I’m now eyeing AI repos. The Pack rocks!</p>
-          </div>
-          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
-        </div>
-        <!-- Student 3 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 6">
-          <img src="https://via.placeholder.com/130?text=Student3" alt="Student 3" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Code Adventure</h3>
-          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
-          <div class="content text-gray-700">
-            <p>The GitHub Student Developer Pack opened open source for me. I tweaked a Python script in a data app. GitKraken streamlined my work, and DigitalOcean hosted tests. My pull request got great feedback. I learned GitHub’s community spirit. I’m now hooked, aiming for web dev projects!</p>
-          </div>
-          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
-        </div>
-        <!-- Student 4 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 7">
-          <img src="https://via.placeholder.com/130?text=Student4" alt="Student 4" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Connect & Code</h3>
-          <p class="text-sm text-gray-500 text-center mb-4">April 29, 2025</p>
-          <div class="content text-gray-700">
-            <p>Using the GitHub Student Developer Pack, I joined a chat app project, fixing a UI glitch with CSS. GitKraken was a lifesaver, and DigitalOcean enabled testing. My pull request was approved fast. I learned Git commands and collaboration. I’m now exploring blockchain repos. The Pack is epic!</p>
-          </div>
-          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+      <div id="Expert view and Students Blogs" class="content-section">
+        <div class="container">
+          <p>Students' Blogs are coming soon...</p>
         </div>
       </div>
     </section>
