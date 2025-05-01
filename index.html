@@ -749,7 +749,7 @@
         <a href="#RRA" onclick="showSection('RRA')">RRA</a>
         <a href="#cv" onclick="showSection('cv')">CV</a>
         <a href="#contact" onclick="showSection('contact')">Contact</a>
-        <a href="#Expert view and Students Blogs" onclick="showSection('Expert view and Students Blogs')">Expert view and Students Blogs</a>
+        <a href="#expert-blogs" onclick="loadBlog()">Expert view and Students Blogs</a>
     </nav>
 
     <div class="ticker-container">
@@ -1027,12 +1027,14 @@
                     <p><strong>Permanent Address Line 1:</strong> Sunderharaincha Municipality-9, Jharnapool, Biratchowk, Morang, Nepal</p>
                     <p><strong>Permanent Address Line 2:</strong> Dharma Devi Municipality-4, Mamling, Sankhuwasabha, Nepal</p>
                 </div>
-            </div>     
-   <div id="expert-blogs" class="content-section">
-    <div class="container">
-        <a href="blog.html" class="text-gray-700 hover:text-green-800">Expert View and Students Blogs</a>
-    </div>
-</div> 
+            </div> 
+            <div id="expert-blogs" class="content-section"
+                <div class="container">
+                <!-- blog.html content will load here -->
+            </div>
+        </div>
+    </div> 
+   
     <script>
         // Right-click protection
         document.addEventListener('contextmenu', function(e) {
@@ -1140,6 +1142,25 @@
                     document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/bikas-basnet/Experimental-Design-Aanlysis-code/blob/main/HSD-data.html" target="_blank">View on GitHub</a>';
                 });
         });
+        // for the blog.html to index.html link
+        
+  function loadBlog() {
+    fetch("blog.html")
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to load blog.html");
+        return response.text();
+      })
+      .then(html => {
+        document.querySelector("#expert-blogs .container").innerHTML = html;
+        window.location.hash = "expert-blogs"; // scroll to the section
+      })
+      .catch(err => {
+        document.querySelector("#expert-blogs .container").innerHTML =
+          "<p style='color:red;'>Error loading blog content.</p>";
+        console.error(err);
+      });
+  }
+     
     </script>
 </body>
 </html>
