@@ -65,11 +65,13 @@
     .content p {
       font-size: 0.95rem;
       line-height: 1.7;
+      transition: opacity 0.3s ease;
+    }
+    .content p.truncated {
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      transition: opacity 0.3s ease;
     }
     .content p:hover {
       opacity: 0.85;
@@ -93,6 +95,7 @@
     .read-more {
       font-family: 'Poppins', sans-serif;
       transition: color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
     }
     .read-more:hover {
       color: #15803d;
@@ -140,11 +143,11 @@
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6">
           <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">Roshan Ghimire</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Masters of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
-          <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
+          <p class="text-sm text-gray-500 text-center mb-4">March 15, 2025</p>
           <div class="content text-gray-700">
-            <p>In Nepal, horticulture faces critical challenges including soil degradation from excessive agrochemical use and monocropping, youth reluctance toward farming due to low profitability and migration, dysfunctional value chains marked by inadequate storage, transportation, and marketing infrastructure, climate change-induced disasters (e.g., extreme rainfall in 2024), and dependence on imported seeds despite efforts under the National Seed Vision (2013–2025). However, prospects include agroecology initiatives aiming for a 20-year transition (2025–2045) to climate-resilient farming, rising demand for organic produce, and community-led adaptations by women farmers. The sector’s scope lies in leveraging indigenous knowledge, protected cultivation, and policy reforms to enhance seed systems, mechanization, and market access, while addressing productivity gaps and fostering collaboration across federal and local levels.</p>
+            <p class="truncated">In Nepal, horticulture faces critical challenges including soil degradation from excessive agrochemical use and monocropping, youth reluctance toward farming due to low profitability and migration, dysfunctional value chains marked by inadequate storage, transportation, and marketing infrastructure, climate change-induced disasters (e.g., extreme rainfall in 2024), and dependence on imported seeds despite efforts under the National Seed Vision (2013–2025). However, prospects include agroecology initiatives aiming for a 20-year transition (2025–2045) to climate-resilient farming, rising demand for organic produce, and community-led adaptations by women farmers. The sector’s scope lies in leveraging indigenous knowledge, protected cultivation, and policy reforms to enhance seed systems, mechanization, and market access, while addressing productivity gaps and fostering collaboration across federal and local levels.</p>
           </div>
-          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+          <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
         <!-- Expert 2 -->
         <div class="card rounded-2xl shadow-lg p-8" style="--index: 2">
@@ -153,9 +156,9 @@
           <p class="text-sm text-gray-500 text-center mb-2">Master in Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
           <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
           <div class="content text-gray-700">
-            <p>In Nepal, plant breeding and genetics face challenges such as policy gaps, over-reliance on imported seeds, limited adoption of advanced biotech tools (e.g., CRISPR), and climate-induced stresses (e.g., droughts, pests), alongside systemic issues like underfunded research and regulatory barriers to genetic material exports. However, opportunities emerge through collaborative initiatives (e.g., NARC-IRRI partnerships for submergence-tolerant rice), agroecological transitions prioritizing indigenous landraces (e.g., aromatic rice), and policy reforms like the National Seed Vision, aiming to boost climate-resilient varieties and decentralized seed systems. The future scope hinges on integrating precision breeding, strengthening public-private partnerships, and leveraging Nepal’s rich agro-biodiversity to address food security and sustainability while bridging gaps in research capacity and market access.</p>
+            <p class="truncated">In Nepal, plant breeding and genetics face challenges such as policy gaps, over-reliance on imported seeds, limited adoption of advanced biotech tools (e.g., CRISPR), and climate-induced stresses (e.g., droughts, pests), alongside systemic issues like underfunded research and regulatory barriers to genetic material exports. However, opportunities emerge through collaborative initiatives (e.g., NARC-IRRI partnerships for submergence-tolerant rice), agroecological transitions prioritizing indigenous landraces (e.g., aromatic rice), and policy reforms like the National Seed Vision, aiming to boost climate-resilient varieties and decentralized seed systems. The future scope hinges on integrating precision breeding, strengthening public-private partnerships, and leveraging Nepal’s rich agro-biodiversity to address food security and sustainability while bridging gaps in research capacity and market access.</p>
           </div>
-          <a href="#" class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium">Read More</a>
+          <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
       </div>
     </section>
@@ -163,7 +166,7 @@
     <!-- Student Blogs Section -->
     <section id="student-blogs" class="mb-20">
       <h2 class="section-title text-4xl font-bold text-white">Student Stories</h2>
-      <div id="Expert view and Students Blogs" class="content-section">
+      <div id="Expert-and-Student-Blogs" class="content-section">
         <div class="container">
           <p>Students' Blogs are coming soon...</p>
         </div>
@@ -201,6 +204,18 @@
         link.classList.toggle('text-gray-700', !isActive);
       });
     });
+
+    // Toggle full content for expert views
+    function toggleContent(element) {
+      const contentP = element.previousElementSibling.querySelector('p');
+      if (contentP.classList.contains('truncated')) {
+        contentP.classList.remove('truncated');
+        element.textContent = 'Show Less';
+      } else {
+        contentP.classList.add('truncated');
+        element.textContent = 'Read More';
+      }
+    }
   </script>
 </body>
 </html>
