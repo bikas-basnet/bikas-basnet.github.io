@@ -1,0 +1,9 @@
+title: Bikas Basnet
+description: Official website of Bikas Basnet, showcasing projects in Nepal.
+url: https://www.bikasbasnet.com.np
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+author:
+  name: Bikas Basnet
+  email: bikasbasnet2001@gmail.com
