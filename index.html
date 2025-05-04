@@ -1270,6 +1270,20 @@ body, html {
   toggleBtn.addEventListener('click', function () {
     sidebar.classList.toggle('collapsed');
   });
+
+// Get the entire container element and hide onclick
+  const container = document.querySelector('.resizable-container');
+
+  // Function to hide the entire container
+  function hideContainer() {
+    container.style.display = 'none';
+  }
+
+  // Add touchstart event listener to hide the container on touch
+  container.addEventListener('touchstart', hideContainer);
+
+  // Optionally, hide the container on click as well
+  container.addEventListener('click', hideContainer);
         
      
     </script>
