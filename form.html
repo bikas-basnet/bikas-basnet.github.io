@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .navbar a {
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .navbar a:hover {
+            transform: translateY(-2px);
+        }
+        .form-group input,
+        .form-group textarea {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: darkgreen;
+            box-shadow: darkgreen;
+            outline: none;
+        }
+        .submit-button {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .submit-button:hover {
+            transform: translateY(-2px);
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .services-section {
+            background-image: url('https://images.unsplash.com/photo-1551288049-b1f3a99c3f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            color: white;
+            min-height: 450px; /* For progress bars */
+        }
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: 1;
+        }
+        .services-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        .services-section h2,
+        .services-section li {
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+        }
+        .services-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .services-section li {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+        .progress-bar {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            height: 10px;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        .progress-fill {
+            height: 100%;
+            background-image: repeating-linear-gradient(
+                90deg,
+                #10b981,
+                #10b981 10px,
+                transparent 10px,
+                transparent 20px
+            ); /* Green dashed effect */
+            transition: width 0.3s ease;
+        }
+        .progress-percentage {
+            font-size: 0.875rem;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            min-width: 40px; /* Prevent text shifting */
+            text-align: left;
+        }
+        @media (max-width: 640px) {
+            .navbar a {
+                width: 100%;
+                text-align: center;
+            }
+            .services-section {
+                min-height: 550px; /* Adjust for mobile */
+            }
+            .progress-percentage {
+                font-size: 0.75rem;
+                min-width: 30px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="navbar bg-gradient-to-r from-emerald-600 to-teal-500 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-center">
+            <a href="#services" class="text-white hover:text-emerald-200 px-3 py-2 text-lg font-medium">Our Services</a>
+        </div>
+    </nav>
+    <div class="container mx-auto px-4 py-8">
+        <div id="services" class="services-section card rounded-lg p-6 mb-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Our Services</h2>
+            <ul>
+                <li>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Both physical and Virtual Training on R, Python, SPSS for qualitative, quantitative, molecular, deep, machine learning and computational studies</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                        <span class="progress-percentage">95%</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Research(Action and survey), review, meta-analysis, and systematic review support in all deciplines</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                        <span class="progress-percentage">95%</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Proper guiding for research projects</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                        <span class="progress-percentage">95%</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Below 5% plagiarism-based research paper writing</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 96%"></div>
+                        </div>
+                        <span class="progress-percentage">96%</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenod"/></svg>
+                        <span>Data analysis for academic and research needs</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 97%"></div>
+                        </div>
+                        <span class="progress-percentage">97%</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Publication assistance with minimum duration in Q1, Q2, Q3, Q4 journals (Nature, Springer, PLOS ONE, Elsevier, Wiley, and any other clarivates based web of science and scopus indexed Journals)</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 98%"></div>
+                        </div>
+                        <span class="progress-percentage">98%</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Affordable services to achieve research goals efficiently</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-percentage">100%</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="contact" class="card bg-white rounded-lg p-6 mb-8 shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Get in Touch</h2>
+            <form action="https://formspree.io/f/mdkgerkn" method="POST">
+                <div class="form-group mb-4">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                    <textarea id="message" name="message" class="w-full p-3 border border-gray-300 rounded-lg" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600">Send Message</button>
+            </form>
+        </div>
+        <div class="card bg-white rounded-lg p-6 shadow-md">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Visit Us</h3>
+            <p class="text-gray-600"><svg class="w-5 h-5 text-emerald-500 inline" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/></svg> Agriculture and Forestry University</p>
+            <p class="text-gray-600"><svg class="w-5 h-5 text-emerald-500 inline" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/></svg> Chitwan, Nepal</p>
+            <p class="text-gray-600"><svg class="w-5 h-5 text-emerald-500 inline" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2H2V5zm0 4v6a2 2 0 002 2h12a2 2 0 002-2V9H2zm2 0h12v6H4V9z"/></svg> Email: research@bikasbasnet.com.np</p>
+            <p class="text-gray-600"><svg class="w-5 h-5 text-emerald-500 inline" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a2 2 0 012-2h2.5l1 1h5l1-1H16a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V3zm2 0v14h12V3H4z"/></svg> Phone: +977 9865509334</p>
+        </div>
+    </div>
+</body>
+</html>
