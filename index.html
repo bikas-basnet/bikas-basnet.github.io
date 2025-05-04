@@ -725,7 +725,92 @@
         color: #90EE90;
     }
 }
+/* for displaying the flex model of services */
+/* Model container style for fixed positioning on the left side */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
+.resizable-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  align-items: flex-start;
+}
+
+.sidebar {
+  background-color: #f8f8f8;
+  width: 300px;
+  min-width: 200px;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 100vh;
+  border-right: 2px solid #ccc;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.resizer {
+  width: 5px;
+  cursor: ew-resize;
+  background-color: #ccc;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+#toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -35px;
+  background-color: #ccc;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  #toggle-btn {
+    right: -45px;
+  }
+
+  .resizer {
+    display: none;
+  }
+}
+
+
+        
     </style>
 </head>
 <body>
@@ -795,6 +880,21 @@
 
     <div id="home" class="content-section">
         <div class="container">
+            <div class="resizable-container">
+                <div class="sidebar" id="sidebar">
+                  <button id="toggle-btn">☰</button>
+                  <iframe 
+                    src="form.html" 
+                    width="100%" 
+                    height="300px" 
+                    style="border: none;">
+                  </iframe>
+                  <div style="text-align: right; margin-top: 10px;">
+                    <a href="form.html" target="_blank">Click to View Full Service</a>
+                  </div>
+                </div>
+                <div class="resizer" id="resizer"></div>
+                <div class="main-content">
             <h2>Welcome to the Digital Home of Bikas Basnet</h2>
             <div class="notices-trigger">Click for the Current Notices</div>
             <div id="notices-modal" class="modal">
@@ -1141,6 +1241,35 @@
                     document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/bikas-basnet/Experimental-Design-Aanlysis-code/blob/main/HSD-data.html" target="_blank">View on GitHub</a>';
                 });
         });
+
+
+    // for the resizeable bar of the flex and other stufff 
+  const resizer = document.getElementById('resizer');
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('toggle-btn');
+  let isResizing = false;
+
+  resizer.addEventListener('mousedown', function (e) {
+    isResizing = true;
+    document.body.style.cursor = 'ew-resize';
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (!isResizing) return;
+    let newWidth = e.clientX;
+    if (newWidth < 200) newWidth = 200;
+    if (newWidth > 600) newWidth = 600;
+    sidebar.style.width = newWidth + 'px';
+  });
+
+  document.addEventListener('mouseup', function () {
+    isResizing = false;
+    document.body.style.cursor = 'default';
+  });
+
+  toggleBtn.addEventListener('click', function () {
+    sidebar.classList.toggle('collapsed');
+  });
         
      
     </script>
