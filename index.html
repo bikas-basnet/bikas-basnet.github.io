@@ -877,24 +877,22 @@ body, html {
         </div>
         <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Esewa%20QR%20code.jpg" alt="Esewa QR Code" class="qr-code">
     </div>
-
+<div class="resizable-container">
+        <div class="form-container">
+          <iframe 
+            src="form.html" 
+            width="100%" 
+            height="300px" 
+            style="border: none;">
+          </iframe>
+          <div style="text-align: right; margin-top: 10px;">
+            <a href="form.html" target="_blank">Click to View Full Service</a>
+          </div>
+        </div>
+        <div class="main-content">
+ 
     <div id="home" class="content-section">
-        <div class="container">
-            <div class="resizable-container">
-                <div class="sidebar" id="sidebar">
-                  <button id="toggle-btn">☰</button>
-                  <iframe 
-                    src="form.html" 
-                    width="100%" 
-                    height="300px" 
-                    style="border: none;">
-                  </iframe>
-                  <div style="text-align: right; margin-top: 10px;">
-                    <a href="form.html" target="_blank">Click to View Full Service</a>
-                  </div>
-                </div>
-                <div class="resizer" id="resizer"></div>
-                <div class="main-content">
+             <div class="main-content">
             <h2>Welcome to the Digital Home of Bikas Basnet</h2>
             <div class="notices-trigger">Click for the Current Notices</div>
             <div id="notices-modal" class="modal">
@@ -1243,47 +1241,65 @@ body, html {
         });
 
 
-    // for the resizeable bar of the flex and other stufff 
-  const resizer = document.getElementById('resizer');
+    // for the resizeable bar of the flex and other stufff
+    document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
   const toggleBtn = document.getElementById('toggle-btn');
+  const resizer = document.getElementById('resizer');
+  const container = document.querySelector('.resizable-container');
   let isResizing = false;
 
-  resizer.addEventListener('mousedown', function (e) {
-    isResizing = true;
-    document.body.style.cursor = 'ew-resize';
-  });
-
-  document.addEventListener('mousemove', function (e) {
-    if (!isResizing) return;
-    let newWidth = e.clientX;
-    if (newWidth < 200) newWidth = 200;
-    if (newWidth > 600) newWidth = 600;
-    sidebar.style.width = newWidth + 'px';
-  });
-
-  document.addEventListener('mouseup', function () {
-    isResizing = false;
-    document.body.style.cursor = 'default';
-  });
-
-  toggleBtn.addEventListener('click', function () {
+  // Toggle sidebar visibility
+  toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('collapsed');
   });
 
-// Get the entire container element and hide onclick
-  const container = document.querySelector('.resizable-container');
+  // Handle resizing
+  resizer.addEventListener('mousedown', (e) => {
+    isResizing = true;
+    document.addEventListener('mousemove', resize);
+    document.addEventListener('mouseup', stopResize);
+  });
 
-  // Function to hide the entire container
-  function hideContainer() {
-    container.style.display = 'none';
+  function resize(e) {
+    if (isResizing) {
+      const containerRect = container.getBoundingClientRect();
+      const newWidth = e.clientX - containerRect.left;
+      if (newWidth >= 200 && newWidth <= 600) {
+        sidebar.style.width = `${newWidth}px`;
+      }
+    }
   }
 
-  // Add touchstart event listener to hide the container on touch
-  container.addEventListener('touchstart', hideContainer);
+  function stopResize() {
+    isResizing = false;
+    document.removeEventListener('mousemove', resize);
+    document.removeEventListener('mouseup', stopResize);
+  }
 
-  // Optionally, hide the container on click as well
-  container.addEventListener('click', hideContainer);
+  // Hide sidebar on touch or click outside the sidebar (for mobile, within container)
+  document.addEventListener('touchstart', (e) => {
+    if (
+      window.innerWidth <= 768 &&
+      container.contains(e.target) &&
+      !sidebar.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      sidebar.classList.add('collapsed');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (
+      window.innerWidth <= 768 &&
+      container.contains(e.target) &&
+      !sidebar.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      sidebar.classList.add('collapsed');
+    }
+  });
+});
         
      
     </script>
