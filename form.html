@@ -131,6 +131,69 @@
                 min-width: 30px;
             }
         }
+
+        /* Radio and Checkbox styles */
+  .radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .radio-label,
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+  }
+  
+
+ /* Style for the form group */
+.form-group {
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Label styling */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Select dropdown styling */
+.form-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23333" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14l-4.796-5.481A.5.5 0 0 1 2.5 5h11a.5.5 0 0 1 .385.82l-4.796 5.48a.5.5 0 0 1-.768 0z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+}
+
+/* Focus style */
+.form-group select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+  outline: none;
+}
+
+
+
     </style>
 </head>
 <body class="bg-gray-100">
@@ -236,6 +299,37 @@
                     <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
                     <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg" required>
                 </div>
+                <div class="form-group mb-4">
+                    <label for="phone" class="block text-gray-700 font-medium mb-2">Your Phone Number</label>
+                    <input type="phone" id="phone" name="Phone" class="w-full p-3 border border-gray-300 rounded-lg" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                      <option value="">Select a subject</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="support">Technical Support</option>
+                      <option value="feedback">Feedback</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <span class="error-message"></span>
+
+                    <div class="form-group">
+                        <label for="subjects">Subject we deal</label>
+                        <select id="subjects" name="subjects" required>
+                          <option value="">Select a area of your subjects</option>
+                          <option value="Social Sciences and Humanities">Social Sciences and Humanities</option>
+                          <option value="Education and Pedagogy">Education and Pedagogy</option>
+                          <option value="Management and Business">Management and Business</option>
+                          <option value="Engineering">Engineering </option>
+                          <option value="Medical and Health Sciences">Medical and Health Sciences</option>
+                          <option value="Agriculture, Veterinary, Forestry">Agriculture, Veterinary, Forestry</option>
+                          <option value="Science and Technology">Science and Technology</option>
+                          <option value="Arts, Culture, and Law">Arts, Culture, and Law</option>
+
+                        </select>
+                        <span class="error-message"></span>
+
                 <div class="form-group mb-4">
                     <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
                     <textarea id="message" name="message" class="w-full p-3 border border-gray-300 rounded-lg" rows="5" required></textarea>
