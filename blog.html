@@ -2,33 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Haven - Expert Views & Student Blogs</title>
-    <meta name="description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Haven - Expert Views & Student Blogs</title>
+  <meta name="description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
 
-    <!-- Open Graph tags -->
-    <meta property="og:site_name" content="Bikas Basnet">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog Haven - Expert Views & Student Blogs">
-    <meta property="og:description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
-    <meta property="og:url" content="https://bikas-basnet.github.io/blog.html">
-    <meta property="og:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="675">
-    <meta property="og:locale" content="en_US">
+  <!-- Open Graph tags -->
+  <meta property="og:site_name" content="Bikas Basnet">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog Haven - Expert Views & Student Blogs">
+  <meta property="og:description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
+  <meta property="og:url" content="https://bikas-basnet.github.io/blog.html">
+  <meta property="og:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:locale" content="en_US">
 
-    <!-- Twitter Card tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Blog Haven - Expert Views & Student Blogs">
-    <meta name="twitter:description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
-    <meta name="twitter:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
-    <meta name="twitter:site" content="@YourTwitterHandle">
-    <meta name="twitter:creator" content="@YourTwitterHandle">
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog Haven - Expert Views & Student Blogs">
+  <meta name="twitter:description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
+  <meta name="twitter:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
+  <meta name="twitter:site" content="@YourTwitterHandle">
+  <meta name="twitter:creator" content="@YourTwitterHandle">
 
-    <!-- Favicon -->
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
     body {
@@ -79,6 +79,9 @@
       opacity: 0;
       animation: fadeInUp 0.6s ease forwards;
       animation-delay: calc(0.15s * var(--index));
+      height: 100%; /* Ensure cards stretch to fill grid cell */
+      display: flex;
+      flex-direction: column;
     }
     @keyframes fadeInUp {
       to {
@@ -142,6 +145,20 @@
       font-family: 'Poppins', sans-serif;
       line-height: 1.8;
     }
+    /* 2x2 Grid Layout for Expert Views */
+    .expert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Stack cards vertically on smaller screens */
+    @media (max-width: 768px) {
+      .expert-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -157,68 +174,67 @@
   </nav>
 
   <!-- Main Content -->
-  <div class="flex flex-wrap justify-between gap-8">
+  <div class="container mx-auto px-6 py-12">
     <!-- Expert Views Section -->
     <section id="expert-views" class="mb-20">
       <h2 class="section-title text-4xl font-bold text-white">Expert Insights</h2>
-      <div class="flex flex-wrap justify-between gap-8">
-          <!-- Expert 1 -->
-        <div class="w-full md:w-[48%] card rounded-2xl shadow-lg p-8">
+      <div class="expert-grid">
+        <!-- Expert 1 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 1;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/MSP.jpg" alt="Dr. Madhav P Neupane" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Dr🌽 Madhav Prasad Neupane</h3>
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Dr🌽<strong>Regent</strong> Madhav Prasad Neupane</h3>
           <p class="text-sm text-gray-500 text-center mb-2">PhD. in Agronomy and Crop Science, Banaras Hindu University, India</p>
-          <p class="text-sm text-gray-500 text-center mb-2"> Baby Corn Expert, <strong>Regents Associate Professor</strong>, Department of Agronomy, Agriculture and Forestry University, Nepal </p>
-          <hr>
-          <p class="text-sm text-gray-500 text-center mb-2"> <strong> Research activity- 70% & Teaching - 30%</strong></p>
+          <p class="text-sm text-gray-500 text-center mb-2">Baby Corn Expert, <strong>Associate Professor</strong>, Department of Agronomy, Agriculture and Forestry University, Nepal</p>
+          <hr class="my-4">
+          <p class="text-sm text-gray-500 text-center mb-2"><strong>Research activity - 70% & Teaching - 30%</strong></p>
           <p class="text-sm text-gray-500 text-center mb-4">April 02, 2025</p>
-          <div class="content text-gray-700">
-          <p class="truncated"> Baby corn holds great scope in Nepal due to its short growth cycle, high market demand, and versatility in culinary use. It offers prospects for crop diversification, increased farmer income, and potential export. Successful trials like in Padampur, chitwan shows it  has higher likelihood thrive commercially with expert guidance. However, limitations include lack of technical knowledge, weak market linkages, inadequate post-harvest facilities, and limited awareness among farmers. With proper training, policy support, and infrastructure development, baby corn can emerge as a climate-smart, income-generating crop, helping transform subsistence agriculture into a more profitable and sustainable enterprise across suitable regions of Nepal
-          </p>
-         </div>
-        <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
-      </div>
-      <!-- Expert 2 -->
-        <div class="w-full md:w-[48%] card rounded-2xl shadow-lg p-8">
+          <div class="content text-gray-700 flex-grow">
+            <p class="truncated">Baby corn holds great scope in Nepal due to its short growth cycle, high market demand, and versatility in culinary use. It offers prospects for crop diversification, increased farmer income, and potential export. Successful trials like in Padampur, Chitwan shows it has higher likelihood thrive commercially with expert guidance. However, limitations include lack of technical knowledge, weak market linkages, inadequate post-harvest facilities, and limited awareness among farmers. With proper training, policy support, and infrastructure development, baby corn can emerge as a climate-smart, income-generating crop, helping transform subsistence agriculture into a more profitable and sustainable enterprise across suitable regions of Nepal</p>
+          </div>
+          <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
+        </div>
+        <!-- Expert 2 -->
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 2;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/CBK.jpg" alt="Mr. Chitra Bahadur Kunwar" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Mr🌽 ,Emeritus Scientist(S4), Chitra Bahadur Kunwar</h3>
+          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Mr🌽, Emeritus Scientist(S4), Chitra Bahadur Kunwar</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master in Plant Breeding and Genetics, Kasetsart University, Thailand</p>
-          <p class="text-sm text-gray-500 text-center mb-2"> Corn Expert,
-          <strong> Ex Coordinator, National Maize Research Program, NARC, Nepal</strong </p>
-         <ul class="text-sm text-gray-500 text-center mb-2 list-none">
-          <li>OPVs maize varietal research</li>
-          <li>High value corn research: sweet corn, popcorn</li>
-         <li>Hybrid maize research</li>
-       <li>Commercial hybrid testing</li>
-      </ul>
-         <hr>
-        <p class="text-sm text-gray-500 text-center mb-2"> <strong> Research activity- 100%</strong></p>
+          <p class="text-sm text-gray-500 text-center mb-2">Corn Expert, <strong>Ex Coordinator, National Maize Research Program, NARC, Nepal</strong></p>
+          <ul class="text-sm text-gray-500 text-center mb-2 list-none">
+            <li>OPVs maize varietal research</li>
+            <li>High value corn research: sweet corn, popcorn</li>
+            <li>Hybrid maize research</li>
+            <li>Commercial hybrid testing</li>
+          </ul>
+          <hr class="my-4">
+          <p class="text-sm text-gray-500 text-center mb-2"><strong>Research activity - 100%</strong></p>
           <p class="text-sm text-gray-500 text-center mb-4">April 05, 2025</p>
-           <p class="text-sm text-gray-500 text-center mb-2">Email: chitra2058@yahoo.com</p>
-          <div class="content text-gray-700">
-          <p class="truncated"> Based on my research experience in the landscape of maize breeding in Nepal, I observe a field brimming with potential yet constrained by systemic challenges. The scope for enhancing productivity, nutritional value, and resilience through targeted breeding for diverse agro-ecological zones and emerging demands like animal feed is immense. However, realizing this potential is hampered by a low seed replacement rate, the complexities of hybrid seed production and accessibility, limited research infrastructure and funding, and the pervasive impact of diverse biotic and abiotic stresses. Overcoming these limitations through strategic investments, robust extension systems, and a focus on developing and disseminating location-specific, climate-resilient varieties, while also leveraging Nepal's rich local germplasm, is crucial to unlocking the transformative power of maize breeding for the nation's food security and economic growth
-          </p>
-         </div>
-       <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
+          <p class="text-sm text-gray-500 text-center mb-2">Email: chitra2058@yahoo.com</p>
+          <div class="content text-gray-700 flex-grow">
+            <p class="truncated">Based on my research experience in the landscape of maize breeding in Nepal, I observe a field brimming with potential yet constrained by systemic challenges. The scope for enhancing productivity, nutritional value, and resilience through targeted breeding for diverse agro-ecological zones and emerging demands like animal feed is immense. However, realizing this potential is hampered by a low seed replacement rate, the complexities of hybrid seed production and accessibility, limited research infrastructure and funding, and the pervasive impact of diverse biotic and abiotic stresses. Overcoming these limitations through strategic investments, robust extension systems, and a focus on developing and disseminating location-specific, climate-resilient varieties, while also leveraging Nepal's rich local germplasm, is crucial to unlocking the transformative power of maize breeding for the nation's food security and economic growth</p>
+          </div>
+          <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
+        </div>
         <!-- Expert 3 -->
-       <div class="w-full md:w-[48%] card rounded-2xl shadow-lg p-8">
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 3;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6">
           <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Mr🌱 Roshan Ghimire</h3>
-          <p class="text-sm text-gray-500 text-center mb-2"> Master of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
+          <p class="text-sm text-gray-500 text-center mb-2">Master of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
           <p class="text-sm text-gray-500 text-center mb-4">March 15, 2025</p>
-          <div class="content text-gray-700">
-            <p class="truncated">In Nepal, horticulture faces critical challenges including soil degradation from excessive agrochemical use and monocropping, youth reluctance toward farming due to low profitability and migration, dysfunctional value chains marked by inadequate storage, transportation, and marketing infrastructure, climate change-induced disasters (e.g., extreme rainfall in 2024), and dependence on imported seeds despite efforts under the National Seed Vision (2013–2025). However, prospects include agroecology initiatives aiming for a 20-year transition (2025–2045) to climate-resilient farming, rising demand for organic produce, and community-led adaptations by women farmers. The sector’s scope lies in leveraging indigenous knowledge, protected cultivation, and policy reforms to enhance seed systems, mechanization, and market access, while addressing productivity gaps and fostering collaboration across federal and local levels.</p>
+          <hr class="my-4">
+          <div class="content text-gray-700 flex-grow">
+            <p class="truncated">In Nepal, horticulture faces critical challenges including soil degradation from excessive agrochemical use and monocropping, youth reluctance toward farming due to low profitability and migration, dysfunctional value chains marked by inadequate storage, transportation, and marketing infrastructure, climate change-induced disasters (e.g., extreme rainfall in 2024), and dependence on imported seeds despite efforts under the National Seed Vision (2013–2025). However, prospects include agroecology initiatives aiming for a 20-year transition (2025–2045) to climate-resilient farming, rising demand for organic produce, and community-led adaptations by women farmers. The sector’s scope lies in Coldplay, protected cultivation, and policy reforms to enhance seed systems, mechanization, and market access, while addressing productivity gaps and fostering collaboration across federal and local levels.</p>
           </div>
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
         <!-- Expert 4 -->
-          <div class="w-full md:w-[48%] card rounded-2xl shadow-lg p-8">
+        <div class="card rounded-2xl shadow-lg p-8" style="--index: 4;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/SD.jpg" alt="Santosh Bhandari" class="photo mx-auto mb-6">
           <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Dr.🌾 Santosh Bhandari</h3>
-          <hr>
           <p class="text-sm text-gray-500 text-center mb-2">Email: santoshafu@gmail.com</p>
-          <p class="text-sm text-gray-500 text-center mb-2"> Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
+          <p class="text-sm text-gray-500 text-center mb-2">Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
           <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
-          <div class="content text-gray-700">
+          <hr class="my-4">
+          <div class="content text-gray-700 flex-grow">
             <p class="truncated">Nepal’s plant breeding and genetics sector grapples with numerous challenges, including policy inadequacies, a heavy reliance on seed imports, and minimal adoption of modern biotechnological tools like CRISPR. These issues are compounded by climate-related pressures such as droughts and pest outbreaks, as well as systemic limitations like underfunded research and strict regulations that hinder the export of genetic resources. Despite these barriers, several opportunities are emerging. Collaborative initiatives—for example, joint efforts between NARC and IRRI to develop rice varieties tolerant to submergence—demonstrate progress. There is also growing momentum toward agroecological approaches that prioritize the conservation and use of native landraces, such as aromatic rice. Additionally, policy frameworks like the National Seed Vision are paving the way for the development of climate-resilient varieties and more localized, decentralized seed systems. Looking ahead, the integration of precision breeding technologies, stronger collaboration between public and private sectors, and the strategic use of Nepal’s rich agro-biodiversity will be essential to advancing food security, promoting sustainable agriculture, and overcoming gaps in research capabilities and market connectivity</p>
           </div>
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
@@ -239,10 +255,10 @@
 
   <script>
     // Right-click protection
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            alert("Right-click is disabled!");
-        });
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      alert("Right-click is disabled!");
+    });
 
     // Smooth scrolling for navbar links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
