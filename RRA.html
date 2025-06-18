@@ -36,8 +36,8 @@
     header {
       text-align: center;
       padding: 80px 60px 40px;
-      max-width: 1280px;
-      margin: 0 auto;
+      width: 100vw; /* Full viewport width */
+      margin: 0;
       background-image: url('https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/bgi.jpg');
       background-size: cover;
       background-position: center;
@@ -59,6 +59,9 @@
     header > * {
       position: relative;
       z-index: 2; /* Ensure content is above the overlay */
+      max-width: 1280px; /* Keep content centered and constrained */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .logo {
@@ -79,12 +82,12 @@
       font-size: 2.8rem;
       font-weight: 700;
       letter-spacing: 0.05em;
-      color: #ffffff; /* Changed to white for better contrast on dark overlay */
+      color: #ffffff; /* White for contrast on dark overlay */
     }
 
     .subtitle {
       font-size: 1.3rem;
-      color: #e5e7eb; /* Lightened for better contrast */
+      color: #e5e7eb; /* Lightened for contrast */
       margin-top: 10px;
       font-style: italic;
     }
@@ -330,7 +333,11 @@
     }
 
     @media (max-width: 1024px) {
-      header, .container {
+      header {
+        padding: 80px 40px 40px;
+      }
+
+      .container {
         padding: 0 40px;
       }
 
