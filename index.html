@@ -117,7 +117,7 @@
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* Increased from 1.2rem */
             color: red;
             animation: scroll 9s linear infinite;
         }
@@ -718,7 +718,7 @@
                 height: 40px;
             }
             .ticker {
-                font-size: 0.8rem;
+                font-size: 1rem; /* Adjusted for smaller screens */
             }
             .form-flex, .form-flex a {
                 font-size: 1rem;
@@ -767,6 +767,9 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .ticker {
+                font-size: 0.9rem; /* Adjusted for smaller screens */
+            }
         }
     </style>
 </head>
@@ -800,7 +803,7 @@
     </nav>
     <div class="ticker-container">
         <div class="ticker">
-Agriculture is the heartbeat of the world, where every seed sown is a step towards a future of abundance, sustainability, and hope.
+            Agriculture is the heartbeat of the world, where every seed sown is a step towards a future of abundance, sustainability, and hope.
         </div>
     </div>
     <div class="banner">
@@ -896,7 +899,7 @@ Agriculture is the heartbeat of the world, where every seed sown is a step towar
                 <li><strong>Project 2: Multivariate Selection of Maize Hybrids</strong> - Focused on selecting prime-yielding and stable genotypes.</li>
             </ul>
             <figure>
-                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/Elipse.jpg?raw=true" class="lazy" alt="Elipse plot" style="width:100%; max-width:600px;" />
+                <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Elipse.jpg" class="lazy" alt="Elipse plot" style="width:100%; max-width:600px;" loading="eager" />
                 <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
                     PCA-based ellipse plot.
                 </figcaption>
@@ -905,8 +908,8 @@ Agriculture is the heartbeat of the world, where every seed sown is a step towar
                 <li><strong>Project 3: Screening of 761+ Wheat Lines and 62 Released Wheat Varieties</strong> - Identifying wheat varieties with strong adult plant leaf rust resistance on common pathotypes.</li>
             </ul>
             <figure>
-                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/images/Journey%20of%20wheat%20over%20time.jpg?raw=true" class="lazy" alt="Journey of wheat" style="width:48%; margin-right:2%;" />
-                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/images/Cleveland%20for%20Bayesian%20interactive%20prediction.jpg?raw=true" class="lazy" alt="Cleveland Bayesian prediction" style="width:48%;" />
+                <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Journey%20of%20wheat%20over%20time.jpg" class="lazy" alt="Journey of wheat" style="width:48%; margin-right:2%;" loading="eager" />
+                <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Cleveland%20for%20Bayesian%20interactive%20prediction.jpg" class="lazy" alt="Cleveland Bayesian prediction" style="width:48%;" loading="eager" />
                 <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
                     Figure showing the journey of wheat release in Nepal and a Cleveland dot plot for Bayesian interactive prediction.
                 </figcaption>
@@ -915,13 +918,13 @@ Agriculture is the heartbeat of the world, where every seed sown is a step towar
                 <li><strong>Project 4: Deep Learning for Crop Improvement/Hyperspectral Imaging</strong> - Training 50k+ RGB plant leaf samples to develop real-time solutions; seeking multispectral/hyperspectral training or collaboration opportunities.</li>
             </ul>
             <figure>
-                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/training_and_roc_plots.jpg?raw=true" class="lazy" alt="Training and ROC Plots" style="width:100%; max-width:600px;" />
+                <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/training_and_roc_plots.jpg" class="lazy" alt="Training and ROC Plots" style="width:100%; max-width:600px;" loading="eager" />
                 <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
                     Custom CNN (CropDiseaseCNN): Accuracy vs loss vs time vs epochs.
                 </figcaption>
             </figure>
             <figure>
-                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/confusion%20matrix%20eff%20net.jpg?raw=true" class="lazy" alt="Confusion matrix" style="width:48%;" />
+                <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/confusion%20matrix%20eff%20net.jpg" class="lazy" alt="Confusion matrix" style="width:48%;" loading="eager" />
                 <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
                     Figure depicting correct and incorrect predictions across classes.
                 </figcaption>
@@ -1035,7 +1038,7 @@ Agriculture is the heartbeat of the world, where every seed sown is a step towar
     <div id="contact" class="content-section">
         <div class="container">
             <div class="contact-icons">
-                <a href="mailto:research@bikasbasnet.com.np" target="_blank">
+                <a href="/cdn-cgi/l/email-protection#3052554355514253587052595b51435251435e55441e535f5d1e5e40" target="_blank">
                     <img class="contact-icon" src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Email.png" alt="Email">
                 </a>
                 <a href="https://www.linkedin.com/in/bikas-basnet-372a47206/" target="_blank">
@@ -1060,6 +1063,7 @@ Agriculture is the heartbeat of the world, where every seed sown is a step towar
             </div>
         </div>
     </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         function toggleResearchInfo() {
             const info = document.getElementById("research-info");
