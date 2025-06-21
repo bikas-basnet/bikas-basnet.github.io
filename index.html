@@ -4,53 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bikas Basnet | Personal Website</title>
-    <meta name="description" content="Explore Bikas Basnet’s portfolio: Interests, projects, and skills.">
+    <meta name="description" content="Professional portfolio of Bikas Basnet, Agricultural Scientist and Graduate Researcher.">
     <!-- Open Graph tags -->
     <meta property="og:site_name" content="Bikas Basnet">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Bikas Basnet | Personal Website">
-    <meta property="og:description" content="Explore Bikas Basnet’s portfolio: Interests, projects, and skills.">
+    <meta property="og:description" content="Explore the research and projects of Bikas Basnet in agricultural science and genomics.">
     <meta property="og:url" content="https://bikas-basnet.github.io/">
     <meta property="og:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="675">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <!-- Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bikas Basnet | Personal Website">
-    <meta name="twitter:description" content="Explore Bikas Basnet’s portfolio: Interests, projects, and skills.">
+    <meta name="twitter:title" content="Bikas Basnet | Professional Portfolio">
+    <meta name="twitter:description" content="Explore the research and projects of Bikas Basnet in agricultural science and genomics.">
     <meta name="twitter:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
     <meta name="twitter:site" content="@YourTwitterHandle">
     <meta name="twitter:creator" content="@YourTwitterHandle">
     <!-- Favicon -->
     <link rel="icon" href="https://bikas-basnet.github.io/images/FI.jpg" type="image/jpeg">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Bikas Basnet",
       "url": "https://bikas-basnet.github.io/",
-      "image": "https://bikas-basnet.github.io/images/FI.jpg"
+      "image": "https://bikas-basnet.github.io/images/FI.jpg",
+      "jobTitle": "Independent Researcher",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Graduate Researcher"
+      }
     }
     </script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            background: #f3f4f6;
+        }
         nav {
-            background-color: #006400;
-            color: white;
-            padding: 12px;
+            background-color: darkgreen;
+            color: #ffffff;
+            padding: 1rem;
             text-align: center;
-            position: relative;
-            z-index: 15;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            margin: 0 12px;
-            font-weight: bold;
-            display: inline-block;
+            margin: 0 1rem;
+            font-weight: 600;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
         }
-        nav a:hover { text-decoration: underline; }
+        nav a:hover {
+            color: brown;
+        }
         .dropdown {
             position: relative;
             display: inline-block;
@@ -58,466 +80,490 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #006400;
-            min-width: 400px;
+            background-color: #166534;
+            min-width: 300px;
             max-height: 300px;
             overflow-y: auto;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 15;
-            text-align: left;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 101;
             left: 50%;
             transform: translateX(-50%);
+            border-radius: 4px;
         }
         .dropdown-content a {
-            color: white;
-            padding: 8px 12px;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
             text-decoration: none;
             display: block;
-            margin: 0;
-            font-weight: normal;
-            font-size: 14px;
+            font-weight: 400;
+            font-size: 0.9rem;
         }
         .dropdown-content a:hover {
-            background-color: #004d00;
-            text-decoration: none;
+            background-color: #15803d;
         }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown:hover .dropbtn { text-decoration: underline; }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
         .ticker-container {
             width: 100%;
-            height: 15px;
             overflow: hidden;
-            background-color: #f5e050;
-            padding: 10px 0;
-            font-family: Arial, sans-serif;
-            border-bottom: 2px solid #d32f2f;
+            background-color: #e5e7eb;
+            padding: 0.5rem 0;
+            font-family: 'Open Sans', sans-serif;
+            border-bottom: 1px solid #166534;
             position: relative;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
+            z-index: 90;
         }
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            font-size: 12px;
-            line-height: 15px;
-            color: #000000;
-            animation: scroll 10s linear infinite;
+            font-size: 1.2rem;
+            color: red;
+            animation: scroll 9s linear infinite;
         }
         @keyframes scroll {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
         }
         .banner {
-            background-color: #0044cc;
+            background-color: #1e3a8a;
             color: white;
-            padding: 2px 0;
+            padding: 0.75rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
-            z-index: 5;
+            z-index: 50;
         }
         .banner-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            padding: 0 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
         .banner img {
-            width: 25px;
-            height: 25px;
-            margin-right: 8px;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
             border: 1px solid #ffffff;
-            box-sizing: border-box;
-            background-color: #0044cc;
-            padding: 1px;
+            border-radius: 50%;
         }
         .research-section {
             display: flex;
             align-items: center;
             cursor: pointer;
+            transition: opacity 0.3s ease;
         }
-        .research-section:hover { opacity: 0.8; }
-        .research-logo { margin-left: 8px; }
+        .research-section:hover {
+            opacity: 0.9;
+        }
+        .research-logo {
+            margin-left: 0.5rem;
+        }
         .research-text {
-            color: white;
-            font-weight: bold;
-            margin-right: 8px;
+            font-weight: 600;
         }
         .banner-text {
-            color: white;
-            font-weight: bold;
+            font-weight: 400;
             flex-grow: 1;
             text-align: center;
         }
         .banner-link {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: bold;
-            padding: 2px 6px;
-            background-color: #006400;
-            border-radius: 5px;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            background-color: #166534;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
-        .banner-link:hover { text-decoration: underline; }
+        .banner-link:hover {
+            background-color: #15803d;
+        }
         .research-info {
             display: none;
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 15px;
-            margin: 5px 12px;
-            border-radius: 5px;
-            font-size: 14px;
+            background-color: #ffffffc7;
+            color: #1f2937;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 5;
+            z-index: 50;
         }
         .research-details h3 {
-            color: #0044cc;
-            margin: 0 0 10px 0;
-            font-size: 18px;
+            color: #1e3a8a;
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            font-family: 'Lora', serif;
         }
         .research-details p {
-            margin: 0 0 10px 0;
+            margin: 0 0 0.5rem;
         }
         .research-details ul {
             list-style-type: none;
             padding: 0;
-            margin: 10px 0;
+            margin: 0.5rem 0;
         }
         .research-details ul li {
-            padding: 5px 0;
+            padding: 0.25rem 0;
             position: relative;
+            padding-left: 1.5rem;
         }
         .research-details ul li:before {
-            content: "✓";
-            color: #006400;
-            margin-right: 8px;
+            content: "✔";
+            color: #166534;
+            position: absolute;
+            left: 0;
         }
         .research-details hr {
             border: 0;
             height: 1px;
-            background: #ccc;
-            margin: 10px 0;
+            background: #546891;
+            margin: 0.5rem 0;
         }
-        .fund-status { font-size: 16px; }
-        .amount { color: #006400; font-weight: bold; }
+        .fund-status {
+            font-size: 1rem;
+        }
+        .amount {
+            color: #166534;
+            font-weight: 600;
+        }
         .donate-call {
-            font-size: 18px;
-            color: #0044cc;
-            margin: 10px 0 0 0;
+            font-size: 1.1rem;
+            color: #1e3a8a;
+            margin: 0.5rem 0;
         }
         .donate-call strong {
-            font-size: 20px;
+            font-size: 1.25rem;
             text-transform: uppercase;
         }
         .qr-code {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             display: block;
-            margin: 10px auto 0;
+            margin: 0.5rem auto;
         }
         .container {
-            padding: 50px;
-            max-width: 1000px;
-            margin: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
-        h1 { color: #2c3e50; text-align: center; }
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #006400;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            text-align: center;
+        .content-section {
+            display: none;
         }
-        p {
-            color: #555;
-            text-align: justify;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-        ul { list-style-type: disc; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .content-section { display: none; }
         #home {
             display: block;
-            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/RB.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
             min-height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slideBackground 12s infinite;
-        }
-        #home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            filter: blur(2px);
-            z-index: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: slideBackgroundBlur 12s infinite;
-        }
-        #home > * { position: relative; z-index: 1; }
-        #home .main-content {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            justify-content: space-between;
-            padding-bottom: 60px; /* Space for footer */
         }
-        #home h2 {
-            color: #FFFFFF;
-            font-size: 2em;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #FFFFFF;
-            animation: typing 4s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+        .hero-section {
             text-align: center;
-            margin: 20px auto;
-        }
-        @keyframes typing {
-            0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #FFD700; }
-        }
-        #home h3 { color: #FFFFFF; }
-        #home .intro-text {
-            background-color: #00FFCC;
-            color: #000000;
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            text-align: justify;
-            box-shadow: 0 0 30px 20px rgba(0, 100, 0, 0.5);
-            position: relative;
-            z-index: 1;
-        }
-        #home ul li { color: #FFFFFF; }
-        #home .profile-link { color: #FFFFFF; }
-        
-        @keyframes slideBackground {
-    0% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/RB.jpg'); }
-    20% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Stomata.jpg'); }
-    40% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Stomata%202.jpg'); }
-    60% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/AI.png'); }
-    80% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/NI.png'); }
-    100% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/RB.jpg'); }
-}
-
-@keyframes slideBackgroundBlur {
-    0% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/RB.jpg'); }
-    20% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Stomata.jpg'); }
-    40% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Stomata%202.jpg'); }
-    60% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/AI.png'); }
-    80% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/NI.png'); }
-    100% { background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/RB.jpg'); }
-}       
-   .triggers-container {
+            padding: 4rem 1rem;
+            flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 20px;
-            margin: 20px auto;
-            max-width: 500px;
-            flex-wrap: wrap;
         }
-        .notices-trigger {
-            cursor: pointer;
-            font-size: 20px;
-            font-weight: bold;
-            color: #000000;
-            text-align: center;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-            max-width: 200px;
-            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
-            position: relative;
-            z-index: 2;
-            text-decoration: underline;
+        .hero-section h1 {
+            font-family: 'Lora', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
-        .notices-trigger:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 100, 0, 0.3);
-            color: #006400;
+        .hero-section h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        .hero-section .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .hero-section .cta-button.explore-work {
+            background: linear-gradient(135deg, #2ea043, #166534);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+        .hero-section .cta-button.explore-work:hover {
+            background: linear-gradient(135deg, #3bb353, #1a7d3d);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .hero-section .cta-button.our-services {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+        .hero-section .cta-button.our-services:hover {
+            background: linear-gradient(135deg, #2b4cb3, #60a5fa);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
         .form-flex {
             display: none;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 15px auto;
+            background: #ffffff;
+            color: #1f2937;
+            padding: 2rem;
             max-width: 800px;
-            box-shadow: 0 0 10px rgba(118, 255, 51, 0.5);
-            z-index: 2;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1.1rem;
         }
         .form-flex iframe {
             width: 100%;
             height: 300px;
             border: none;
+            margin-bottom: 1rem;
         }
         .form-flex a {
-            color: #FFFFFF;
-            font-weight: bold;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #166534;
+            color: #ffffff;
             text-decoration: none;
-            margin-top: 10px;
-            padding: 5px 10px;
-            background: #006400;
-            border-radius: 5px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-size: 1.1rem;
         }
         .form-flex a:hover {
-            background: #004d00;
-            text-decoration: underline;
+            background-color: #15803d;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
+        .profile-card {
+            background: #ffffff;
+            color: #1f2937;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
         }
-        .modal-content {
-            position: relative;
-            background: rgba(255, 255, 255, 0.9);
-            margin: 10% auto;
-            padding: 20px;
-            max-width: 700px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(118, 255, 51, 0.5);
-            z-index: 1001;
-        }
-         .notices-trigger {
-    background-color: #f0f8ff;
-    color: #003366;
-    padding: 15px 30px;
-    font-size: 1.1em;
-    border-radius: 30px 60px 30px 60px;
-    text-align: center;
-    display: inline-block;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.2);
-}
-
-.notices-trigger::before,
-.notices-trigger::after {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    transition: all 0.6s ease;
-}
-
-.notices-trigger::before {
-    top: -60%;
-    left: -60%;
-}
-
-.notices-trigger::after {
-    bottom: -60%;
-    right: -60%;
-}
-
-.notices-trigger:hover::before,
-.notices-trigger:hover::after {
-    top: -20%;
-    left: -20%;
-    bottom: -20%;
-    right: -20%;
-}
-
-.notices-trigger:hover {
-    background: linear-gradient(135deg, #cce7ff 30%, #f0f8ff 70%);
-    color: #ff4500;
-    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.4);
-    transform: scale(1.05);
-}
-
-.notices-trigger:active {
-    transform: scale(0.98);
-}
-        .profile-img {
+        .profile-card img.profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #2c3e50;
-            margin: 0 20px;
+            border: 3px solid #1e3a8a;
         }
-        .profile-container {
+        .profile-card .profile-content {
+            display: flex;
+            flex: 1;
+            gap: 2rem;
+            align-items: center;
+        }
+        .profile-card .profile-info {
+            flex: 2;
+            background: linear-gradient(135deg, #e6f3e6, #b3d9b3);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .profile-card .profile-links {
+            flex: 1;
             display: flex;
             flex-direction: row;
             justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
             align-items: center;
+        }
+        .profile-card h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .profile-card ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .profile-card ul li {
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+            color: #2d4a2d;
+        }
+        .profile-links a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .profile-links img {
+            width: 24px;
+            height: 24px;
+            margin-left: 0.5rem;
+            border: none;
+        }
+        .profile-links a:hover {
+            color: #166534;
+        }
+        .mission-section {
+            background: #f3f4f6;
+            padding: 3rem 1rem;
             text-align: center;
-            gap: 20px;
+        }
+        .mission-section h3 {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .mission-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            color: #4b5563;
+        }
+        .cta-section {
+            background: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .cta-section h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
         }
-        .profile-side-left {
-            flex: 1;
-            min-width: 200px;
-            text-align: left;
-            padding: 20px;
+        .cta-buttons a {
+            padding: 0.75rem 1.5rem;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
-        .profile-side-right {
-            flex: 1;
-            min-width: 200px;
+        .cta-buttons a:hover {
+            background-color: #172554;
+        }
+        .footer-logo {
+            text-align: center;
+            padding: 1rem;
+            background: #1e3a8a;
+            color: #ffffff;
+        }
+        .footer-logo a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        /* Contact Section Styles */
+        #contact {
+            background-image: url('https://raw.githubusercontent.com/bikas-basnet/Loaction-map-in-R/main/nepal_all_districts_temp.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #f0f0f0;
+            position: relative;
+            min-height: 100vh;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
+            flex-direction: column;
         }
-        .profile-link {
+        #contact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #contact .container {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+        .contact-icons a {
+            margin: 10px;
+            text-decoration: none;
+        }
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .contact-icon:hover {
+            transform: scale(1.1);
+        }
+        .contact-footer {
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-decoration: none;
-            color: #2c3e50;
-            font-size: 14px;
-            font-weight: bold;
+            gap: 10px;
         }
-        .profile-link img {
+        .footer-link { text-decoration: none; }
+        .website-name { color: white; background-color: blue; }
+        .logo-img {
             width: 40px;
             height: 40px;
-            object-fit: contain;
-            margin-bottom: 5px;
-            background-color: #fff;
-            padding: 2px;
-            border-radius: 5px;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
         }
-        .profile-link:hover { color: #006400; text-decoration: underline; }
-        .footer-logo {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 2;
+        .footer-link:hover .logo-img { transform: scale(1.1); }
+        .address-text,
+        .address-text * {
+            color: #90ee90;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
+        /* Styles for Other Sections */
         #projects {
             position: relative;
             min-height: 100vh;
@@ -631,125 +677,97 @@
         #data a:hover { color: #FFD700; text-decoration: none; }
         #RRA { position: relative; min-height: 100vh; }
         #cv { position: relative; min-height: 100vh; }
-        #contact {
-            background-image: url('https://raw.githubusercontent.com/bikas-basnet/Loaction-map-in-R/main/nepal_all_districts_temp.gif');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: #f0f0f0;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        #contact::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        #contact .container {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 80px;
-        }
-        .contact-icons a {
-            margin: 10px;
-            text-decoration: none;
-        }
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            display: block;
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
-            transition: transform 0.3s ease;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .contact-icon:hover {
-            transform: scale(1.1);
-        }
-        .contact-footer {
-            z-index: 2;
-            text-align: center;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .footer-link { text-decoration: none; }
-        .website-name { color: white; background-color: blue; }
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
-        }
-        .footer-link:hover .logo-img { transform: scale(1.1); }
-        .address-text,
-        .address-text * {
-            color: #90ee90;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
         #hsd-results {
             margin-top: 10px;
             padding: 10px;
             background-color: #f9f9f9;
             border-radius: 5px;
         }
-    
         @media (max-width: 768px) {
-            #contact { min-height: 100vh; }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section h2 {
+                font-size: 1.2rem;
+            }
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-card .profile-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-card .profile-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .profile-card img.profile-img {
+                margin-bottom: 1rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
             .contact-icons {
                 flex-direction: column;
                 align-items: center;
-                margin-bottom: 60px;
             }
             .contact-icon {
-                width: 35px;
-                height: 35px;
+                width: 40px;
+                height: 40px;
             }
-            .logo-img {
-                width: 35px;
-                height: 35px;
+            .ticker {
+                font-size: 0.8rem;
             }
-            .address-text {
-                font-size: 12px;
-                max-width: 90%;
-                color: #90EE90;
+            .form-flex, .form-flex a {
+                font-size: 1rem;
             }
-            .triggers-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            .notices-trigger {
-                max-width: 100%;
-            }
-            .footer-logo {
-                bottom: 10px;
+            .hero-section .cta-button {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
             }
         }
-
-img.lazy {
-    filter: blur(8px);
-    transition: filter 0.3s;
-  }
-  img:not(.lazy) {
-    filter: none;
-  }    
+        @media (max-width: 480px) {
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 1rem;
+            }
+            .hero-section {
+                padding: 2rem 1rem;
+            }
+            .hero-section .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            .profile-card {
+                padding: 1rem;
+            }
+            .mission-section h3 {
+                font-size: 1.5rem;
+            }
+            .cta-section h3 {
+                font-size: 1.25rem;
+            }
+            .form-flex {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+            .form-flex a {
+                font-size: 0.9rem;
+            }
+            .contact-logo {
+                width: 80px;
+                height: 80px;
+            }
+            .address-text {
+                font-size: 0.9rem;
+            }
+            .profile-card .profile-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -782,7 +800,7 @@ img.lazy {
     </nav>
     <div class="ticker-container">
         <div class="ticker">
-            Agriculture is the heartbeat of the world, where every seed sown is a step towards a future of abundance, sustainability, and hope.
+Agriculture is the heartbeat of the world, where every seed sown is a step towards a future of abundance, sustainability, and hope.
         </div>
     </div>
     <div class="banner">
@@ -793,21 +811,21 @@ img.lazy {
                 <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/NAN.jpg" alt="Research Endowment Fund Logo" class="research-logo">
                 <span class="research-text">Research Endowment Fund</span>
             </div>
-            <span class="banner-text">© An official website of Bikas Basnet</span>
-            <a href="https://planthub.bikasbasnet.com.np/" target="_blank" class="banner-link">Here's how we know</a>
+            <span class="banner-text">© 2025 Bikas Basnet</span>
+            <a href="https://planthub.bikasbasnet.com.np/" target="_blank" class="banner-link">Learn More</a>
         </div>
     </div>
     <div id="research-info" class="research-info">
         <div class="research-details">
-            <h3>Research Endowment Fund</h3>
+            <h2>Research Endowment Fund</h2>
             <p>The fund supports innovative projects and academic research in Nepal, fostering scientific advancement and community development. Contributions sustain cutting-edge studies, including:</p>
             <ul>
                 <li>Diversity study of flora and fauna (phenotypic and genomic scale)</li>
                 <li>Habitat conservation efforts</li>
                 <li>Climate-resilient ideas and innovation promotion</li>
                 <li>Location-specific innovations for farmers, like mechanization, machine learning, model deployment</li>
-                <li>Location-specific Quality seed and input timely supply</li>
-                <li>Chain and functional policy support and Development of farmers' products in different parts of the country</li>
+                <li>Location-specific quality seed and input timely supply</li>
+                <li>Chain and functional policy support and development of farmers' products</li>
             </ul>
             <hr>
             <p class="fund-status">Total fund collected: <span class="amount">NRs 5000</span></p>
@@ -816,139 +834,107 @@ img.lazy {
         <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Esewa%20QR%20code.jpg" alt="Esewa QR Code" class="qr-code">
     </div>
     <div id="home" class="content-section">
-        <div class="main-content">
-            <h2>Welcome to the Digital Home of Bikas Basnet</h2>
-            <div class="triggers-container">
-                <div class="notices-trigger" onclick="toggleForm()" style="color: blue;">
-                    Click for Our Services
-                </div>
-                <div class="notices-trigger" onclick="toggleNotices()" style="color: blue;">
-                    Click for Current Notices
-                </div>
-            </div>
-            <div class="form-flex" id="formSection">
-                <iframe src="form.html" title="Service Form"></iframe>
-                <a href="form.html" target="_blank">Click to View Full Service</a>
-            </div>
-            <div id="notices-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-modal" onclick="toggleNotices()">×</span>
-                    <h2 style="color: blue;">Current Notices</h2>
-                    <div class="modal-flex">
-                        <div class="notice-item">
-                            <div class="notice-content">
-                                <p class="notice-text">New features are being added to the portfolio onwards April 10, 2025.</p>
-                                <hr class="notice-separator">
-                                <p class="notice-text highlight">🎉 Congratulations to Bikas on the acceptance of his second research paper (Durum & Aestivum germplasm) in an Elsevier journal – 2025!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-container" style="margin-top: 30px;">
-                <div class="profile-side-left">
-                    <h3>Key Interests</h3>
+        <div class="hero-section">
+            <h1>Bikas Basnet</h1>
+            <h2>Independent Researcher</h2>
+            <a href="#projects" class="cta-button explore-work" onclick="showSection('projects')">Explore My Work</a>
+            <a href="javascript:void(0)" class="cta-button our-services" onclick="toggleForm()">Our Services</a>
+        </div>
+        <div class="form-flex" id="formSection">
+            <iframe src="form.html" title="Service Form"></iframe>
+            <a href="form.html" target="_blank">View Full Services</a>
+        </div>
+        <div class="profile-card">
+            <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/20230227_151532.jpg" alt="Bikas Basnet" class="profile-img">
+            <div class="profile-content">
+                <div class="profile-info">
+                    <h3>Research Interests</h3>
                     <ul>
                         <li>Genomics & Plant Breeding</li>
                         <li>Plant-Microbe Interactions</li>
                         <li>Quantitative Genetics</li>
-                        <li>Computational Biology, Data Science & Machine Learning</li>
+                        <li>Computational Biology & Data Science</li>
                         <li>Crop Science</li>
                     </ul>
                 </div>
-                <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/20230227_151532.jpg" alt="Bikas Basnet" class="profile-img">
-                <div class="profile-side-right">
-                    <a href="https://scholar.google.com.hk/citations?user=UIIyoiMAAAAJ" target="_blank" class="profile-link">
-                        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Google%20scholar%20logo.png" alt="Google Scholar">
+                <div class="profile-links">
+                    <a href="https://scholar.google.com.hk/citations?user=UIIyoiMAAAAJ" target="_blank">
                         Google Scholar
+                        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Google%20scholar%20logo.png" alt="Google Scholar">
                     </a>
-                    <a href="https://orcid.org/0000-0003-0579-6039" target="_blank" class="profile-link">
-                        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Orchid%20pHOTO.png" alt="ORCID">
+                    <a href="https://orcid.org/0000-0003-0579-6039" target="_blank">
                         ORCID
+                        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Orchid%20pHOTO.png" alt="ORCID">
                     </a>
                 </div>
             </div>
-            <p class="intro-text">I am an enthusiastic graduate student in agriculture with avidity for not only crop improvement (genomics, plant-microbe interactions, quantitative genetics, applied aspects of plant breeding, modern plant breeding tools, product design and development), but also computational genetics programming and Biopython [including deep learning as well as machine learning]. Through field- and lab-based studies and computational tools, I have meticulously honed my skills through rigorous academic and informal coursework and immersive hands-on internships. My ardent ambition is to bridge the gap between farmers' fields and research stations through innovation exchange and capacity building. As a guiding principle, I am deeply committed to addressing the pressing food and nutrition insecurity issue in developing countries. Moreover, I am eager to collaborate on impactful projects that make a positive difference by bridging the gap between research stations and farmers' fields through capacity building as well as innovation exchange.</p>
-            <hr>
-            <div class="footer-logo">
-                <a href="https://bikas-basnet.github.io/" target="_blank" class="footer-link">
-                    <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Website%20logo.png" alt="Website Logo" class="logo-img">
-                    <span class="website-name">© 2025 site by–B. Basnet</span>
-                </a>
+        </div>
+        <div class="mission-section">
+            <h3>Mission & Vision</h3>
+            <p>I am an enthusiastic graduate student in agriculture with avidity for not only crop improvement (genomics, plant-microbe interactions, quantitative genetics, applied aspects of plant breeding, modern plant breeding tools, product design and development), but also computational genetics programming and Biopython [including deep learning as well as machine learning]. Through field- and lab-based studies and computational tools, I have meticulously honed my skills through rigorous academic and informal coursework and immersive hands-on internships. My ardent ambition is to bridge the gap between farmers' fields and research stations through innovation exchange and capacity building. As a guiding principle, I am deeply committed to addressing the pressing food and nutrition insecurity issue in developing countries. Moreover, I am eager to collaborate on impactful projects that make a positive difference by bridging the gap between research stations and farmers' fields through capacity building as well as innovation exchange.</p>
+        </div>
+        <div class="cta-section">
+            <h3>Connect & Explore</h3>
+            <div class="cta-buttons">
+                <a href="#publications" onclick="showSection('publications')">View Publications</a>
+                <a href="#contact" onclick="showSection('contact')">Contact Me</a>
+                <a href="#projects" onclick="showSection('projects')">Ongoing Projects</a>
             </div>
+        </div>
+        <div class="footer-logo">
+            <a href="https://bikas-basnet.github.io/">
+                <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Website%20logo.png" alt="Website Logo">
+                © 2025 Bikas Basnet
+            </a>
         </div>
     </div>
     <div id="projects" class="content-section">
         <div class="container">
-            <h1>Ungoing projects</h1>
+            <h1>Ongoing Projects</h1>
             <ul>
-  <li><strong>Project 1: Study of climate-smart practices</strong> - This project focuses on climate-smart practices, green jobs, and green enterprises, Digital Agriculture as well as innovation extensions</li>
-
-  <li><strong>Project 2: Multivariate selection of Maize Hybrids</strong> - A project focused on selection of prime-yielding and stable genotypes</li>
-</ul>
-
-<figure>
-  <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/Elipse.jpg?raw=true"
-       class="lazy"
-       alt="Elipse plot"
-       style="width:100%; max-width:600px;" />
-  <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
-    PCA-based ellipse plot.
-  </figcaption>
-</figure>
-
-<ul>
-  <li><strong>Project 3: Screening of 761+ wheat lines and 62 released wheat varieties</strong> - Which released variety of wheat unveils the strongest adult plant leaf rust resistance on common pathotypes</li>
-</ul>
-
-<figure>
-  <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/images/Journey%20of%20wheat%20over%20time.jpg?raw=true"
-       class="lazy"
-       alt="Journey of wheat"
-       style="width:48%; margin-right:2%;" />
-
-  <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/images/Cleveland%20for%20Bayesian%20interactive%20prediction.jpg?raw=true"
-       class="lazy"
-       alt="Cleveland Bayesian prediction"
-       style="width:48%;" />
-
-  <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
-    Figure showing the journey of wheat release in Nepal and a Cleveland dot plot for Bayesian interactive prediction.
-  </figcaption>
-</figure>
-
-<ul>
-  <li><strong>Project 4: Deep learning for Crop Improvement/Hyperspectral imaging</strong> - Training of 50k+ RGB plant leaf samples to develop a real-time solution; seeking multispectral/hyperspectral training or collaboration opportunity</li>
-</ul>
-
-<figure>
-  <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/training_and_roc_plots.jpg?raw=true"
-       class="lazy"
-       alt="Training and ROC Plots"
-       style="width:100%; max-width:600px;" />
-  <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
-    Fig depicting Custom CNN (CropDiseaseCNN): Accuracy vs loss vs time vs epochs.
-  </figcaption>
-</figure>
-
-<figure>
-  <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/confusion%20matrix%20eff%20net.jpg?raw=true"
-       class="lazy"
-       alt="Confusion matrix"
-       style="width:48%;" />
-  <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
-    Figure depicting the correct and incorrect predictions across the classes.
-  </figcaption>
-</figure>
+                <li><strong>Project 1: Study of Climate-Smart Practices</strong> - This project focuses on climate-smart practices, green jobs, and green enterprises, digital agriculture, and innovation extensions.</li>
+                <li><strong>Project 2: Multivariate Selection of Maize Hybrids</strong> - Focused on selecting prime-yielding and stable genotypes.</li>
+            </ul>
+            <figure>
+                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/Elipse.jpg?raw=true" class="lazy" alt="Elipse plot" style="width:100%; max-width:600px;" />
+                <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
+                    PCA-based ellipse plot.
+                </figcaption>
+            </figure>
+            <ul>
+                <li><strong>Project 3: Screening of 761+ Wheat Lines and 62 Released Wheat Varieties</strong> - Identifying wheat varieties with strong adult plant leaf rust resistance on common pathotypes.</li>
+            </ul>
+            <figure>
+                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/images/Journey%20of%20wheat%20over%20time.jpg?raw=true" class="lazy" alt="Journey of wheat" style="width:48%; margin-right:2%;" />
+                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/images/Cleveland%20for%20Bayesian%20interactive%20prediction.jpg?raw=true" class="lazy" alt="Cleveland Bayesian prediction" style="width:48%;" />
+                <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
+                    Figure showing the journey of wheat release in Nepal and a Cleveland dot plot for Bayesian interactive prediction.
+                </figcaption>
+            </figure>
+            <ul>
+                <li><strong>Project 4: Deep Learning for Crop Improvement/Hyperspectral Imaging</strong> - Training 50k+ RGB plant leaf samples to develop real-time solutions; seeking multispectral/hyperspectral training or collaboration opportunities.</li>
+            </ul>
+            <figure>
+                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/training_and_roc_plots.jpg?raw=true" class="lazy" alt="Training and ROC Plots" style="width:100%; max-width:600px;" />
+                <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
+                    Custom CNN (CropDiseaseCNN): Accuracy vs loss vs time vs epochs.
+                </figcaption>
+            </figure>
+            <figure>
+                <img data-src="https://github.com/bikas-basnet/bikas-basnet.github.io/blob/main/confusion%20matrix%20eff%20net.jpg?raw=true" class="lazy" alt="Confusion matrix" style="width:48%;" />
+                <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
+                    Figure depicting correct and incorrect predictions across classes.
+                </figcaption>
+            </figure>
             <hr>
             <h2>Accepted Publications</h2>
-            <p><strong>Which wheat varieties unveil strong Adult plant resistance to common pathotypes of leaf rust (Puccinia triticina) while maintaining prime yield?</strong></p>
+            <p><strong>Which wheat varieties unveil strong adult plant resistance to common pathotypes of leaf rust (Puccinia triticina) while maintaining prime yield?</strong></p>
             <hr>
             <h2>Assignments</h2>
             <ul>
                 <li><strong>A1: Agricultural Impact Analysis</strong> - Analyzing the environmental impacts of various agricultural practices through a comparative study.</li>
                 <li><strong>A2: Crop Modeling</strong> - Creating models to predict crop yield based on climatic data and soil conditions.</li>
-                <li><strong>A3: 3 factors RCBD-split plot Analysis</strong> - Data Transformation and Results of 3-factor split plot design:
+                <li><strong>A3: 3 Factors RCBD-Split Plot Analysis</strong> - Data transformation and results of 3-factor split plot design:
                     <div id="hsd-results"></div>
                 </li>
             </ul>
@@ -977,8 +963,8 @@ img.lazy {
                 <li>🔬Chauhan, S., <strong>Basnet, B.</strong>, Adhikari, S. K., Budhathoki, P., & Shrestha, A. K. (2024). Innovative farming techniques for superior okra yield in Chitwan, Nepal: The benefits of plastic film mulch and pest exclusion net on soil properties, growth, quality, and profitability. <i>Ecological Frontiers, 44</i>(1), 23-32. <a href="https://doi.org/10.1016/j.chnaes.2023.05.007" target="_blank">📄</a> (Q1)
                     <a href="https://www.scimagojr.com/journalsearch.php?q=21101228881&tip=sid&exact=no" title="SCImago Journal & Country Rank"><img border="0" src="https://www.scimagojr.com/journal_img.php?id=21101228881" alt="SCImago Journal & Country Rank" /></a>
                 </li>
-                <li>🔬Kunwar, C. B., <strong>Basnet, B.</strong>, Sunuwar, S., Mahato, D. N., Chaudhari, R., Upadhya, J., & Pokhrel, P. (2024). Multi-model approach for optimizing cold-wave resilient maize selection: unveiling genotype-by-environment interaction and predicting yield stability. <i>CABI Agriculture and Bioscience, 5</i>, 63 (2024) <a href="https://doi.org/10.1186/s43170-024-00266-7" target="_blank">📄</a> (Q1)
-                    <a href="https://www.scimagojr.com/journalsearch.php?q=21101151829&amp;tip=sid&amp;exact=no" title="SCImago Journal &amp; Country Rank"><img border="0" src="https://www.scimagojr.com/journal_img.php?id=21101151829" alt="SCImago Journal &amp; Country Rank"  /></a>
+                <li>🔬Kunwar, C. B., <strong>Basnet, B.</strong>, Sunuwar, S., Mahato, D. N., Chaudhari, R., Upadhya, J., & Pokhrel, P. (2024). Multi-model approach for optimizing cold-wave resilient maize selection: unveiling genotype-by-environment interaction and predicting yield stability. <i>CABI Agriculture and Bioscience, 5</i>, 63. <a href="https://doi.org/10.1186/s43170-024-00266-7" target="_blank">📄</a> (Q1)
+                    <a href="https://www.scimagojr.com/journalsearch.php?q=21101151829&tip=sid&exact=no" title="SCImago Journal & Country Rank"><img border="0" src="https://www.scimagojr.com/journal_img.php?id=21101151829" alt="SCImago Journal & Country Rank" /></a>
             </ul>
             <h2>2023</h2>
             <ul>
@@ -995,8 +981,8 @@ img.lazy {
                 <li>🔬<strong>Basnet, B.</strong>, & Khanal, S. (2022). Quantitative trait loci and candidate genes for iron and zinc bio-fortification in genetically diverse germplasm of maize (Zea mays L): A systematic review. <i>Heliyon, 8</i>(12). <a href="https://doi.org/10.1016/j.heliyon.2022.e12593" target="_blank">📄</a> (Q1)
                     <a href="https://www.scimagojr.com/journalsearch.php?q=21100411756&tip=sid&exact=no" title="SCImago Journal & Country Rank"><img border="0" src="https://www.scimagojr.com/journal_img.php?id=21100411756" alt="SCImago Journal & Country Rank" /></a>
                 </li>
-                <li>🔬<strong>Basnet, B.</strong> (2022). Perspective of olive farming at Bajura, Nepal: main opportunities and challenges. <i>Nepal: Main Opportunities and Challenges</i> (June 4, 2022). <a href="https://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">📄</a></li>
-                <li>🔬<strong>Basnet, B.</strong> (2022). Economics of Onion Seed Production in Western Rukum, Nepal. <i>Nepal</i> (June 4, 2022). <a href="https://doi.org/10.26480/faer.02.2022.55.59" target="_blank">📄</a></li>
+                <li>🔬<strong>Basnet, B.</strong> (2022). Perspective of olive farming at Bajura, Nepal: main opportunities and challenges. <i>Nepal: Main Opportunities and Challenges</i>. <a href="https://doi.org/10.26480/sfna.02.2022.67.73" target="_blank">📄</a></li>
+                <li>🔬<strong>Basnet, B.</strong> (2022). Economics of Onion Seed Production in Western Rukum, Nepal. <i>Nepal</i>. <a href="https://doi.org/10.26480/faer.02.2022.55.59" target="_blank">📄</a></li>
             </ul>
             <h2>2021</h2>
             <ul>
@@ -1008,49 +994,48 @@ img.lazy {
         <div class="container">
             <hr>
             <ul>
-                <li>Date of birth: 27 Dec 2001 AD</li>
+                <li>Date of birth: 27 Dec 2001</li>
                 <li class="certs-awards">
                     Certifications and Awards
                     <ul class="submenu">
                         <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate%20of%20Participation%20105.pdf" target="_blank" class="pdf-link">Certificate of Participation</a></li>
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_HORTI_Recognised.pdf" target="_blank" class="pdf-link">Scientific Horticulture Journal Reviewer certificate- Elsevier</a></li>
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_STRESS_Recognised.pdf" target="_blank" class="pdf-link">Plant Stress Journal Reviewer Certificate- Elsevier</a></li>
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="pdf-link">Scientific Reports Nature Journal Reviewer Certificate</a></li>
+                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_HORTI_Recognised.pdf" target="_blank" class="pdf-link">Scientific Horticulture Journal Reviewer</a></li>
+                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_STRESS_Recognised.pdf" target="_blank" class="pdf-link">Plant Stress Journal Reviewer</a></li>
+                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="pdf-link">Scientific Reports Nature Journal Reviewer</a></li>
                         <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Bikas%20Basnet%20BWIC2022_Certificate.pdf" target="_blank" class="pdf-link">CIMMYT Basic Wheat Improvement Course</a></li>
                     </ul>
                 </li>
             </ul>
             <hr>
-            <h2>Thesis Dissertation PPT</h2>
+            <h2>Thesis Dissertation</h2>
             <ul>
-                <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">UG Defense Slide (Thesis Presentation of Quantitative Genetics-Mungbean Germplasms)</a></li>
+                <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">Undergraduate Thesis Presentation (Quantitative Genetics-Mungbean Germplasms)</a></li>
             </ul>
             <hr>
-            <h2>Pedigree of Khabtadi Basnet/खप्तडी बस्नेत वंशावली</h2>
+            <h2>Pedigree of Khabtadi Basnet</h2>
             <ul>
-                <li><a href="https://bikas-basnet.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटसम्म/Up to 15 Bansalat)</a></li>
-                <li><a href="https://bikas-basnet.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">Pedigree of Khabtari Basnet (१५ वंशलटबाट/From 15 Bansalat)</a></li>
+                <li><a href="https://bikas-basnet.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">Pedigree Up to 15 Bansalat</a></li>
+                <li><a href="https://bikas-basnet.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">Pedigree From 15 Bansalat</a></li>
             </ul>
         </div>
     </div>
-    
     <div id="cv" class="content-section">
         <div class="container">
-            <p>For updated CV, please contact Bikas Basnet.</p>
-            <h2>some important link for class student</h2>
-            <a href="https://youtu.be/FO3UO-gab_g?si=mcRrsKnfmYB_97Xx">cutting</a>
-            <a href="https://www.youtube.com/watch?v=d07LX6lvMEE">Tissue Culture</a>
-            <a href="https://youtu.be/UBWxZnmds1E?si=EKefvqG6yQA5yMs6">Powdery mildew innoculation animation</a>
-            <a href="https://youtu.be/72ufVf04cuU?si=4xekACRW53rQXpeA">Leaf Rust preview</a>
-            <hr>
-            <a href="https://youtu.be/LV2mIPwjTdU?si=2AVXKgq4c-s_E4UH">Grapes Downy mildew innoculation animation</a>
-            
+            <p>For an updated CV, please contact me.</p>
+            <h2>Resources for Students</h2>
+            <ul>
+                <li><a href="https://youtu.be/FO3UO-gab_g?si=mcRrsKnfmYB_97Xx">Cutting Techniques</a></li>
+                <li><a href="https://www.youtube.com/watch?v=d07LX6lvMEE">Tissue Culture</a></li>
+                <li><a href="https://youtu.be/UBWxZnmds1E?si=EKefvqG6yQA5yMs6">Powdery Mildew Inoculation Animation</a></li>
+                <li><a href="https://youtu.be/72ufVf04cuU?si=4xekACRW53rQXpeA">Leaf Rust Preview</a></li>
+                <li><a href="https://youtu.be/LV2mIPwjTdU?si=2AVXKgq4c-s_E4UH">Grapes Downy Mildew Inoculation Animation</a></li>
+            </ul>
         </div>
     </div>
     <div id="contact" class="content-section">
         <div class="container">
             <div class="contact-icons">
-                <a href="Email : research@bikasbasnet.com.np" target="_blank">
+                <a href="mailto:research@bikasbasnet.com.np" target="_blank">
                     <img class="contact-icon" src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Email.png" alt="Email">
                 </a>
                 <a href="https://www.linkedin.com/in/bikas-basnet-372a47206/" target="_blank">
@@ -1075,7 +1060,6 @@ img.lazy {
             </div>
         </div>
     </div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         function toggleResearchInfo() {
             const info = document.getElementById("research-info");
@@ -1087,9 +1071,6 @@ img.lazy {
             const selectedSection = document.getElementById(sectionId);
             if (selectedSection) {
                 selectedSection.style.display = 'block';
-                if (sectionId === 'RRA') {
-                    cycleRRAImages();
-                }
             }
         }
         function cycleRRAImages() {
@@ -1105,65 +1086,17 @@ img.lazy {
         }
         function toggleForm() {
             const formSection = document.getElementById("formSection");
-            formSection.style.display = formSection.style.display === "none" ? "flex" : "none";
-        }
-        function toggleNotices() {
-            const modal = document.getElementById("notices-modal");
-            modal.style.display = modal.style.display === "block" ? "none" : "block";
+            formSection.style.display = formSection.style.display === "none" ? "block" : "none";
         }
         document.addEventListener('DOMContentLoaded', () => {
             showSection('home');
-            const ticker = document.querySelector('.ticker');
-            const messages = [
-                'Agriculture is the heartbeat of the world, where every seed sown is a step towards a future of abundance, sustainability, and hope'
-            ];
-            let index = 0;
-            setInterval(() => {
-                ticker.textContent = messages[index];
-                index = (index + 1) % messages.length;
-            }, 10000);
             fetch('https://raw.githubusercontent.com/bikas-basnet/Experimental-Design-Aanlysis-code/main/HSD-data.html')
                 .then(response => response.text())
                 .then(data => document.getElementById('hsd-results').innerHTML = data)
                 .catch(error => {
-                    document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/bikas-basnet/Experimental-Design-Aanlysis-code/blob/main/HSD-data.html" target="_blank">View on GitHub</a>';
+                    document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/bikas-basnet/Experimental-Design-Aanlysis-code/main/HSD-data.html" target="_blank">View on GitHub</a>';
                 });
-            const modal = document.getElementById('notices-modal');
-            const closeBtn = modal.querySelector('.close-modal');
-            closeBtn.addEventListener('click', toggleNotices);
-            modal.addEventListener('click', e => {
-                if (e.target === modal) toggleNotices();
-            });
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && modal.style.display === 'block') {
-                    toggleNotices();
-                }
-            });
         });
-
-        document.addEventListener("DOMContentLoaded", function () {
-    const lazyImages = document.querySelectorAll("img.lazy");
-
-    if ("IntersectionObserver" in window) {
-      let observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.remove("lazy");
-            observer.unobserve(img);
-          }
-        });
-      });
-
-      lazyImages.forEach(img => observer.observe(img));
-    } else {
-      lazyImages.forEach(img => {
-        img.src = img.dataset.src;
-        img.classList.remove("lazy");
-      });
-    }
-  });      
     </script>
 </body>
 </html>
