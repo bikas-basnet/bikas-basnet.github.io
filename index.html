@@ -117,7 +117,7 @@
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            font-size: 1.5rem; /* Increased from 1.2rem */
+            font-size: 1.5rem;
             color: red;
             animation: scroll 9s linear infinite;
         }
@@ -683,6 +683,63 @@
             background-color: #f9f9f9;
             border-radius: 5px;
         }
+        /* Innovation Section Styles */
+        #Innovation {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Deeplearning.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #Innovation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            filter: blur(6px);
+            z-index: 0;
+            background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Deeplearning.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #Innovation > * {
+            position: relative;
+            z-index: 1;
+        }
+        #Innovation h1 {
+            color: #ffffff;
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        #Innovation p {
+            color: #ffffff;
+            font-size: 1.3rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 25px;
+            height: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
         @media (max-width: 768px) {
             .hero-section h1 {
                 font-size: 2rem;
@@ -718,7 +775,7 @@
                 height: 40px;
             }
             .ticker {
-                font-size: 1rem; /* Adjusted for smaller screens */
+                font-size: 1rem;
             }
             .form-flex, .form-flex a {
                 font-size: 1rem;
@@ -768,7 +825,7 @@
                 align-items: center;
             }
             .ticker {
-                font-size: 0.9rem; /* Adjusted for smaller screens */
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -800,7 +857,7 @@
         <a href="#cv" onclick="showSection('cv')">CV</a>
         <a href="#contact" onclick="showSection('contact')">Contact</a>
         <a href="blog.html">Expert View and Students Blogs</a>
-        <a href="#Innovation">Innovation</a>
+        <a href="#Innovation" onclick="showSection('Innovation')">Innovation</a>
     </nav>
     <div class="ticker-container">
         <div class="ticker">
@@ -1062,11 +1119,25 @@
                     <p><strong>Permanent Address Line 1:</strong> Sunderharaincha Municipality-9, Jharnapool, Biratchowk, Morang, Nepal</p>
                     <p><strong>Permanent Address Line 2:</strong> Dharma Devi Municipality-4, Mamling, Sankhuwasabha, Nepal</p>
                 </div>
-                <div id="Innovation" class="Innovation">
-               <div class="container">
-            <p>Plant disease calssifier</p>
-         </div>
-      </div>
+            </div>
+        </div>
+    </div>
+    <div id="Innovation" class="content-section">
+        <div class="container">
+            <h1>Innovation</h1>
+            <p>Plant Diseases Diagnosis AI</p>
+            <div class="video-container">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/VhWNciD9EZ8" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
