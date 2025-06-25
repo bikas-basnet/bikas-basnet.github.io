@@ -647,34 +647,7 @@
             vertical-align: middle;
             margin-top: 5px;
         }
-        #data {
-            position: relative;
-            min-height: 100vh;
-            background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Deeplearning.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        #data::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            filter: blur(6px);
-            z-index: 0;
-            background-image: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Deeplearning.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        #data > * { position: relative; z-index: 1; }
-        #data ul li { color: #FFFF00; }
-        #data h2 { color: #FFFF00; border-bottom: 2px solid #FFFF00; }
-        #data a { color: #FFFF00; text-decoration: underline; }
-        #data a:hover { color: #FFD700; text-decoration: none; }
+        
         #RRA { position: relative; min-height: 100vh; }
         #cv { position: relative; min-height: 100vh; }
         #hsd-results {
@@ -719,7 +692,7 @@
             margin-bottom: 1rem;
         }
         #Innovation p {
-            color: #ffffff;
+            color: white;
             font-size: 1.3rem;
             text-align: center;
             max-width: 800px;
@@ -852,7 +825,7 @@
                 <a href="https://doi.org/10.26480/itechmag.03.2021.09.18" target="_blank">2021: Insect Pests Infestation...</a>
             </div>
         </div>
-        <a href="#data" onclick="showSection('data')">Data</a>
+        <a href="data.html">Data</a>
         <a href="RRA.html">RRA</a>
         <a href="#cv" onclick="showSection('cv')">CV</a>
         <a href="#contact" onclick="showSection('contact')">Contact</a>
@@ -1052,35 +1025,6 @@
             </ul>
         </div>
     </div>
-    <div id="data" class="content-section">
-        <div class="container">
-            <hr>
-            <ul>
-                <li>Date of birth: 27 Dec 2001</li>
-                <li class="certs-awards">
-                    Certifications and Awards
-                    <ul class="submenu">
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate%20of%20Participation%20105.pdf" target="_blank" class="pdf-link">Certificate of Participation</a></li>
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_HORTI_Recognised.pdf" target="_blank" class="pdf-link">Scientific Horticulture Journal Reviewer</a></li>
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_STRESS_Recognised.pdf" target="_blank" class="pdf-link">Plant Stress Journal Reviewer</a></li>
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="pdf-link">Scientific Reports Nature Journal Reviewer</a></li>
-                        <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Bikas%20Basnet%20BWIC2022_Certificate.pdf" target="_blank" class="pdf-link">CIMMYT Basic Wheat Improvement Course</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <hr>
-            <h2>Thesis Dissertation</h2>
-            <ul>
-                <li><a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/UG%20Defense%20Slide.pptx" target="_blank" class="ppt-link">Undergraduate Thesis Presentation (Quantitative Genetics-Mungbean Germplasms)</a></li>
-            </ul>
-            <hr>
-            <h2>Pedigree of Khabtadi Basnet</h2>
-            <ul>
-                <li><a href="https://bikas-basnet.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="pdf-link">Pedigree Up to 15 Bansalat</a></li>
-                <li><a href="https://bikas-basnet.github.io/From-15-bansalat.pdf" target="_blank" class="pdf-link">Pedigree From 15 Bansalat</a></li>
-            </ul>
-        </div>
-    </div>
     <div id="cv" class="content-section">
         <div class="container">
             <p>For an updated CV, please contact me.</p>
@@ -1128,8 +1072,8 @@
             <p>Plant Diseases Diagnosis AI</p>
             <div class="video-container">
                 <iframe 
-                    width="560" 
-                    height="315" 
+                    width="650" 
+                    height="350" 
                     src="https://www.youtube.com/embed/VhWNciD9EZ8" 
                     title="YouTube video player" 
                     frameborder="0" 

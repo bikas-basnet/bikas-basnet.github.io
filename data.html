@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Branch Profile Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Roboto:wght@300;400;600&display=swap');
+        body {
+            background: linear-gradient(180deg, #0a192f, #112240);
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow: auto;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Ccircle cx="10" cy="10" r="1" fill="rgba(20,184,166,0.2)" /%3E%3Ccircle cx="90" cy="90" r="1" fill="rgba(139,92,246,0.2)" /%3E%3C/svg%3E');
+            opacity: 0.15;
+            animation: bioluminescentDrift 25s linear infinite;
+        }
+        @keyframes bioluminescentDrift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50px, -50px); }
+        }
+        .content-section {
+            max-width: 5xl;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            padding: 4rem;
+        }
+        .node {
+            background: linear-gradient(135deg, rgba(13, 44, 64, 0.9), rgba(45, 31, 94, 0.9));
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            width: 100%;
+            max-width: 600px;
+        }
+        .node:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 12px 40px rgba(20, 184, 166, 0.5);
+        }
+        .node::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.2), transparent 70%);
+            opacity: 0.4;
+            border-radius: 1rem;
+            animation: glowPulse 8s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+            background: linear-gradient(45deg, #14b8a6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #14b8a6, #8b5cf6);
+            border-radius: 2px;
+        }
+        ul, .submenu li {
+            transition: all 0.4s ease;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+        ul li:hover, .submenu li:hover {
+            transform: translateX(10px);
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0.2), rgba(139, 92, 246, 0.2));
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+        .link {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #d1d5db;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .link::before {
+            content: '↝';
+            font-size: 1rem;
+            color: #14b8a6;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-8px);
+        }
+        .link:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(20, 184, 166, 0.5);
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #d1d5db;
+            font-size: 1.2rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+        .info-item:hover {
+            transform: translateX(10px);
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0.2), rgba(139, 92, 246, 0.2));
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+        .info-item::before {
+            content: '✧';
+            color: #8b5cf6;
+            font-size: 1.2rem;
+        }
+        .branch-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .branch-path {
+            stroke: rgba(20, 184, 166, 0.5);
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawBranch 3s ease-in-out forwards;
+        }
+        @keyframes drawBranch {
+            to { stroke-dashoffset: 0; }
+        }
+        @media (max-width: 768px) {
+            .content-section { padding: 2rem; }
+            .node { padding: 1.5rem; max-width: 100%; }
+            h2 { font-size: 1.75rem; }
+            .info-item, .submenu li, ul li { font-size: 1rem; }
+            .branch-container svg { transform: scale(0.8); }
+        }
+    </style>
+</head>
+<body>
+    <div id="data" class="content-section">
+        <div class="branch-container">
+            <svg width="100%" height="100%" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid meet">
+                <path class="branch-path" d="M400,100 C400,200 300,300 350,400 C350,500 450,600 400,700 C400,800 300,900 350,1000 C350,1100 450,1100 400,1200" />
+                <path class="branch-path" d="M400,400 C450,450 500,500 550,550" />
+                <path class="branch-path" d="M400,700 C350,750 300,800 250,850" />
+                <path class="branch-path" d="M400,1000 C450,1050 500,1100 550,1150" />
+            </svg>
+        </div>
+        <div class="node" style="margin-top: 2rem;">
+            <h2>Personal Info</h2>
+            <ul class="space-y-4">
+                <li class="info-item">
+                    <span class="font-semibold">Date of birth:</span> ## Dec ##01
+                </li>
+            </ul>
+        </div>
+        <div class="node" style="margin-left: 8rem;">
+            <h2>Certifications and Awards</h2>
+            <ul class="submenu space-y-3 pl-4">
+                <li>
+                    <a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate%20of%20Participation%20105.pdf" target="_blank" class="link">
+                        Certificate of Participation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_HORTI_Recognised.pdf" target="_blank" class="link">
+                        Scientific Horticulture Journal Reviewer
+                    </a>
+                </li>
+                <li>
+                    <a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Certificate_STRESS_Recognised.pdf" target="_blank" class="link">
+                        Plant Stress Journal Reviewer
+                    </a>
+                </li>
+                <li>
+                    <a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Reviewer%20Certificate%2011%20February%202025.pdf" target="_blank" class="link">
+                        Scientific Reports Nature Journal Reviewer
+                    </a>
+                </li>
+                <li>
+                    <a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Bikas%20Basnet%20BWIC2022_Certificate.pdf" target="_blank" class="link">
+                        CIMMYT Basic Wheat Improvement Course
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="node" style="margin-right: 8rem;">
+            <h2>Thesis Dissertation</h2>
+            <ul class="space-y-3 pl-4">
+                <li>
+                    <a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/UG%20Defense%20Slide.pptx" target="_blank" class="link">
+                        Undergraduate Thesis Presentation (Quantitative Genetics-Mungbean Germplasms)
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="node" style="margin-left: 8rem;">
+            <h2>Pedigree of Khabtadi Basnet</h2>
+            <ul class="space-y-3 pl-4">
+                <li>
+                    <a href="https://bikas-basnet.github.io/Upto-15-bansalat%20sammma.pdf" target="_blank" class="link">
+                        Pedigree Up to 15 Bansalat
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bikas-basnet.github.io/From-15-bansalat.pdf" target="_blank" class="link">
+                        Pedigree From 15 Bansalat
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
