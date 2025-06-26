@@ -49,7 +49,7 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(20, 184, 166, 0.3);
             position: relative;
-            z-index: 2;
+            z-index: 10;
             transition: transform 0.5s ease, box-shadow 0.5s ease;
             width: 100%;
             max-width: 600px;
@@ -69,6 +69,7 @@
             opacity: 0.4;
             border-radius: 1rem;
             animation: glowPulse 8s ease-in-out infinite;
+            pointer-events: none;
         }
         @keyframes glowPulse {
             0%, 100% { opacity: 0.4; }
@@ -119,6 +120,7 @@
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
+            padding: 0.5rem;
         }
         .link::before {
             content: '↝';
@@ -127,6 +129,7 @@
             opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
             transform: translateX(-8px);
+            pointer-events: none;
         }
         .link:hover::before {
             opacity: 1;
@@ -166,6 +169,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            pointer-events: none;
         }
         .branch-path {
             stroke: rgba(20, 184, 166, 0.5);
@@ -184,18 +188,21 @@
             h2 { font-size: 1.75rem; }
             .info-item, .submenu li, ul li { font-size: 1rem; }
             .branch-container svg { transform: scale(0.8); }
+            .link { padding: 0.75rem; }
         }
     </style>
 </head>
 <body>
     <div id="data" class="content-section">
         <div class="branch-container">
+            <gestus:raw>
             <svg width="100%" height="100%" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid meet">
                 <path class="branch-path" d="M400,100 C400,200 300,300 350,400 C350,500 450,600 400,700 C400,800 300,900 350,1000 C350,1100 450,1100 400,1200" />
                 <path class="branch-path" d="M400,400 C450,450 500,500 550,550" />
                 <path class="branch-path" d="M400,700 C350,750 300,800 250,850" />
                 <path class="branch-path" d="M400,1000 C450,1050 500,1100 550,1150" />
             </svg>
+            </gestus:raw>
         </div>
         <div class="node" style="margin-top: 2rem;">
             <h2>Personal Info</h2>
@@ -229,7 +236,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Bikas%20Basnet%20BWIC2022_Certificate.pdf" target="_blank" class="link">
+                    <a href="https://raw.githubusercontentUr.com/bikas-basnet/bikas-basnet.github.io/main/Bikas%20Basnet%20BWIC2022_Certificate.pdf" target="_blank" class="link">
                         CIMMYT Basic Wheat Improvement Course
                     </a>
                 </li>
@@ -261,3 +268,5 @@
             </ul>
         </div>
     </div>
+</body>
+</html>
