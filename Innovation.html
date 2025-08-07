@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NepAgVisionPro: AI-Powered Crop Diagnosis using MobileNetV2 for mungbean disease classification and advanced CNN models." />
+  <title>NepAgVisionPro - Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    /* ===== Root Variables ===== */
+    :root {
+      --primary: #007bff;
+      --accent: #4caf50; /* Changed green for features bg */
+      --bg: #fdfdfd;
+      --text-dark: #222;
+      --text-light: #fff;
+      --glass: rgba(255, 255, 255, 0.1);
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      --radius: 16px;
+      --shadow-light: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ===== Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== Body & Base Styling ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero-section {
+      /* Background compressed from top, no cropping bottom */
+      background: url('https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RC.jpg')
+        top center / 100% 75% no-repeat;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 0 1rem;
+    }
+
+    /* Hero content horizontally aligned flex */
+    .hero-content.flex-center {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center; /* vertical center */
+      justify-content: center; /* horizontal center */
+      gap: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.55);
+      padding: 2rem 3rem;
+      border-radius: var(--radius);
+      max-width: 900px;
+      width: 90%;
+      box-shadow: 0 8px 24px var(--shadow-light);
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .hero-subtitle {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    /* ===== Main Content ===== */
+    main {
+      padding: 2rem 1.5rem 4rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ===== Section Headings ===== */
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    /* Make features section heading white */
+    .features-section .features-title {
+      color: var(--text-light);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== Content Grid ===== */
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ===== Video, Diagram, Sunburst Containers ===== */
+    .video-container,
+    .diagram-container {
+      background: #fff;
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .video-container:hover,
+    .diagram-container:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Video iframe styling */
+    .video-container iframe {
+      width: 100%;
+      height: 500px;
+      border-radius: 12px;
+      border: none;
+      display: block;
+    }
+
+    /* Diagrams images */
+    .diagram-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      cursor: pointer;
+      display: block;
+    }
+
+    /* Caption styling */
+    figcaption.caption {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    /* Error message styling */
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      text-align: center;
+      display: none;
+    }
+
+    /* ===== Features Section ===== */
+    .features-section {
+      background: var(--accent);
+      padding: 3rem 1rem;
+      color: var(--text-light);
+      border-radius: 0 0 var(--radius) var(--radius);
+      margin-top: 3rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: var(--glass);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.03);
+    }
+
+    .feature-card i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    /* ===== Sunburst Container Full Width ===== */
+    .sunburst-container {
+      width: 100vw; /* full viewport width */
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: #fff;
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+      margin-top: 2rem;
+    }
+
+    .sunburst-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .sunburst-container iframe {
+      width: 100%;
+      height: 800px;
+      border-radius: 12px;
+      border: none;
+      display: block;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #333;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Modal Styling ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero-content.flex-center {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        max-width: 95%;
+      }
+      .hero-title {
+        font-size: 2.4rem;
+      }
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      .video-container iframe {
+        height: 300px;
+      }
+      .sunburst-container iframe {
+        height: 600px;
+      }
+      .features-section {
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        height: 45vh;
+      }
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .video-container iframe {
+        height: 240px;
+      }
+      .sunburst-container iframe {
+        height: 450px;
+      }
+      .feature-card h3 {
+        font-size: 1rem;
+      }
+      .feature-card i {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <header class="hero-section" role="banner" aria-label="Homepage banner with NepAgVisionPro branding">
+    <div class="hero-content flex-center">
+      <h1 class="hero-title">NepAgVisionPro</h1>
+      <p class="hero-subtitle">AI-Powered Crop Diagnosis</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Innovation Section -->
+    <section id="innovation" aria-label="Innovation in Agriculture">
+      <h2>Innovation in Agriculture</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
+        Discover how NepAgVisionPro uses AI to identify and manage crop diseases efficiently.
+      </p>
+
+      <div class="content-grid">
+        <!-- YouTube Video Container -->
+        <div class="video-container" aria-label="Video demonstration of NepAgVisionPro AI diagnosis">
+          <iframe
+            src="https://www.youtube.com/embed/EHZD3jevHpE"
+            title="AI-Powered Crop Diagnosis with NepAgVisionPro"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <!-- MobileNetV2 Diagram -->
+        <div class="diagram-container">
+          <h2>MobileNetV2 Architecture</h2>
+          <img
+            src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/Neuron.jpg"
+            alt="MobileNetV2 architecture diagram"
+            id="mobilenet-diagram"
+            loading="lazy"
+          />
+          <div id="mobilenet-error" class="error-message">Unable to load MobileNetV2 diagram.</div>
+          <figcaption class="caption">
+            Futuristic holographic 3D visualization of the MobileNetV2 architecture.
+          </figcaption>
+        </div>
+
+        <!-- CNN Model Training Report -->
+        <div class="diagram-container">
+          <h2>CNN-based Architecture Report</h2>
+          <img
+            src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MP.jpg"
+            alt="CNN Model training summary"
+            id="train-diagram"
+            loading="lazy"
+          />
+          <div id="train-error" class="error-message">Unable to load CNN training summary.</div>
+          <figcaption class="caption">
+            Training summary of CNN models for different crops.
+          </figcaption>
+        </div>
+      </div>
+
+      <!-- Sunburst Visualization full width -->
+      <div class="sunburst-container" aria-label="Sunburst plot visualization">
+        <h2>Sunburst Visualization</h2>
+        <iframe src="/SB1.html" sandbox="allow-scripts allow-same-origin" title="Sunburst plot"></iframe>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section" aria-label="Why NepAgVisionPro?">
+      <h2 class="features-title">Why NepAgVisionPro?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-brain"></i>
+          <h3>AI-Powered Diagnosis</h3>
+          <p>Advanced machine learning for accurate crop disease detection.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-leaf"></i>
+          <h3>Agricultural Focus</h3>
+          <p>Custom solutions for real-world farming challenges.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-microchip"></i>
+          <h3>MobileNetV2 Architecture</h3>
+          <p>Lightweight, efficient model ready for mobile deployment.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Data-Driven Insights</h3>
+          <p>Visual analytics for smart decision-making.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-seedling"></i>
+          <h3>NepAgVisionPro</h3>
+          <p>Empowering farmers through real-time AI crop diagnostics.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Image Modal -->
+  <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-image-alt">
+    <span id="modal-close" class="modal-close" role="button" aria-label="Close modal">&times;</span>
+    <img id="modal-image" src="" alt="Zoomed image" />
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      &copy; 2025 NepAgVisionPro | Designed by
+      <a href="https://github.com/bikas-basnet" target="_blank" rel="noopener noreferrer">Bikas Basnet</a>
+    </p>
+  </footer>
+
+  <script>
+    // Image error handling and modal zoom
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobilenetImg = document.getElementById('mobilenet-diagram');
+      const trainImg = document.getElementById('train-diagram');
+      const mobilenetError = document.getElementById('mobilenet-error');
+      const trainError = document.getElementById('train-error');
+
+      mobilenetImg.onerror = () => {
+        mobilenetImg.style.display = 'none';
+        mobilenetError.style.display = 'block';
+      };
+
+      trainImg.onerror = () => {
+        trainImg.style.display = 'none';
+        trainError.style.display = 'block';
+      };
+
+      // Modal functionality
+      const modal = document.getElementById('image-modal');
+      const modalImage = document.getElementById('modal-image');
+      const modalClose = document.getElementById('modal-close');
+      const images = document.querySelectorAll('.diagram-container img');
+
+      images.forEach((img) => {
+        img.addEventListener('click', () => {
+          modal.style.display = 'flex';
+          modalImage.src = img.src;
+          modalImage.alt = img.alt;
+          document.body.style.overflow = 'hidden'; // prevent background scroll
+        });
+      });
+
+      modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
