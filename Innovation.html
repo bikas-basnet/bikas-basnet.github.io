@@ -367,6 +367,25 @@
         font-size: 1.5rem;
       }
     }
+    
+    .hero-container {
+  text-align: center; /* center everything */
+  padding: 20px;
+}
+
+.hero-logo {
+  width: 100px;   /* adjust logo size */
+  height: 100px;  /* make it uniform */
+  object-fit: cover;
+  border-radius: 50%; /* make it circular */
+  margin-bottom: 10px; /* space between logo and title */
+  transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.1) rotate(5deg); /* subtle hover effect */
+}
+
   </style>
 </head>
 
@@ -374,6 +393,14 @@
   <!-- Hero Section -->
   <header class="hero-section" role="banner" aria-label="Homepage banner with NepAgVisionPro branding">
     <div class="hero-content flex-center">
+      <div class="hero-container">
+  <!-- Logo before title -->
+      <img 
+        class="hero-logo"
+        src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/logo.jpg" 
+        alt="NepAgVision"
+      >
+      
       <h1 class="hero-title">NepAgNeuroVision</h1>
       <hr>
       <p class="hero-subtitle">AI(CNN)-Powered Crop Diagnosis</p>
