@@ -369,7 +369,7 @@
     }
     
     .hero-container {
-  text-align: center; /* center everything */
+  text-align: start; /* center everything */
   padding: 20px;
 }
 
@@ -392,19 +392,21 @@
 <body>
   <!-- Hero Section -->
   <header class="hero-section" role="banner" aria-label="Homepage banner with NepAgVisionPro branding">
-    <div class="hero-content flex-center">
-      <div class="hero-container">
-  <!-- Logo before title -->
-      <img 
-        class="hero-logo"
-        src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/logo.jpg" 
-        alt="NepAgVision"
-      >
-      
-      <h1 class="hero-title">NepAgNeuroVision</h1>
-      <hr>
-      <p class="hero-subtitle">AI(CNN)-Powered Crop Diagnosis</p>
-    </div>
+    <div class="hero-container" style="display: flex; align-items: center; gap: 15px;">
+  <!-- Logo -->
+  <img 
+    class="hero-logo"
+    src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/logo.jpg" 
+    alt="NepAgVision"
+  >
+  
+  <!-- Title and subtitle -->
+  <div>
+    <h1 class="hero-title" style="margin: 0;">NepAgNeuroVision</h1>
+    <p class="hero-subtitle" style="margin: 0;">AI(CNN)-Powered Crop Diagnosis</p>
+  </div>
+</div>
+
   </header>
   <main>
     <!-- Innovation Section -->
