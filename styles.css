@@ -4,7 +4,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Lora', serif;;
             color: #1f2937;
             line-height: 1.6;
             background: #f3f4f6;
@@ -24,6 +24,7 @@
             text-decoration: none;
             margin: 0 1rem;
             font-weight: 600;
+            font-family: 'Lora', serif;
             font-size: 1.3rem;
             transition: color 0.3s ease;
         }
@@ -187,6 +188,7 @@
         }
         .fund-status {
             font-size: 1rem;
+            font-family: 'Lora', serif;
         }
         .amount {
             color: #166534;
@@ -269,12 +271,12 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
         .hero-section .cta-button.our-services {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #7a8a1e, #51f63b);
             color: #ffffff;
             border: 2px solid #ffffff;
         }
         .hero-section .cta-button.our-services:hover {
-            background: linear-gradient(135deg, #2b4cb3, #60a5fa);
+            background: linear-gradient(135deg, #8ab32b, #60fac7);
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -353,7 +355,7 @@
         }
         .profile-card h3 {
             font-family: 'Lora', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #1e3a8a;
             margin-bottom: 0.5rem;
         }
@@ -364,7 +366,8 @@
         }
         .profile-card ul li {
             margin-bottom: 0.25rem;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
+            font-family: 'Lora', serif;
             color: #2d4a2d;
         }
         .profile-links a {
@@ -398,8 +401,9 @@
         .mission-section p {
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.3rem;
-            color: #4b5563;
+            font-family: 'Josefin Slab', serif;
+            font-size: 1.8rem;
+            color: #111111;
         }
         .cta-section {
             background: #ffffff;
@@ -420,7 +424,7 @@
         }
         .cta-buttons a {
             padding: 0.75rem 1.5rem;
-            background-color: #1e3a8a;
+            background-color: #1e8a66;
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
@@ -433,7 +437,7 @@
         .footer-logo {
             text-align: center;
             padding: 1rem;
-            background: #1e3a8a;
+            background: #0D1B2A;
             color: #ffffff;
         }
         .footer-logo a {
