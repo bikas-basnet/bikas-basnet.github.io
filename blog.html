@@ -31,6 +31,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+    
     body {
       background: linear-gradient(135deg, #1a3c34, #4ade80);
       min-height: 100vh;
@@ -38,124 +39,238 @@
       font-family: 'Poppins', sans-serif;
       color: #1a3c34;
     }
+    
     .navbar {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 50;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     }
+    
     .navbar a {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
     }
+    
     .navbar a:hover {
       color: #15803d;
-      transform: translateY(-2px);
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
     }
+    
     .navbar a.active {
       color: #15803d;
       font-weight: 700;
+      border-bottom: 2px solid #4ade80;
     }
+    
     .photo {
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #f7fafc;
-      box-shadow: 0 0 20px rgba(74, 222, 128, 0.6);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 5px solid #f7fafc;
+      box-shadow: 0 0 25px rgba(74, 222, 128, 0.7);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
+    
     .photo:hover {
-      transform: scale(1.2) rotate(5deg);
-      box-shadow: 0 0 30px rgba(74, 222, 128, 0.9);
+      transform: scale(1.15) rotate(8deg);
+      box-shadow: 0 0 35px rgba(74, 222, 128, 1);
     }
+    
     .card {
-      background: rgba(255, 255, 255, 0.95);
-      transform: translateY(30px);
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(40px);
       opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
-      animation-delay: calc(0.15s * var(--index));
-      height: 100%; /* Ensure cards stretch to fill grid cell */
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: calc(0.2s * var(--index));
+      height: 100%;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+    
     @keyframes fadeInUp {
       to {
         transform: translateY(0);
         opacity: 1;
       }
     }
+    
     .content p {
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.8;
       transition: opacity 0.3s ease;
     }
+    
     .content p.truncated {
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+    
     .content p:hover {
-      opacity: 0.85;
+      opacity: 0.9;
     }
+    
     .section-title {
       font-family: 'Playfair Display', serif;
       position: relative;
       display: inline-block;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    
     .section-title::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -10px;
       left: 0;
-      width: 60%;
-      height: 5px;
+      width: 70%;
+      height: 6px;
       background: linear-gradient(to right, #15803d, #4ade80);
-      border-radius: 2px;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    
     .read-more {
       font-family: 'Poppins', sans-serif;
       transition: color 0.3s ease, transform 0.3s ease;
       cursor: pointer;
     }
+    
     .read-more:hover {
       color: #15803d;
-      transform: translateX(5px);
+      transform: translateX(8px);
     }
+    
     .content-section {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       text-align: center;
-      transform: translateY(30px);
+      transform: translateY(40px);
       opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
-      animation-delay: 0.3s;
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.4s;
+      transition: transform 0.3s ease;
     }
+    
+    .content-section:hover {
+      transform: translateY(-5px);
+    }
+    
     .content-section p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: #1a3c34;
       font-family: 'Poppins', sans-serif;
-      line-height: 1.8;
+      line-height: 1.9;
     }
-    /* 2x2 Grid Layout for Expert Views */
+    
+    /* Enhanced Grid Layouts */
     .expert-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .student-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       max-width: 1200px;
       margin: 0 auto;
     }
-    /* Stack cards vertically on smaller screens */
+    
+    .student-card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .student-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .student-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .student-card:hover img {
+      transform: scale(1.1);
+    }
+    
+    .student-card figcaption {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #1a3c34;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Carousel for multiple images in a card */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    
+    .carousel img {
+      min-width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    .prev {
+      left: 10px;
+    }
+    
+    .next {
+      right: 10px;
+    }
+    
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .expert-grid {
+      .expert-grid,
+      .student-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -164,10 +279,10 @@
 <body>
   <div id="posts-container"></div>
   <!-- Navigation Bar -->
-  <nav class="navbar py-4">
-    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Blog Haven</h1>
-      <div class="space-x-8">
+  <nav class="navbar py-5">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Blog Haven</h1>
+      <div class="space-x-10">
         <a href="#expert-views" class="text-gray-700 hover:text-green-800">Expert Views</a>
         <a href="#student-blogs" class="text-gray-700 hover:text-green-800">Student Blogs</a>
       </div>
@@ -175,18 +290,18 @@
   </nav>
 
   <!-- Main Content -->
-  <div class="container mx-auto px-6 py-12">
+  <div class="container mx-auto px-6 py-16">
     <!-- Expert Views Section -->
-    <section id="expert-views" class="mb-20">
-      <h2 class="section-title text-4xl font-bold text-white">Expert Insights</h2>
+    <section id="expert-views" class="mb-24">
+      <h2 class="section-title text-5xl font-bold text-white mb-12">Expert Insights</h2>
       <div class="expert-grid">
         <!-- Expert 1 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 1;">
+        <div class="card p-8" style="--index: 1;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/MSP.jpg" alt="Dr. Madhav P Neupane" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;"> <strong>Regent Associate Professor,</strong> 🎓Dr.🌽 Madhav Prasad Neupane</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;"><strong>Regent Associate Professor,</strong> 🎓Dr.🌽 Madhav Prasad Neupane</h3>
           <p class="text-sm text-gray-500 text-center mb-2">PhD. in Agronomy and Crop Science, Banaras Hindu University, India</p>
-          <p class="text-sm text-gray-500 text-center mb-2"><stong>Baby Corn Expert,</strong>Department of Agronomy, Agriculture and Forestry University, Nepal</p>
-          <hr class="my-4">
+          <p class="text-sm text-gray-500 text-center mb-2"><strong>Baby Corn Expert,</strong> Department of Agronomy, Agriculture and Forestry University, Nepal</p>
+          <hr class="my-4 border-gray-200">
           <p class="text-sm text-gray-500 text-center mb-2"><strong>Research activity - 70% & Teaching - 30%</strong></p>
           <p class="text-sm text-gray-500 text-center mb-4">April 02, 2025</p>
           <div class="content text-gray-700 flex-grow">
@@ -195,9 +310,9 @@
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
         <!-- Expert 2 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 2;">
+        <div class="card p-8" style="--index: 2;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/CBK.jpg" alt="Mr. Chitra Bahadur Kunwar" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Mr🌽, Emeritus Scientist(S4), Chitra Bahadur Kunwar</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Mr🌽, Emeritus Scientist(S4), Chitra Bahadur Kunwar</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master in Plant Breeding and Genetics, Kasetsart University, Thailand</p>
           <p class="text-sm text-gray-500 text-center mb-2">Corn Expert, <strong>Ex Coordinator, National Maize Research Program, NARC, Nepal</strong></p>
           <ul class="text-sm text-gray-500 text-center mb-2 list-none">
@@ -206,7 +321,7 @@
             <li>Hybrid maize research</li>
             <li>Commercial hybrid testing</li>
           </ul>
-          <hr class="my-4">
+          <hr class="my-4 border-gray-200">
           <p class="text-sm text-gray-500 text-center mb-2"><strong>Research activity - 100%</strong></p>
           <p class="text-sm text-gray-500 text-center mb-4">April 05, 2025</p>
           <p class="text-sm text-gray-500 text-center mb-2">Email: chitra2058@yahoo.com</p>
@@ -216,25 +331,25 @@
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
         <!-- Expert 3 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 3;">
+        <div class="card p-8" style="--index: 3;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Mr🌱 Roshan Ghimire</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Mr🌱 Roshan Ghimire</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
           <p class="text-sm text-gray-500 text-center mb-4">March 15, 2025</p>
-          <hr class="my-4">
+          <hr class="my-4 border-gray-200">
           <div class="content text-gray-700 flex-grow">
             <p class="truncated">In Nepal, horticulture faces critical challenges including soil degradation from excessive agrochemical use and monocropping, youth reluctance toward farming due to low profitability and migration, dysfunctional value chains marked by inadequate storage, transportation, and marketing infrastructure, climate change-induced disasters (e.g., extreme rainfall in 2024), and dependence on imported seeds despite efforts under the National Seed Vision (2013–2025). However, prospects include agroecology initiatives aiming for a 20-year transition (2025–2045) to climate-resilient farming, rising demand for organic produce, and community-led adaptations by women farmers. The sector’s scope lies in Coldplay, protected cultivation, and policy reforms to enhance seed systems, mechanization, and market access, while addressing productivity gaps and fostering collaboration across federal and local levels.</p>
           </div>
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
         <!-- Expert 4 -->
-        <div class="card rounded-2xl shadow-lg p-8" style="--index: 4;">
+        <div class="card p-8" style="--index: 4;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/SD.jpg" alt="Santosh Bhandari" class="photo mx-auto mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 text-center" style="font-family: 'Playfair Display', serif;">🎓Dr.🌾 Santosh Bhandari</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Dr.🌾 Santosh Bhandari</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Email: santoshafu@gmail.com</p>
           <p class="text-sm text-gray-500 text-center mb-2">Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
           <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
-          <hr class="my-4">
+          <hr class="my-4 border-gray-200">
           <div class="content text-gray-700 flex-grow">
             <p class="truncated">Nepal’s plant breeding and genetics sector grapples with numerous challenges, including policy inadequacies, a heavy reliance on seed imports, and minimal adoption of modern biotechnological tools like CRISPR. These issues are compounded by climate-related pressures such as droughts and pest outbreaks, as well as systemic limitations like underfunded research and strict regulations that hinder the export of genetic resources. Despite these barriers, several opportunities are emerging. Collaborative initiatives—for example, joint efforts between NARC and IRRI to develop rice varieties tolerant to submergence—demonstrate progress. There is also growing momentum toward agroecological approaches that prioritize the conservation and use of native landraces, such as aromatic rice. Additionally, policy frameworks like the National Seed Vision are paving the way for the development of climate-resilient varieties and more localized, decentralized seed systems. Looking ahead, the integration of precision breeding technologies, stronger collaboration between public and private sectors, and the strategic use of Nepal’s rich agro-biodiversity will be essential to advancing food security, promoting sustainable agriculture, and overcoming gaps in research capabilities and market connectivity</p>
           </div>
@@ -244,105 +359,93 @@
     </section>
 
     <!-- Student Blogs Section -->
-    <section id="student-blogs" class="mb-20">
-  <h2 class="section-title text-4xl font-bold text-white text-center mb-8">My Students Stories</h2>
-  <div id="Expert-and-Student-Blogs" class="content-section">
-    <div class="container mx-auto px-4">
-      <h1 class="text-2xl font-semibold text-white mb-6">My Students' Stories</h1>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section id="student-blogs" class="mb-24">
+      <h2 class="section-title text-5xl font-bold text-white mb-12">My Students' Stories</h2>
+      <div class="student-grid">
         <!-- Lab Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lab.jpg" alt="Students working in the lab" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Exploring on Bourdeux mix preparation in the plant science lab
-          </figcaption>
+        <figure class="student-card">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lab.jpg" alt="Students working in the lab">
+          <figcaption>Exploring on Bordeaux mix preparation in the plant science lab</figcaption>
         </figure>
         <!-- Lawn Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lawn.jpg" alt="Students relaxing on the lawn" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Team Bonding on the Campus Lawn
-          </figcaption>
+        <figure class="student-card">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lawn.jpg" alt="Students relaxing on the lawn">
+          <figcaption>Team Bonding on the Campus Lawn</figcaption>
         </figure>
         <!-- Multimedia Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Multimedia.jpg" alt="Students using multimedia tools" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Learning in the Multimedia Studio
-          </figcaption>
+        <figure class="student-card">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Multimedia.jpg" alt="Students using multimedia tools">
+          <figcaption>Learning in the Multimedia Studio</figcaption>
         </figure>
         <!-- Hydroponics Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/hydroponics.jpg" alt="Students learning hydroponics" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Innovating with Hydroponics in Agriculture
-          </figcaption>
+        <figure class="student-card">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/hydroponics.jpg" alt="Students learning hydroponics">
+          <figcaption>Innovating with Hydroponics in Agriculture</figcaption>
         </figure>
         <!-- Model Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/model.jpg" alt="Students showcasing a model" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Presenting a Handcrafted plstic house Project
-          </figcaption>
+        <figure class="student-card">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/model.jpg" alt="Students showcasing a model">
+          <figcaption>Presenting a Handcrafted plastic house Project</figcaption>
         </figure>
         <!-- OJT Students Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/OJT%20students.jpg" alt="One Job Training images" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Class 10 students On JoB Training (OJT), Students learning the Germination test of Rice seeds
-          </figcaption>
+        <figure class="student-card">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/OJT%20students.jpg" alt="One Job Training images">
+          <figcaption>Class 10 students On Job Training (OJT), Students learning the Germination test of Rice seeds</figcaption>
         </figure>
-        <!-- OJT Students Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/O.jpg" alt="One Job Training images" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/J.jpg" alt="Field Vist1" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/T.jpg" alt="Field Visit2" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/F.jpg" alt="Filed visit3" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Class 10 students On JoB Training (OJT), learning the Germination test of Rice seeds, field visit for Innovation center/early adopters
-          </figcaption>
+        <!-- OJT Carousel -->
+        <figure class="student-card carousel-container">
+          <div class="carousel" id="ojt-carousel">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/O.jpg" alt="Field Visit1">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/J.jpg" alt="Field Visit2">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/T.jpg" alt="Field Visit3">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/F.jpg" alt="Field Visit4">
+          </div>
+          <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel', -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel', 1)">&#10095;</button>
+          <figcaption>Class 10 students On Job Training (OJT), learning the Germination test of Rice seeds, field visit for Innovation center/early adopters</figcaption>
         </figure>
-        
-        <!-- Class-9 Students Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9.jpg" alt="Class -9 students" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MG.jpg" alt="Mud GIRL" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/JN.jpg" alt="SBT" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CP.jpg" alt="Class -9 students" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Class 9 students learning from senior student guidance for the healthy rice seeds separation and the Germination test of Rice seeds and Mud Girls
-          </figcaption>
+        <!-- Class-9 Carousel -->
+        <figure class="student-card carousel-container">
+          <div class="carousel" id="class9-carousel">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9.jpg" alt="Class -9 students">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MG.jpg" alt="Mud Girl">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/JN.jpg" alt="SBT">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CP.jpg" alt="Class -9 students">
+          </div>
+          <button class="carousel-btn prev" onclick="moveCarousel('class9-carousel', -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="moveCarousel('class9-carousel', 1)">&#10095;</button>
+          <figcaption>Class 9 students learning from senior student guidance for the healthy rice seeds separation and the Germination test of Rice seeds and Mud Girls</figcaption>
         </figure>
-        
-        <!-- Class-9 Plant Science Students Image -->
-        <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9%20plant%20science%20students.jpg" alt="Class -9 students" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MS.jpg" alt="Class -10 students" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/DG.jpg" alt="Dog Guy" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TM.jpg" alt="Class -10 students" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Class 9 students learning the hydro priming techniques in the Plant Science lab, field guy(Dog) and utilization of the moisture meter
-          </figcaption>
-          <figure class="student-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TS.jpg" alt="Class -10 students" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BT.jpg" alt="Class -10 students1" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/C9.jpg" alt="Class -10 students2" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PR.jpg" alt="Class -10 students3" class="w-full h-64 object-cover">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BS.jpg" alt="Class -10 students4" class="w-full h-64 object-cover">
-          <figcaption class="p-4 text-white text-center">
-            Class 9-10 students enzoying the rice transplantation and mud playing on Ashar 15(Dahi Chiura Khane Din)
-          </figcaption>
+        <!-- Class-9 Plant Science Carousel -->
+        <figure class="student-card carousel-container">
+          <div class="carousel" id="class9-ps-carousel">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9%20plant%20science%20students.jpg" alt="Class -9 students">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MS.jpg" alt="Class -10 students">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/DG.jpg" alt="Dog Guy">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TM.jpg" alt="Class -10 students">
+          </div>
+          <button class="carousel-btn prev" onclick="moveCarousel('class9-ps-carousel', -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="moveCarousel('class9-ps-carousel', 1)">&#10095;</button>
+          <figcaption>Class 9 students learning the hydro priming techniques in the Plant Science lab, field guy(Dog) and utilization of the moisture meter</figcaption>
         </figure>
+        <!-- Additional Carousel for Rice Transplantation -->
+        <figure class="student-card carousel-container">
+          <div class="carousel" id="rice-carousel">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TS.jpg" alt="Class -10 students">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BT.jpg" alt="Class -10 students1">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/C9.jpg" alt="Class -10 students2">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PR.jpg" alt="Class -10 students3">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BS.jpg" alt="Class -10 students4">
+          </div>
+          <button class="carousel-btn prev" onclick="moveCarousel('rice-carousel', -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="moveCarousel('rice-carousel', 1)">&#10095;</button>
+          <figcaption>Class 9-10 students enjoying the rice transplantation and mud playing on Ashar 15 (Dahi Chiura Khane Din)</figcaption>
         </figure>
       </div>
-    </div>
-  </div>
-</section>
-</section>
+    </section>
   </div>
 
   <script>
-
     // Right-click protection
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
@@ -389,6 +492,20 @@
         contentP.classList.add('truncated');
         element.textContent = 'Read More';
       }
+    }
+
+    // Carousel functionality
+    const carousels = {};
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const id = carousel.id;
+      carousels[id] = { index: 0, slides: carousel.children.length };
+    });
+
+    function moveCarousel(id, direction) {
+      const carousel = document.getElementById(id);
+      const data = carousels[id];
+      data.index = (data.index + direction + data.slides) % data.slides;
+      carousel.style.transform = `translateX(-${data.index * 100}%)`;
     }
   </script>
 </body>
