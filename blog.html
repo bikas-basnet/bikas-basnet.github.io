@@ -75,6 +75,7 @@
       border: 5px solid #f7fafc;
       box-shadow: 0 0 25px rgba(74, 222, 128, 0.7);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
+      cursor: pointer;
     }
     
     .photo:hover {
@@ -216,6 +217,7 @@
       height: 220px;
       object-fit: cover;
       transition: transform 0.5s ease;
+      cursor: pointer;
     }
     
     .student-card:hover img {
@@ -245,6 +247,7 @@
       min-width: 100%;
       height: 220px;
       object-fit: cover;
+      cursor: pointer;
     }
     
     .carousel-btn {
@@ -265,6 +268,44 @@
     
     .next {
       right: 10px;
+    }
+    
+    /* Modal for zoomed images */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+    }
+    
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      color: #4ade80;
     }
     
     /* Responsive adjustments */
@@ -289,6 +330,12 @@
     </div>
   </nav>
 
+  <!-- Modal for Zoomed Images -->
+  <div class="modal" id="imageModal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
   <!-- Main Content -->
   <div class="container mx-auto px-6 py-16">
     <!-- Expert Views Section -->
@@ -297,7 +344,7 @@
       <div class="expert-grid">
         <!-- Expert 1 -->
         <div class="card p-8" style="--index: 1;">
-          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/MSP.jpg" alt="Dr. Madhav P Neupane" class="photo mx-auto mb-6">
+          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/MSP.jpg" alt="Dr. Madhav P Neupane" class="photo mx-auto mb-6" onclick="openModal(this.src)">
           <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;"><strong>Regent Associate Professor,</strong> 🎓Dr.🌽 Madhav Prasad Neupane</h3>
           <p class="text-sm text-gray-500 text-center mb-2">PhD. in Agronomy and Crop Science, Banaras Hindu University, India</p>
           <p class="text-sm text-gray-500 text-center mb-2"><strong>Baby Corn Expert,</strong> Department of Agronomy, Agriculture and Forestry University, Nepal</p>
@@ -311,7 +358,7 @@
         </div>
         <!-- Expert 2 -->
         <div class="card p-8" style="--index: 2;">
-          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/CBK.jpg" alt="Mr. Chitra Bahadur Kunwar" class="photo mx-auto mb-6">
+          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/CBK.jpg" alt="Mr. Chitra Bahadur Kunwar" class="photo mx-auto mb-6" onclick="openModal(this.src)">
           <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Mr🌽, Emeritus Scientist(S4), Chitra Bahadur Kunwar</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master in Plant Breeding and Genetics, Kasetsart University, Thailand</p>
           <p class="text-sm text-gray-500 text-center mb-2">Corn Expert, <strong>Ex Coordinator, National Maize Research Program, NARC, Nepal</strong></p>
@@ -332,7 +379,7 @@
         </div>
         <!-- Expert 3 -->
         <div class="card p-8" style="--index: 3;">
-          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6">
+          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6" onclick="openModal(this.src)">
           <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Mr🌱 Roshan Ghimire</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
           <p class="text-sm text-gray-500 text-center mb-4">March 15, 2025</p>
@@ -344,7 +391,7 @@
         </div>
         <!-- Expert 4 -->
         <div class="card p-8" style="--index: 4;">
-          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/SD.jpg" alt="Santosh Bhandari" class="photo mx-auto mb-6">
+          <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/SD.jpg" alt="Santosh Bhandari" class="photo mx-auto mb-6" onclick="openModal(this.src)">
           <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Dr.🌾 Santosh Bhandari</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Email: santoshafu@gmail.com</p>
           <p class="text-sm text-gray-500 text-center mb-2">Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
@@ -365,10 +412,10 @@
         <!-- 11 Carousel -->
         <figure class="student-card carousel-container">
           <div class="carousel" id="ojt-carousel">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TSS.jpg" alt="Field Visit1">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TA.jpg" alt="Field Visit2">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TAA.jpg" alt="Field Visit3">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BI.jpg" alt="Field Visit4">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TSS.jpg" alt="Field Visit1" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TA.jpg" alt="Field Visit2" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TAA.jpg" alt="Field Visit3" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BI.jpg" alt="Field Visit4" onclick="openModal(this.src)">
           </div>
           <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel', -1)">&#10094;</button>
           <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel', 1)">&#10095;</button>
@@ -376,53 +423,53 @@
         </figure>
         <!-- Lab Image -->
         <figure class="student-card">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lab.jpg" alt="Students working in the lab">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lab.jpg" alt="Students working in the lab" onclick="openModal(this.src)">
           <figcaption>Exploring on Bordeaux mix preparation in the plant science lab</figcaption>
         </figure>
         <!-- Lawn Image -->
         <figure class="student-card">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lawn.jpg" alt="Students relaxing on the lawn">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lawn.jpg" alt="Students relaxing on the lawn" onclick="openModal(this.src)">
           <figcaption>Team Bonding on the Campus Lawn</figcaption>
         </figure>
         <!-- Multimedia Image -->
         <figure class="student-card">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Multimedia.jpg" alt="Students using multimedia tools">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Multimedia.jpg" alt="Students using multimedia tools" onclick="openModal(this.src)">
           <figcaption>Learning in the Multimedia Studio</figcaption>
         </figure>
         <!-- Hydroponics Image -->
         <figure class="student-card">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/hydroponics.jpg" alt="Students learning hydroponics">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/hydroponics.jpg" alt="Students learning hydroponics" onclick="openModal(this.src)">
           <figcaption>Innovating with Hydroponics in Agriculture</figcaption>
         </figure>
         <!-- Model Image -->
         <figure class="student-card">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/model.jpg" alt="Students showcasing a model">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/model.jpg" alt="Students showcasing a model" onclick="openModal(this.src)">
           <figcaption>Presenting a Handcrafted plastic house Project</figcaption>
         </figure>
         <!-- OJT Students Image -->
         <figure class="student-card">
-          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/OJT%20students.jpg" alt="One Job Training images">
+          <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/OJT%20students.jpg" alt="One Job Training images" onclick="openModal(this.src)">
           <figcaption>Class 10 students On Job Training (OJT), Students learning the Germination test of Rice seeds</figcaption>
         </figure>
         <!-- OJT Carousel -->
         <figure class="student-card carousel-container">
-          <div class="carousel" id="ojt-carousel">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/O.jpg" alt="Field Visit1">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/J.jpg" alt="Field Visit2">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/T.jpg" alt="Field Visit3">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/F.jpg" alt="Field Visit4">
+          <div class="carousel" id="ojt-carousel-2">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/O.jpg" alt="Field Visit1" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/J.jpg" alt="Field Visit2" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/T.jpg" alt="Field Visit3" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/F.jpg" alt="Field Visit4" onclick="openModal(this.src)">
           </div>
-          <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel', -1)">&#10094;</button>
-          <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel', 1)">&#10095;</button>
+          <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel-2', -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel-2', 1)">&#10095;</button>
           <figcaption>Class 10 students On Job Training (OJT), learning the Germination test of Rice seeds, field visit for Innovation center/early adopters</figcaption>
         </figure>
         <!-- Class-9 Carousel -->
         <figure class="student-card carousel-container">
           <div class="carousel" id="class9-carousel">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9.jpg" alt="Class -9 students">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MG.jpg" alt="Mud Girl">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/JN.jpg" alt="SBT">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CP.jpg" alt="Class -9 students">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9.jpg" alt="Class -9 students" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MG.jpg" alt="Mud Girl" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/JN.jpg" alt="SBT" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CP.jpg" alt="Class -9 students" onclick="openModal(this.src)">
           </div>
           <button class="carousel-btn prev" onclick="moveCarousel('class9-carousel', -1)">&#10094;</button>
           <button class="carousel-btn next" onclick="moveCarousel('class9-carousel', 1)">&#10095;</button>
@@ -431,10 +478,10 @@
         <!-- Class-9 Plant Science Carousel -->
         <figure class="student-card carousel-container">
           <div class="carousel" id="class9-ps-carousel">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9%20plant%20science%20students.jpg" alt="Class -9 students">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MS.jpg" alt="Class -10 students">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/DG.jpg" alt="Dog Guy">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TM.jpg" alt="Class -10 students">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9%20plant%20science%20students.jpg" alt="Class -9 students" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MS.jpg" alt="Class -10 students" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/DG.jpg" alt="Dog Guy" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TM.jpg" alt="Class -10 students" onclick="openModal(this.src)">
           </div>
           <button class="carousel-btn prev" onclick="moveCarousel('class9-ps-carousel', -1)">&#10094;</button>
           <button class="carousel-btn next" onclick="moveCarousel('class9-ps-carousel', 1)">&#10095;</button>
@@ -443,11 +490,11 @@
         <!-- Additional Carousel for Rice Transplantation -->
         <figure class="student-card carousel-container">
           <div class="carousel" id="rice-carousel">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TS.jpg" alt="Class -10 students">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BT.jpg" alt="Class -10 students1">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/C9.jpg" alt="Class -10 students2">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PR.jpg" alt="Class -10 students3">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BS.jpg" alt="Class -10 students4">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TS.jpg" alt="Class -10 students" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BT.jpg" alt="Class -10 students1" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/C9.jpg" alt="Class -10 students2" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PR.jpg" alt="Class -10 students3" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BS.jpg" alt="Class -10 students4" onclick="openModal(this.src)">
           </div>
           <button class="carousel-btn prev" onclick="moveCarousel('rice-carousel', -1)">&#10094;</button>
           <button class="carousel-btn next" onclick="moveCarousel('rice-carousel', 1)">&#10095;</button>
@@ -519,6 +566,33 @@
       data.index = (data.index + direction + data.slides) % data.slides;
       carousel.style.transform = `translateX(-${data.index * 100}%)`;
     }
+
+    // Modal functionality for zoomed images
+    function openModal(src) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modal.style.display = 'flex';
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside the image
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
