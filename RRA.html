@@ -9,18 +9,19 @@
   <title>Bikas Basnet - Research Portfolio</title>
   <link rel="icon" href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/favicon.ico" type="image/x-icon">
   <link rel="preload" href="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/bgi.jpg" as="image">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Georgia&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --primary-text: #1a202c;
-      --secondary-text: #4a5568;
-      --accent: #d4a017;
-      --background: #f8fafc;
+      --primary-text: #2d2d2d;
+      --secondary-text: #5f6a7d;
+      --accent: #e6b800;
+      --background: #f5f7fa;
       --card-bg: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.1);
-      --border: #e2e8f0;
-      --footer-bg: #1a365d;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --border: #e4e7eb;
+      --footer-bg: #1e2a44;
+      --gradient: linear-gradient(135deg, #e6b800 0%, #f4d03f 100%);
     }
 
     * {
@@ -30,10 +31,10 @@
     }
 
     body {
-      font-family: 'Source Sans Pro', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: var(--background);
       color: var(--primary-text);
-      line-height: 1.6;
+      line-height: 1.7;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -45,8 +46,9 @@
       left: 0;
       background: var(--accent);
       color: #fff;
-      padding: 0.5rem;
+      padding: 0.75rem;
       z-index: 1000;
+      transition: top 0.3s;
     }
 
     .skip-link:focus {
@@ -54,116 +56,142 @@
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       text-align: center;
-      padding: 5rem 2rem 3rem;
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/bgi.jpg');
+      padding: 4rem 2rem 2rem;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/bgi.jpg');
       background-size: cover;
       background-position: center;
       color: #fff;
+      box-shadow: 0 2px 4px var(--shadow);
     }
 
     header h1 {
-      font-family: 'Georgia', serif;
-      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       animation: fadeIn 1s ease-out;
     }
 
     header .subtitle {
-      font-size: 1.2rem;
-      color: #edf2f7;
+      font-size: 1.3rem;
+      color: #e2e8f0;
       font-style: italic;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       animation: fadeIn 1s ease-out 0.3s forwards;
       opacity: 0;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 3rem 2rem;
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       flex: 1;
     }
 
     .sidebar {
-      width: 280px;
+      width: 300px;
       position: sticky;
       top: 2rem;
       background-color: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px var(--shadow);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
       max-height: calc(100vh - 4rem);
       overflow-y: auto;
+      transition: all 0.3s ease;
     }
 
     .sidebar details {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .sidebar summary {
       font-weight: 600;
+      font-size: 1.1rem;
       cursor: pointer;
-      padding: 0.5rem;
+      padding: 0.75rem;
       color: var(--primary-text);
-      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s, background 0.3s;
     }
 
     .sidebar summary:hover {
       color: var(--accent);
+      background: #f8f8f8;
+      border-radius: 6px;
+    }
+
+    .sidebar summary::before {
+      content: '\f07b';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    .sidebar details[open] summary::before {
+      content: '\f07c';
     }
 
     .sidebar a {
-      display: block;
-      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
       text-decoration: none;
       color: var(--primary-text);
-      font-size: 0.9rem;
-      border-radius: 4px;
-      transition: background-color 0.2s, color 0.2s;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
     }
 
     .sidebar a:hover, .sidebar a.active {
-      background-color: var(--accent);
+      background: var(--gradient);
       color: #fff;
+      transform: translateX(5px);
     }
 
     .image-sequence {
       flex: 1;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 1rem;
     }
 
     .image-sequence figure {
       background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 8px var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
+      position: relative;
     }
 
     .image-sequence figure:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px var(--shadow);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .image-sequence figure img {
       width: 100%;
-      height: 220px;
+      height: 250px;
       object-fit: cover;
-      background-color: #edf2f7;
+      background-color: #e2e8f0;
       transition: opacity 0.3s;
     }
 
@@ -173,16 +201,17 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      font-weight: 500;
       text-align: center;
       opacity: 0;
-      transition: opacity 0.3s;
-      padding: 1rem;
+      transition: opacity 0.4s ease;
+      padding: 1.5rem;
     }
 
     .image-sequence figure:hover .image-overlay {
@@ -190,11 +219,12 @@
     }
 
     figcaption {
-      padding: 1rem;
-      font-size: 0.85rem;
+      padding: 1.25rem;
+      font-size: 0.9rem;
       color: var(--secondary-text);
       text-align: center;
-      font-family: 'Georgia', serif;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(180deg, #ffffff, #f9fafb);
     }
 
     .modal {
@@ -204,12 +234,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.85);
       align-items: center;
       justify-content: center;
       z-index: 1000;
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: opacity 0.4s ease;
     }
 
     .modal.show {
@@ -221,12 +251,12 @@
       max-width: 90%;
       max-height: 90vh;
       background-color: var(--card-bg);
-      border-radius: 8px;
+      border-radius: 16px;
       overflow: hidden;
       position: relative;
-      box-shadow: 0 10px 20px var(--shadow);
-      transform: scale(0.95);
-      transition: transform 0.3s;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
     }
 
     .modal.show .modal-content {
@@ -235,123 +265,140 @@
 
     .modal-content img {
       width: 100%;
-      max-height: 65vh;
+      max-height: 70vh;
       object-fit: contain;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
     }
 
     .modal-caption {
-      padding: 1.5rem;
-      font-size: 0.95rem;
+      padding: 2rem;
+      font-size: 1rem;
       color: var(--primary-text);
       text-align: center;
-      background-color: var(--card-bg);
-      font-family: 'Georgia', serif;
+      background: linear-gradient(180deg, #ffffff, #f9fafb);
+      font-family: 'Playfair Display', serif;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
     }
 
     .modal-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #fff;
       cursor: pointer;
-      padding: 0.5rem;
-      transition: color 0.2s;
+      padding: 0.75rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      transition: all 0.3s ease;
     }
 
     .modal-nav:hover {
       color: var(--accent);
+      background: rgba(0, 0, 0, 0.7);
     }
 
-    .modal-prev { left: 1.5rem; }
-    .modal-next { right: 1.5rem; }
+    .modal-prev { left: 2rem; }
+    .modal-next { right: 2rem; }
 
     .modal-toggle-caption, .modal-download {
       position: absolute;
-      top: 1rem;
+      top: 1.5rem;
       color: #fff;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
-      transition: color 0.2s;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      transition: all 0.3s ease;
     }
 
-    .modal-toggle-caption { left: 1.5rem; }
-    .modal-download { left: 6rem; }
     .modal-toggle-caption:hover, .modal-download:hover {
       color: var(--accent);
+      background: rgba(0, 0, 0, 0.7);
     }
+
+    .modal-toggle-caption { left: 2rem; }
+    .modal-download { left: 8rem; }
 
     .close {
       position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 1.8rem;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 2rem;
       color: #fff;
       cursor: pointer;
-      transition: color 0.2s;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
     }
 
     .close:hover {
       color: var(--accent);
+      background: rgba(0, 0, 0, 0.7);
     }
 
     footer {
-      background-color: var(--footer-bg);
-      color: #edf2f7;
-      padding: 2rem;
+      background: var(--footer-bg);
+      color: #e2e8f0;
+      padding: 3rem 2rem;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     footer .social-links {
-      margin: 1rem 0;
+      margin: 1.5rem 0;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
     footer .social-links a {
-      color: #edf2f7;
-      font-size: 1.3rem;
-      transition: color 0.2s;
+      color: #e2e8f0;
+      font-size: 1.8rem;
+      transition: all 0.3s ease;
     }
 
     footer .social-links a:hover {
       color: var(--accent);
+      transform: scale(1.2);
     }
 
     footer hr {
       border: 0;
       height: 1px;
       background: #4a5568;
-      margin: 1rem 0;
+      margin: 1.5rem 0;
     }
 
     @media (max-width: 1024px) {
       .image-sequence {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       }
       .sidebar {
-        width: 240px;
+        width: 260px;
       }
     }
 
     @media (max-width: 768px) {
       header {
-        padding: 4rem 1rem 2rem;
+        padding: 3rem 1rem 1.5rem;
       }
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
       header .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .container {
         flex-direction: column;
-        padding: 1rem;
+        padding: 1.5rem;
       }
       .sidebar {
         position: static;
@@ -362,7 +409,7 @@
         grid-template-columns: 1fr;
       }
       .image-sequence figure img {
-        height: 180px;
+        height: 200px;
       }
       .modal-content {
         max-width: 95%;
@@ -375,46 +422,47 @@
 
   <header>
     <h1>Research and Recreational Activities</h1>
-    <p class="subtitle">Advancing Agricultural Science through Research, Data Visualization, Deep learning</p>
+    <p class="subtitle">Advancing Agricultural Science through Research, Data Visualization, and Deep Learning</p>
   </header>
 
   <main id="main-content" class="container">
     <nav class="sidebar" aria-label="Portfolio navigation">
       <details open>
         <summary>Research</summary>
-        <a href="#image-1" class="active">1. Saliency Plot</a>
-        <a href="#image-2">2. Scientific Illustration</a>
-        <a href="#image-3">3. PPP Nep 1 Diagram</a>
-        <a href="#image-4">4. Scientific Illustration</a>
-        <a href="#image-5">5. Circos Plot</a>
-        <a href="#image-6">6. Manhattan Plot</a>
-        <a href="#image-7">7. Path Diagram</a>
-        <a href="#image-8">8. Cardamom Field</a>
-        <a href="#image-10">10. Lab Activity</a>
-        <a href="#image-12">12. Rice Field</a>
-        <a href="#image-13">13. Rust Teliospore</a>
-        <a href="#image-14">14. SPAD Meter</a>
-        <a href="#image-15">15. Sil Grain</a>
-        <a href="#image-16">16. Triticale Field</a>
-        <a href="#image-18">18. Dry Lab</a>
-        <a href="#image-21">21. Cauliflower Vernalization</a>
+        <a href="#image-1" class="active"><i class="fas fa-chart-line"></i> 1. Saliency Plot</a>
+        <a href="#image-2"><i class="fas fa-image"></i> 2. Scientific Illustration</a>
+        <a href="#image-3"><i class="fas fa-diagram-project"></i> 3. PPP Nep 1 Diagram</a>
+        <a href="#image-4"><i class="fas fa-image"></i> 4. Scientific Illustration</a>
+        <a href="#image-5"><i class="fas fa-dna"></i> 5. Circos Plot</a>
+        <a href="#image-6"><i class="fas fa-chart-bar"></i> 6. Manhattan Plot</a>
+        <a href="#image-7"><i class="fas fa-sitemap"></i> 7. Path Diagram</a>
+        <a href="#image-8"><i class="fas fa-seedling"></i> 8. Cardamom Field</a>
+        <a href="#image-10"><i class="fas fa-flask"></i> 10. Lab Activity</a>
+        <a href="#image-12"><i class="fas fa-leaf"></i> 12. Rice Field</a>
+        <a href="#image-13"><i class="fas fa-microscope"></i> 13. Rust Teliospore</a>
+        <a href="#image-14"><i class="fas fa-tachometer-alt"></i> 14. SPAD Meter</a>
+        <a href="#image-15"><i class="fas fa-seedling"></i> 15. Sil Grain</a>
+        <a href="#image-16"><i class="fas fa-leaf"></i> 16. Triticale Field</a>
+        <a href="#image-18"><i class="fas fa-laptop-code"></i> 18. Dry Lab</a>
+        <a href="#image-21"><i class="fas fa-temperature-low"></i> 21. Cauliflower Vernalization</a>
       </details>
       <details>
         <summary>Recreational</summary>
-        <a href="#image-A">A. Travel on wetland of Nepal(20k Wetland area of NEPAL)</a>
-        <a href="#image-B">B. My click</a>
-        <a href="#image-9">9. Graduation</a>
-        <a href="#image-11">11. Travel Photo</a>
-        <a href="#image-17">17. Recreational Photo</a>
-        <a href="#image-19">19. International Friends</a>
-        <a href="#image-20">20. Scarecrow</a>
-        <a href="#image-23">23. Fun with Umisha</a>
-        <a href="#image-22">22. Miracle time</a>
-        <a href="#image-24">24. Becoming hero</a>
-        <a href="#image-25">25. Dyanamic team</a>
-        <a href="#image-26">26. Ag Team</a>
-        <a href="#image-27">27. Istupa</a>
-        <a href="#image-28">28A. 3generation in one frame</a>
+        <a href="#image-A"><i class="fas fa-water"></i> A. Travel on Wetland of Nepal</a>
+        <a href="#image-B"><i class="fas fa-camera"></i> B. My Click</a>
+        <a href="#image-9"><i class="fas fa-graduation-cap"></i> 9. Graduation</a>
+        <a href="#image-11"><i class="fas fa-plane"></i> 11. Travel Photo</a>
+        <a href="#image-17"><i class="fas fa-smile"></i> 17. Recreational Photo</a>
+        <a href="#image-19"><i class="fas fa-users"></i> 19. International Friends</a>
+        <a href="#image-20"><i class="fas fa-crow"></i> 20. Scarecrow</a>
+        <a href="#image-23"><i class="fas fa-handshake"></i> 23. Fun with Umisha</a>
+        <a href="#image-22"><i class="fas fa-mountain"></i> 22. Miracle Time</a>
+        <a href="#image-24a"><i class="fas fa-star"></i> 24. Becoming Hero</a>
+        <a href="#image-25"><i class="fas fa-users-cog"></i> 25. Dynamic Team</a>
+        <a href="#image-26"><i class="fas fa-user-friends"></i> 26. Ag Team</a>
+        <a href="#image-27"><i class="fas fa-pray"></i> 27. Istupa</a>
+        <a href="#image-28"><i class="fas fa-mountain"></i> 28. Himalayan Environment</a>
+        <a href="#image-28A"><i class="fas fa-family"></i> 28A. Three Generations</a>
       </details>
     </nav>
 
@@ -514,7 +562,7 @@
         <div class="image-overlay">International Friends</div>
         <figcaption>Opportunity to meet my international friends</figcaption>
       </figure>
-      <figure id="image-A" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BB.jpg" data-caption="Style of photograph depicting">
+      <figure id="image-A" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BB.jpg" data-caption="Style of photograph depicting both artificial and natural vision">
         <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BB.jpg" alt="Candid Pose" loading="lazy">
         <div class="image-overlay">Tetracular Vision</div>
         <figcaption>Both Artificial and Natural Vision</figcaption>
@@ -534,8 +582,8 @@
         <div class="image-overlay">Cauliflower Vernalization</div>
         <figcaption>Research on temperature and light effects on cauliflower vernalization, conducted as Teaching Instructor</figcaption>
       </figure>
-      <figure id="image-22" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/VNP.jpg" data-caption="Visit to National park">
-        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/VNP.jpg" alt="Visit to National park" loading="lazy">
+      <figure id="image-22" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/VNP.jpg" data-caption="Visit to National Park">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/VNP.jpg" alt="Visit to National Park" loading="lazy">
         <div class="image-overlay">Chill out</div>
         <figcaption>Candid Glimpses on flicking time</figcaption>
       </figure>
@@ -544,46 +592,39 @@
         <div class="image-overlay">Fun with Umisha</div>
         <figcaption>With Miss Umisha Upreti</figcaption>
       </figure>
-      <figure id="image-24a">
-    <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MCan.jpg" alt="Miracle time" loading="lazy">
-    <div class="image-overlay">Miracle time with nature</div>
-    <figcaption>Miracle moment 1</figcaption>
-  </figure>
-
-  <figure id="image-24b">
-    <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MI.jpg" alt="Another miracle moment" loading="lazy">
-    <div class="image-overlay">More magic with nature</div>
-    <figcaption>Miracle moment 2</figcaption>
-  </figure>
-
-      <figure id="image-25">
-        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BSR.jpg" 
-            alt="Fun with dynamic team" loading="lazy">
+      <figure id="image-24a" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MCan.jpg" data-caption="Miracle moment with nature">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MCan.jpg" alt="Miracle time" loading="lazy">
+        <div class="image-overlay">Miracle time with nature</div>
+        <figcaption>Miracle moment 1</figcaption>
+      </figure>
+      <figure id="image-24b" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MI.jpg" data-caption="Another miracle moment with nature">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/MI.jpg" alt="Another miracle moment" loading="lazy">
+        <div class="image-overlay">More magic with nature</div>
+        <figcaption>Miracle moment 2</figcaption>
+      </figure>
+      <figure id="image-25" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BSR.jpg" data-caption="Fun with dynamic team for new mission and goal">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BSR.jpg" alt="Fun with dynamic team" loading="lazy">
         <div class="image-overlay">Fun with dynamic team for new mission and goal</div>
         <figcaption>Fun with dynamic team for new innovative ideas synthesis</figcaption>
       </figure>
-
-      <figure id="image-26">
-        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/FS.jpg" 
-            alt="Plant Science Faculty Team on Rice Plantation Day" loading="lazy">
+      <figure id="image-26" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/FS.jpg" data-caption="Plant Science Faculty Team on Rice Plantation Day">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/FS.jpg" alt="Plant Science Faculty Team on Rice Plantation Day" loading="lazy">
         <div class="image-overlay">Our Plant Science Faculty Team</div>
-        <figcaption>Plant Science Faculty Team on Rice plantation Day or Ashar-15</figcaption>
+        <figcaption>Plant Science Faculty Team on Rice Plantation Day or Ashar-15</figcaption>
       </figure>
-      <figure id="image-27">
-        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PT.jpg" 
-            alt="Lumbini" loading="lazy">
-        <div class="image-overlay">Meditation Moments at Word Heritage Site, Lumbini, Nepal</div>
+      <figure id="image-27" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PT.jpg" data-caption="Meditation Moments at World Heritage Site, Lumbini, Nepal">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PT.jpg" alt="Lumbini" loading="lazy">
+        <div class="image-overlay">Meditation Moments at World Heritage Site, Lumbini, Nepal</div>
         <figcaption>World Heritage site</figcaption>
       </figure>
-      <figure id="image-28">
-        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/LS.jpg" 
-            alt="Kaulepani" loading="lazy">
-        <div class="image-overlay">High Himalayan Pellucid Environemt inhalment</div>
+      <figure id="image-28" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/LS.jpg" data-caption="High Himalayan Pellucid Environment Inhalement">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/LS.jpg" alt="Kaulepani" loading="lazy">
+        <div class="image-overlay">High Himalayan Pellucid Environment Inhalement</div>
         <figcaption>Blinking the eyes with the pristine Mountains</figcaption>
-        <figure id="image-28A">
-        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/3GP.jpg" 
-            alt="Kaulepani" loading="lazy">
-        <div class="image-overlay">My Three generation in one frame</div>
+      </figure>
+      <figure id="image-28A" data-image="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/3GP.jpg" data-caption="My Three Generations in One Frame">
+        <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/3GP.jpg" alt="Three Generations" loading="lazy">
+        <div class="image-overlay">My Three Generations in One Frame</div>
         <figcaption>Mr. Hem Bahdadur Basnet, Mr. Sobit Man Basnet-Hem B Basnet Jr, and Mr. Bikas Basnet-Sobit Man Basnet Jr.</figcaption>
       </figure>
     </section>
@@ -653,6 +694,7 @@
         // Modal open
         this.figures.forEach((figure, index) => {
           figure.addEventListener('click', () => {
+            console.log(`Opening modal for figure ${figure.id} at index ${index}`);
             this.currentIndex = index;
             this.openModal();
           });
@@ -722,13 +764,17 @@
 
       updateModalContent() {
         const figure = this.figures[this.currentIndex];
-        const imgSrc = figure.getAttribute('data-image');
+        const imgSrc = figure.getAttribute('data-image') || figure.querySelector('img').getAttribute('src');
+        const caption = figure.getAttribute('data-caption') || 'Image description not available';
+
         this.modalImg.src = imgSrc;
-        this.modalImg.alt = figure.querySelector('img').getAttribute('alt');
-        this.modalCaption.textContent = figure.getAttribute('data-caption');
+        this.modalImg.alt = figure.querySelector('img').getAttribute('alt') || 'Portfolio image';
+        this.modalCaption.textContent = caption;
+
         this.modalImg.onerror = () => {
+          console.error(`Failed to load image: ${imgSrc}`);
           this.modalImg.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
-          this.modalCaption.textContent = 'Image failed to load';
+          this.modalCaption.textContent = 'Image failed to load. Please check the source URL.';
         };
       },
 
