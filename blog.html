@@ -6,7 +6,7 @@
   <title>Blog Haven - Expert Views & Student Blogs</title>
   <meta name="description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
 
-  <!-- Open Graph tags -->
+  <!-- Open Graph & Twitter -->
   <meta property="og:site_name" content="Bikas Basnet">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Blog Haven - Expert Views & Student Blogs">
@@ -15,337 +15,94 @@
   <meta property="og:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Twitter Card tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog Haven - Expert Views & Student Blogs">
   <meta name="twitter:description" content="Expert views and student blogs on horticulture and plant breeding in Nepal">
   <meta name="twitter:image" content="https://bikas-basnet.github.io/images/bikas-portfolio.jpg">
-  <meta name="twitter:site" content="@YourTwitterHandle">
-  <meta name="twitter:creator" content="@YourTwitterHandle">
 
-  <!-- Favicon -->
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
     
-    body {
-      background: linear-gradient(135deg, #1a3c34, #4ade80);
-      min-height: 100vh;
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: #1a3c34;
-    }
+    body { background: linear-gradient(135deg, #1a3c34, #4ade80); min-height: 100vh; margin: 0; font-family: 'Poppins', sans-serif; color: #1a3c34; }
+    .navbar { background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 50; box-shadow: 0 6px 12px rgba(0,0,0,0.08); }
+    .navbar a { font-family: 'Playfair Display', serif; font-size: 1.15rem; transition: all 0.3s ease; }
+    .navbar a:hover { color: #15803d; transform: translateY(-3px); }
+    .navbar a.active { color: #15803d; font-weight: 700; border-bottom: 3px solid #4ade80; padding-bottom: 4px; }
     
-    .navbar {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(16px);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    }
+    .photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 5px solid #f7fafc; box-shadow: 0 0 25px rgba(74,222,128,0.7); transition: all 0.5s ease; cursor: pointer; }
+    .photo:hover { transform: scale(1.15) rotate(8deg); box-shadow: 0 0 35px rgba(74,222,128,1); }
     
-    .navbar a {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-    }
+    .card { background: rgba(255,255,255,0.98); border-radius: 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(40px); opacity: 0; animation: fadeInUp 0.8s ease forwards; animation-delay: calc(0.2s * var(--index)); height: 100%; display: flex; flex-direction: column; overflow: hidden; transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    @keyframes fadeInUp { to { transform: translateY(0); opacity: 1; } }
     
-    .navbar a:hover {
-      color: #15803d;
-      transform: translateY(-3px);
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
-    }
+    .content p.truncated { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+    .section-title { font-family: 'Playfair Display', serif; position: relative; display: inline-block; margin-bottom: 3rem; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 70%; height: 6px; background: linear-gradient(to right, #15803d, #4ade80); border-radius: 3px; }
+    .read-more:hover { color: #15803d; transform: translateX(8px); }
     
-    .navbar a.active {
-      color: #15803d;
-      font-weight: 700;
-      border-bottom: 2px solid #4ade80;
-    }
+    .expert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
+    .student-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+    .student-card { background: rgba(255,255,255,0.98); border-radius: 1.5rem; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+    .student-card:hover { transform: translateY(-10px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    .student-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s ease; cursor: pointer; }
+    .student-card:hover img { transform: scale(1.1); }
     
-    .photo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #f7fafc;
-      box-shadow: 0 0 25px rgba(74, 222, 128, 0.7);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      cursor: pointer;
-    }
+    .carousel-container { position: relative; overflow: hidden; }
+    .carousel { display: flex; transition: transform 0.5s ease; }
+    .carousel img { min-width: 100%; height: 220px; object-fit: cover; cursor: pointer; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 0.5rem 0.8rem; cursor: pointer; z-index: 10; border-radius: 50%; }
+    .prev { left: 10px; } .next { right: 10px; }
     
-    .photo:hover {
-      transform: scale(1.15) rotate(8deg);
-      box-shadow: 0 0 35px rgba(74, 222, 128, 1);
-    }
-    
-    .card {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      transform: translateY(40px);
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: calc(0.2s * var(--index));
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    }
-    
-    @keyframes fadeInUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    
-    .content p {
-      font-size: 1rem;
-      line-height: 1.8;
-      transition: opacity 0.3s ease;
-    }
-    
-    .content p.truncated {
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    
-    .content p:hover {
-      opacity: 0.9;
-    }
-    
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      position: relative;
-      display: inline-block;
-      margin-bottom: 3rem;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 70%;
-      height: 6px;
-      background: linear-gradient(to right, #15803d, #4ade80);
-      border-radius: 3px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .read-more {
-      font-family: 'Poppins', sans-serif;
-      transition: color 0.3s ease, transform 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .read-more:hover {
-      color: #15803d;
-      transform: translateX(8px);
-    }
-    
-    .content-section {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 1.5rem;
-      padding: 2.5rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transform: translateY(40px);
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: 0.4s;
-      transition: transform 0.3s ease;
-    }
-    
-    .content-section:hover {
-      transform: translateY(-5px);
-    }
-    
-    .content-section p {
-      font-size: 1.15rem;
-      color: #1a3c34;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.9;
-    }
-    
-    /* Enhanced Grid Layouts */
-    .expert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .student-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .student-card {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .student-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    }
-    
-    .student-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-      cursor: pointer;
-    }
-    
-    .student-card:hover img {
-      transform: scale(1.1);
-    }
-    
-    .student-card figcaption {
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 1rem;
-      color: #1a3c34;
-      background: rgba(255, 255, 255, 0.9);
-    }
-    
-    /* Carousel for multiple images in a card */
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .carousel {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    
-    .carousel img {
-      min-width: 100%;
-      height: 220px;
-      object-fit: cover;
-      cursor: pointer;
-    }
-    
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 0.5rem;
-      cursor: pointer;
-      z-index: 10;
-    }
-    
-    .prev {
-      left: 10px;
-    }
-    
-    .next {
-      right: 10px;
-    }
-    
-    /* Modal for zoomed images */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      align-items: center;
-      justify-content: center;
-      overflow: auto;
-    }
-    
-    .modal-content {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    }
-    
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    
-    .modal-close:hover {
-      color: #4ade80;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .expert-grid,
-      .student-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+    .modal-content { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; }
+    .modal-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; }
+    .modal-close:hover { color: #4ade80; }
+
+    /* Results Table */
+    .results-table { width: 100%; border-collapse: separate; border-spacing: 0; background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+    .results-table th { background: #15803d; color: white; padding: 1.2rem; font-family: 'Playfair Display', serif; font-size: 1.15rem; }
+    .results-table td { padding: 1rem; text-align: center; border-bottom: 1px solid #eee; }
+    .results-table tr:nth-child(even) { background-color: #f8fff9; }
+    .results-table tr:hover { background-color: #e6ffe6; transition: 0.3s; }
+    .absent { color: #dc2626; font-weight: 600; }
+
+    @media (max-width: 768px) { .expert-grid, .student-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <div id="posts-container"></div>
-  <!-- Navigation Bar -->
+
+  <!-- Navigation -->
   <nav class="navbar py-5">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center">
       <h1 class="text-3xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">Blog Haven</h1>
-      <div class="space-x-10">
+      <div class="space-x-8 md:space-x-12 mt-4 md:mt-0">
         <a href="#expert-views" class="text-gray-700 hover:text-green-800">Expert Views</a>
         <a href="#student-blogs" class="text-gray-700 hover:text-green-800">Student Blogs</a>
+        <a href="#results" class="text-gray-700 hover:text-green-800">Results</a>
       </div>
     </div>
   </nav>
 
-  <!-- Modal for Zoomed Images -->
+  <!-- Modal -->
   <div class="modal" id="imageModal">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <span class="modal-close" onclick="closeModal()">×</span>
     <img class="modal-content" id="modalImage">
   </div>
 
-  <!-- Main Content -->
   <div class="container mx-auto px-6 py-16">
-    <!-- Expert Views Section -->
+
+    <!-- Expert Views -->
     <section id="expert-views" class="mb-24">
-      <h2 class="section-title text-5xl font-bold text-white mb-12">Expert Insights</h2>
+      <h2 class="section-title text-5xl font-bold text-white mb-12 text-center">Expert Insights</h2>
       <div class="expert-grid">
+
         <!-- Expert 1 -->
         <div class="card p-8" style="--index: 1;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/MSP.jpg" alt="Dr. Madhav P Neupane" class="photo mx-auto mb-6" onclick="openModal(this.src)">
-          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;"><strong>Regent Associate Professor,</strong> 🎓Dr.🌽 Madhav Prasad Neupane</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;"><strong>Regent Associate Professor,</strong> Dr. Madhav Prasad Neupane</h3>
           <p class="text-sm text-gray-500 text-center mb-2">PhD. in Agronomy and Crop Science, Banaras Hindu University, India</p>
           <p class="text-sm text-gray-500 text-center mb-2"><strong>Baby Corn Expert,</strong> Department of Agronomy, Agriculture and Forestry University, Nepal</p>
           <hr class="my-4 border-gray-200">
@@ -356,10 +113,11 @@
           </div>
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
+
         <!-- Expert 2 -->
         <div class="card p-8" style="--index: 2;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/CBK.jpg" alt="Mr. Chitra Bahadur Kunwar" class="photo mx-auto mb-6" onclick="openModal(this.src)">
-          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Mr🌽, Emeritus Scientist(S4), Chitra Bahadur Kunwar</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">Mr. Chitra Bahadur Kunwar</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master in Plant Breeding and Genetics, Kasetsart University, Thailand</p>
           <p class="text-sm text-gray-500 text-center mb-2">Corn Expert, <strong>Ex Coordinator, National Maize Research Program, NARC, Nepal</strong></p>
           <ul class="text-sm text-gray-500 text-center mb-2 list-none">
@@ -377,10 +135,11 @@
           </div>
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
+
         <!-- Expert 3 -->
         <div class="card p-8" style="--index: 3;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/RD.jpg" alt="Roshan Ghimire" class="photo mx-auto mb-6" onclick="openModal(this.src)">
-          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Mr🌱 Roshan Ghimire</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">Mr. Roshan Ghimire</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Master of Science Horticulture, Sri Dev Suman Uttarakhand University, India</p>
           <p class="text-sm text-gray-500 text-center mb-4">March 15, 2025</p>
           <hr class="my-4 border-gray-200">
@@ -389,10 +148,11 @@
           </div>
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
+
         <!-- Expert 4 -->
         <div class="card p-8" style="--index: 4;">
           <img src="https://github.com/bikas-basnet/bikas-basnet.github.io/raw/main/SD.jpg" alt="Santosh Bhandari" class="photo mx-auto mb-6" onclick="openModal(this.src)">
-          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">🎓Dr.🌾 Santosh Bhandari</h3>
+          <h3 class="text-2xl font-semibold text-gray-800 text-center mb-2" style="font-family: 'Playfair Display', serif;">Dr. Santosh Bhandari</h3>
           <p class="text-sm text-gray-500 text-center mb-2">Email: santoshafu@gmail.com</p>
           <p class="text-sm text-gray-500 text-center mb-2">Plant Breeding and Genetics, Agriculture and Forestry University, Nepal</p>
           <p class="text-sm text-gray-500 text-center mb-4">May 1, 2025</p>
@@ -402,14 +162,16 @@
           </div>
           <span class="read-more text-green-600 hover:text-green-800 mt-4 block text-center font-medium" onclick="toggleContent(this)">Read More</span>
         </div>
+
       </div>
     </section>
 
-    <!-- Student Blogs Section -->
+    <!-- Student Blogs -->
     <section id="student-blogs" class="mb-24">
-      <h2 class="section-title text-5xl font-bold text-white mb-12">My Students' Stories</h2>
+      <h2 class="section-title text-5xl font-bold text-white mb-12 text-center">My Students' Stories</h2>
       <div class="student-grid">
-        <!-- 11 Carousel -->
+
+        <!-- All 12 Student Cards & Carousels (exactly as you had) -->
         <figure class="student-card carousel-container">
           <div class="carousel" id="ojt-carousel">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TSS.jpg" alt="Field Visit1" onclick="openModal(this.src)">
@@ -417,46 +179,46 @@
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TAA.jpg" alt="Field Visit3" onclick="openModal(this.src)">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BI.jpg" alt="Field Visit4" onclick="openModal(this.src)">
           </div>
-          <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel', -1)">&#10094;</button>
-          <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel', 1)">&#10095;</button>
+          <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel', -1)">Previous</button>
+          <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel', 1)">Next</button>
           <figcaption>Class 11 students are performing the Commercial Food Crops Production and Post Harvest Technology TSS and TA Calculation Practical</figcaption>
         </figure>
-        <!-- Exam -->
+
         <figure class="student-card">
           <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/C11E.jpg" alt="Class 11 Test exam" onclick="openModal(this.src)">
           <figcaption>Class 11 students are taking Commercial food crops production and Post Harvest Technology MCQS based Test Exam</figcaption>
         </figure>
-        <!-- Lab Image -->
+
         <figure class="student-card">
           <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lab.jpg" alt="Students working in the lab" onclick="openModal(this.src)">
           <figcaption>Exploring on Bordeaux mix preparation in the plant science lab</figcaption>
         </figure>
-        <!-- Lawn Image -->
+
         <figure class="student-card">
           <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Lawn.jpg" alt="Students relaxing on the lawn" onclick="openModal(this.src)">
           <figcaption>Team Bonding on the Campus Lawn</figcaption>
         </figure>
-        <!-- Multimedia Image -->
+
         <figure class="student-card">
           <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Multimedia.jpg" alt="Students using multimedia tools" onclick="openModal(this.src)">
           <figcaption>Learning in the Multimedia Studio</figcaption>
         </figure>
-        <!-- Hydroponics Image -->
+
         <figure class="student-card">
           <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/hydroponics.jpg" alt="Students learning hydroponics" onclick="openModal(this.src)">
           <figcaption>Innovating with Hydroponics in Agriculture</figcaption>
         </figure>
-        <!-- Model Image -->
+
         <figure class="student-card">
           <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/model.jpg" alt="Students showcasing a model" onclick="openModal(this.src)">
           <figcaption>Presenting a Handcrafted plastic house Project</figcaption>
         </figure>
-        <!-- OJT Students Image -->
+
         <figure class="student-card">
           <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/OJT%20students.jpg" alt="One Job Training images" onclick="openModal(this.src)">
           <figcaption>Class 10 students On Job Training (OJT), Students learning the Germination test of Rice seeds</figcaption>
         </figure>
-        <!-- OJT Carousel -->
+
         <figure class="student-card carousel-container">
           <div class="carousel" id="ojt-carousel-2">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/O.jpg" alt="Field Visit1" onclick="openModal(this.src)">
@@ -464,11 +226,11 @@
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/T.jpg" alt="Field Visit3" onclick="openModal(this.src)">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/F.jpg" alt="Field Visit4" onclick="openModal(this.src)">
           </div>
-          <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel-2', -1)">&#10094;</button>
-          <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel-2', 1)">&#10095;</button>
+          <button class="carousel-btn prev" onclick="moveCarousel('ojt-carousel-2', -1)">Previous</button>
+          <button class="carousel-btn next" onclick="moveCarousel('ojt-carousel-2', 1)">Next</button>
           <figcaption>Class 10 students On Job Training (OJT), learning the Germination test of Rice seeds, field visit for Innovation center/early adopters</figcaption>
         </figure>
-        <!-- Class-9 Carousel -->
+
         <figure class="student-card carousel-container">
           <div class="carousel" id="class9-carousel">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9.jpg" alt="Class -9 students" onclick="openModal(this.src)">
@@ -476,11 +238,11 @@
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/JN.jpg" alt="SBT" onclick="openModal(this.src)">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CP.jpg" alt="Class -9 students" onclick="openModal(this.src)">
           </div>
-          <button class="carousel-btn prev" onclick="moveCarousel('class9-carousel', -1)">&#10094;</button>
-          <button class="carousel-btn next" onclick="moveCarousel('class9-carousel', 1)">&#10095;</button>
+          <button class="carousel-btn prev" onclick="moveCarousel('class9-carousel', -1)">Previous</button>
+          <button class="carousel-btn next" onclick="moveCarousel('class9-carousel', 1)">Next</button>
           <figcaption>Class 9 students learning from senior student guidance for the healthy rice seeds separation and the Germination test of Rice seeds and Mud Girls</figcaption>
         </figure>
-        <!-- Class-9 Plant Science Carousel -->
+
         <figure class="student-card carousel-container">
           <div class="carousel" id="class9-ps-carousel">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/images/Class-9%20plant%20science%20students.jpg" alt="Class -9 students" onclick="openModal(this.src)">
@@ -488,116 +250,103 @@
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/DG.jpg" alt="Dog Guy" onclick="openModal(this.src)">
             <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TM.jpg" alt="Class -10 students" onclick="openModal(this.src)">
           </div>
-          <button class="carousel-btn prev" onclick="moveCarousel('class9-ps-carousel', -1)">&#10094;</button>
-          <button class="carousel-btn next" onclick="moveCarousel('class9-ps-carousel', 1)">&#10095;</button>
+          <button class="carousel-btn prev" onclick="moveCarousel('class9-ps-carousel', -1)">Previous</button>
+          <button class="carousel-btn next" onclick="moveCarousel('class9-ps-carousel', 1)">Next</button>
           <figcaption>Class 9 students learning the hydro priming techniques in the Plant Science lab, field guy(Dog) and utilization of the moisture meter</figcaption>
         </figure>
-        <!-- Additional Carousel for Rice Transplantation -->
+
         <figure class="student-card carousel-container">
           <div class="carousel" id="rice-carousel">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TS.jpg" alt="Class -10 students" onclick="openModal(this.src)">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BT.jpg" alt="Class -10 students1" onclick="openModal(this.src)">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/C9.jpg" alt="Class -10 students2" onclick="openModal(this.src)">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PR.jpg" alt="Class -10 students3" onclick="openModal(this.src)">
-            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BS.jpg" alt="Class -10 students4" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/TS.jpg" alt="Rice transplantation" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BT.jpg" alt="Rice transplantation" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/C9.jpg" alt="Rice transplantation" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/PR.jpg" alt="Rice transplantation" onclick="openModal(this.src)">
+            <img src="https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/BS.jpg" alt="Rice transplantation" onclick="openModal(this.src)">
           </div>
-          <button class="carousel-btn prev" onclick="moveCarousel('rice-carousel', -1)">&#10094;</button>
-          <button class="carousel-btn next" onclick="moveCarousel('rice-carousel', 1)">&#10095;</button>
+          <button class="carousel-btn prev" onclick="moveCarousel('rice-carousel', -1)">Previous</button>
+          <button class="carousel-btn next" onclick="moveCarousel('rice-carousel', 1)">Next</button>
           <figcaption>Class 9-10 students enjoying the rice transplantation and mud playing on Ashar 15 (Dahi Chiura Khane Din)</figcaption>
         </figure>
+
       </div>
     </section>
+
+    <!-- Results Section -->
+    <section id="results" class="mb-32">
+      <h2 class="section-title text-5xl font-bold text-white mb-12 text-center">Student Results</h2>
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-white bg-opacity-98 rounded-2xl shadow-2xl p-8 md:p-12">
+          <h3 class="text-3xl font-bold text-center text-gray-800 mb-8" style="font-family: 'Playfair Display', serif;">
+            Official Results of Class-11<br>
+            <span class="text-2xl text-green-700">Commercial Food Crops Production and Post Harvest Technology</span>
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Name of the Student</th>
+                  <th>Percentage (%)</th>
+                  <th>Marks Obtained<br><small>(Out of 50)</small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Rekha Thapa</td><td>62</td><td>31</td></tr>
+                <tr><td>Aaisha Ghale</td><td>58</td><td>29</td></tr>
+                <tr><td>Kripa Purkuti</td><td>70</td><td>35</td></tr>
+                <tr><td>Sabina Sarki</td><td>52</td><td>26</td></tr>
+                <tr><td>Rashmi B.K</td><td>56</td><td>28</td></tr>
+                <tr><td>Bindu Thapa</td><td>58</td><td>29</td></tr>
+                <tr><td>Sandhya Sunar</td><td>60</td><td>30</td></tr>
+                <tr><td>Puspa Thapa Magar</td><td class="absent">Absent</td><td class="absent">Abs</td></tr>
+                <tr><td>Nawaraj Poudel</td><td class="absent">Absent</td><td class="absent">—</td></tr>
+                <tr><td>Bisal Tamang</td><td class="absent">Absent</td><td class="absent">Abs</td></tr>
+                <tr><td>Nirmal Thapa</td><td>58</td><td>29</td></tr>
+                <tr><td>Pujan Thapa Magar</td><td class="absent">Absent</td><td class="absent">Abs</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-center text-gray-600 mt-8 italic">Results published on: November 19, 2025</p>
+        </div>
+      </div>
+    </section>
+
   </div>
 
   <script>
-    // Right-click protection
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-      alert("Right-click is disabled!");
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' }); });
     });
 
-    // Smooth scrolling for navbar links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Highlight active nav link on scroll
+    // Active nav
     window.addEventListener('scroll', () => {
-      const sections = ['expert-views', 'student-blogs'];
-      const navLinks = document.querySelectorAll('.navbar a');
+      const sections = ['expert-views', 'student-blogs', 'results'];
       let current = '';
-
-      sections.forEach(section => {
-        const element = document.getElementById(section);
-        if (element.getBoundingClientRect().top <= 150) {
-          current = section;
-        }
-      });
-
-      navLinks.forEach(link => {
-        const isActive = link.getAttribute('href').slice(1) === current;
-        link.classList.toggle('active', isActive);
-        link.classList.toggle('text-gray-700', !isActive);
-      });
+      sections.forEach(s => { const el = document.getElementById(s); if (el && el.getBoundingClientRect().top <= 150) current = s; });
+      document.querySelectorAll('.navbar a').forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
     });
 
-    // Toggle full content for expert views
-    function toggleContent(element) {
-      const contentP = element.previousElementSibling.querySelector('p');
-      if (contentP.classList.contains('truncated')) {
-        contentP.classList.remove('truncated');
-        element.textContent = 'Show Less';
-      } else {
-        contentP.classList.add('truncated');
-        element.textContent = 'Read More';
-      }
+    // Read More
+    function toggleContent(el) {
+      const p = el.previousElementSibling.querySelector('p');
+      if (p.classList.contains('truncated')) { p.classList.remove('truncated'); el.textContent = 'Show Less'; }
+      else { p.classList.add('truncated'); el.textContent = 'Read More'; }
     }
 
-    // Carousel functionality
+    // Carousels
     const carousels = {};
-    document.querySelectorAll('.carousel').forEach(carousel => {
-      const id = carousel.id;
-      carousels[id] = { index: 0, slides: carousel.children.length };
-    });
-
-    function moveCarousel(id, direction) {
-      const carousel = document.getElementById(id);
-      const data = carousels[id];
-      data.index = (data.index + direction + data.slides) % data.slides;
-      carousel.style.transform = `translateX(-${data.index * 100}%)`;
+    document.querySelectorAll('.carousel').forEach(c => { const id = c.id; carousels[id] = { index: 0, len: c.children.length }; });
+    function moveCarousel(id, dir) {
+      const d = carousels[id];
+      d.index = (d.index + dir + d.len) % d.len;
+      document.getElementById(id).style.transform = `translateX(-${d.index * 100}%)`;
     }
 
-    // Modal functionality for zoomed images
-    function openModal(src) {
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImage');
-      modal.style.display = 'flex';
-      modalImg.src = src;
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('imageModal');
-      modal.style.display = 'none';
-    }
-
-    // Close modal when clicking outside the image
-    document.getElementById('imageModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeModal();
-      }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
-    });
+    // Modal
+    function openModal(src) { document.getElementById('imageModal').style.display = 'flex'; document.getElementById('modalImage').src = src; }
+    function closeModal() { document.getElementById('imageModal').style.display = 'none'; }
+    document.getElementById('imageModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   </script>
 </body>
 </html>
