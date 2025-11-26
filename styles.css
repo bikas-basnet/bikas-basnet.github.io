@@ -9,6 +9,103 @@
             line-height: 1.6;
             background: #f3f4f6;
         }
+        /* Desktop nav - default visible */
+nav {
+    background: #333;
+    padding: 1rem;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #4CAF50;
+}
+
+/* Hamburger icon - hidden on large screens */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 4px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;                    /* Hidden by default on mobile */
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-links.active {
+        display: flex;                    /* Shown when active */
+    }
+
+    .nav-links a {
+        padding: 0.8rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid #444;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    /* Style dropdown for mobile */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: #444;
+    }
+
+    .dropdown-content a {
+        padding-left: 3rem;
+        font-size: 0.9rem;
+    }
+
+    /* Hamburger animation when menu is open */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
         nav {
             background-color: darkgreen;
             color: #ffffff;

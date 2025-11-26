@@ -34,3 +34,20 @@ function toggleResearchInfo() {
                     document.getElementById('hsd-results').innerHTML = 'Failed to load results. <a href="https://github.com/bikas-basnet/Experimental-Design-Aanlysis-code/main/HSD-data.html" target="_blank">View on GitHub</a>';
                 });
         });
+        function toggleMobileMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+    
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+}
+
+// Close mobile menu when clicking a link (optional but nice UX)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.nav-links').classList.remove('active');
+            document.querySelector('.hamburger').classList.remove('active');
+        }
+    });
+});
