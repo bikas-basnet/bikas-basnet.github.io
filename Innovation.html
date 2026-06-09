@@ -385,7 +385,75 @@
 .hero-logo:hover {
   transform: scale(1.1) rotate(5deg); /* subtle hover effect */
 }
+.media-insights {
+        padding: 60px 20px;
+        background-color: #f5f7fa;
+        text-align: center;
+    }
 
+    .media-insights h2 {
+        font-size: 2.2rem;
+        color: #2c3e50;
+        margin-bottom: 30px;
+    }
+
+    .media-card {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease,
+                    box-shadow 0.3s ease;
+    }
+
+    .media-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .media-card h3 {
+        color: #1f4e79;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .media-card p {
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        font-size: 1rem;
+    }
+
+    .media-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #2e8b57;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    .media-button:hover {
+        background-color: #246b45;
+    }
+
+    @media (max-width: 768px) {
+        .media-card {
+            padding: 25px;
+        }
+
+        .media-insights h2 {
+            font-size: 1.8rem;
+        }
+
+        .media-card h3 {
+            font-size: 1.3rem;
+        }
+    }
   </style>
 </head>
 
@@ -408,6 +476,27 @@
 </div>
 
   </header>
+  <section id="media-insights" class="media-insights">
+    <h2>Media Insights</h2>
+
+    <div class="media-card">
+        <h3>Smartphone AI Diagnoses Crop Disease in Real Time</h3>
+
+        <p>
+            Explore how smartphone-based artificial intelligence is transforming
+            agriculture by enabling rapid and accurate crop disease diagnosis
+            directly in the field.
+        </p>
+
+        <a href="https://agritechinsights.com/index.php/2026/05/04/smartphone-ai-diagnoses-crop-disease-in-real-time/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="media-button">
+            Read the Full Article
+        </a>
+    </div>
+</section>
+
   <main>
     <!-- Innovation Section -->
     <section id="innovation" aria-label="Innovation in Agriculture">
