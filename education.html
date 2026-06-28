@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education • Bikas Basnet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.93), rgba(15, 23, 42, 0.95)), 
+                        url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CRECF.jpg') center/cover no-repeat fixed;
+        }
+
+        .map-container {
+            height: 720px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+        }
+
+        .timeline-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .timeline-item:hover {
+            transform: translateX(24px);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            position: relative;
+        }
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            bottom: -8px;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-zinc-50 text-zinc-800">
+
+    <!-- Hero Header -->
+    <div class="hero-bg text-white py-24">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-x-2 px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 mb-6">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span class="text-sm font-medium tracking-widest">ACADEMIC JOURNEY</span>
+                </div>
+                <h1 class="heading-font text-6xl md:text-7xl font-semibold tracking-tighter leading-none mb-6">
+                    Education &amp; Research Path
+                </h1>
+                <p class="text-xl text-white/80 max-w-md">
+                    A dedicated journey from the hills of Nepal to the research laboratories of the United States.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-screen-2xl mx-auto px-8 md:px-16 py-20">
+        <div class="grid lg:grid-cols-12 gap-20">
+            
+            <!-- Timeline -->
+            <div class="lg:col-span-5">
+                <div class="sticky top-12">
+                    <h2 class="section-header heading-font text-4xl font-semibold mb-16">My Academic Timeline</h2>
+                    
+                    <div class="space-y-16">
+                        <!-- University of Florida - CREC -->
+                        <div onclick="focusLocation(0)" class="timeline-item group flex gap-8 cursor-pointer fade-in" style="animation-delay: 100ms">
+                            <div>
+                                <div class="w-9 h-9 bg-blue-700 text-white rounded-3xl flex items-center justify-center text-xl font-semibold shadow-lg">CREC</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <div class="font-semibold text-2xl">Citrus Research and Education Center</div>
+                                    <span class="text-sm font-medium text-zinc-500">2026 — Present</span>
+                                </div>
+                                <p class="text-blue-700">University of Florida • Lake Alfred, Florida, USA</p>
+                                <div class="mt-5 bg-white p-7 rounded-3xl border border-zinc-100">
+                                    <p class="font-medium text-lg">Research Scholar</p>
+                                    <p class="text-zinc-600 mt-2">Citrus &amp; Machine Learning Applications</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agriculture and Forestry University -->
+                        <div onclick="focusLocation(1)" class="timeline-item group flex gap-8 cursor-pointer fade-in" style="animation-delay: 200ms">
+                            <div>
+                                <div class="w-9 h-9 bg-emerald-700 text-white rounded-3xl flex items-center justify-center text-xl font-semibold shadow-lg">AFU</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <div class="font-semibold text-2xl">Agriculture and Forestry University</div>
+                                    <span class="text-sm font-medium text-zinc-500">2019 — 2023</span>
+                                </div>
+                                <p class="text-emerald-700">Bharatpur, Bagmati Province, Nepal</p>
+                                <p class="mt-4 text-zinc-600">Graduate Student</p>
+                            </div>
+                        </div>
+
+                        <!-- Bhimnagar Secondary School -->
+                        <div onclick="focusLocation(2)" class="timeline-item group flex gap-8 cursor-pointer fade-in" style="animation-delay: 300ms">
+                            <div>
+                                <div class="w-9 h-9 bg-amber-700 text-white rounded-3xl flex items-center justify-center text-xl font-semibold shadow-lg">BS</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <div class="font-semibold text-2xl">Bhimnagar Secondary School</div>
+                                    <span class="text-sm font-medium text-zinc-500">2024 — 2026</span>
+                                </div>
+                                <p class="text-amber-700">Chitwan, Nepal</p>
+                                <p class="mt-4 text-zinc-600">Instructor, Plant Science</p>
+                            </div>
+                        </div>
+
+                        <!-- Sukuna Secondary School -->
+                        <div onclick="focusLocation(3)" class="timeline-item group flex gap-8 cursor-pointer fade-in" style="animation-delay: 400ms">
+                            <div>
+                                <div class="w-9 h-9 bg-purple-700 text-white rounded-3xl flex items-center justify-center text-xl font-semibold shadow-lg">SS</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <div class="font-semibold text-2xl">Sukuna Secondary School</div>
+                                    <span class="text-sm font-medium text-zinc-500">2016 — 2018</span>
+                                </div>
+                                <p class="text-purple-700">Biratcholk, Morang, Nepal</p>
+                                <p class="mt-4 text-zinc-600">+2 in Science (Biology Major)</p>
+                            </div>
+                        </div>
+
+                        <!-- Rameshwar Secondary School -->
+                        <div onclick="focusLocation(4)" class="timeline-item group flex gap-8 cursor-pointer fade-in" style="animation-delay: 500ms">
+                            <div>
+                                <div class="w-9 h-9 bg-rose-700 text-white rounded-3xl flex items-center justify-center text-xl font-semibold shadow-lg">RS</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <div class="font-semibold text-2xl">Rameshwar Secondary School</div>
+                                    <span class="text-sm font-medium text-zinc-500">2014 — 2016</span>
+                                </div>
+                                <p class="text-rose-700">Mamling, Sankhuwasabha, Nepal</p>
+                                <p class="mt-4 text-zinc-600">Class 8–10 (Geography &amp; Science)</p>
+                            </div>
+                        </div>
+
+                        <!-- Shree Sarada Secondary School -->
+                        <div onclick="focusLocation(5)" class="timeline-item group flex gap-8 cursor-pointer fade-in" style="animation-delay: 600ms">
+                            <div>
+                                <div class="w-9 h-9 bg-teal-700 text-white rounded-3xl flex items-center justify-center text-xl font-semibold shadow-lg">SSS</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <div class="font-semibold text-2xl">Shree Sarada Secondary School</div>
+                                    <span class="text-sm font-medium text-zinc-500">2004 — 2011</span>
+                                </div>
+                                <p class="text-teal-700">Humling-Tirtire, Sankhuwasabha, Nepal</p>
+                                <p class="mt-4 text-zinc-600">Pre-primary to Secondary Education</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Satellite Map -->
+            <div class="lg:col-span-7">
+                <div class="mb-8 flex justify-between items-center">
+                    <div>
+                        <h2 class="text-3xl font-semibold">Global Academic Footprint</h2>
+                        <p class="text-zinc-600"> Map of All Institutions</p>
+                    </div>
+                    <button onclick="resetMap()" 
+                            class="flex items-center gap-x-3 px-6 py-3 bg-white border border-zinc-200 hover:border-zinc-300 rounded-2xl text-sm font-medium transition-all">
+                        <i class="fa-solid fa-rotate"></i>
+                        Reset View
+                    </button>
+                </div>
+                <div id="education-map" class="map-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let map;
+        let markers = [];
+
+        const locations = [
+            { name: "Citrus Research and Education Center (UF)", lat: 28.0992, lng: -81.7629, desc: "Research Scholar — Citrus Pathology &amp; Machine Learning", year: "2026 – Present", address: "700 Experiment Station Rd, Lake Alfred, FL 33850" },
+            { name: "Agriculture and Forestry University", lat: 27.651002, lng: 84.351933, desc: "Graduate Student", year: "2019 – 2023" },
+            { name: "Bhimnagar Secondary School", lat: 27.620983, lng: 84.302899, desc: "Instructor — Plant Science", year: "2024 – 2026" },
+            { name: "Sukuna Secondary School", lat: 26.669395, lng: 87.338654, desc: "+2 in Science (Biology Major)", year: "2016 – 2018" },
+            { name: "Rameshwar Secondary School", lat: 27.239320, lng: 87.330039, desc: "Class 8–10 (Geography &amp; Science)", year: "2014 – 2016" },
+            { name: "Shree Sarada Secondary School", lat: 27.256002, lng: 87.322536, desc: "Pre-primary to Secondary", year: "2004 – 2011" }
+        ];
+
+        function initMap() {
+            map = L.map('education-map', { zoomControl: true }).setView([27, -10], 2.8);
+            
+            // High-quality Satellite View
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '&copy; Esri',
+                maxZoom: 19
+            }).addTo(map);
+
+            locations.forEach((loc, i) => {
+                const marker = L.marker([loc.lat, loc.lng]).addTo(map);
+                marker.bindPopup(`
+                    <div class="text-sm">
+                        <strong>${loc.name}</strong><br>
+                        <span class="text-blue-700">${loc.year}</span><br><br>
+                        ${loc.desc}
+                    </div>
+                `);
+                markers.push(marker);
+            });
+
+            const group = L.featureGroup(markers);
+            map.fitBounds(group.getBounds().pad(0.3));
+        }
+
+        function focusLocation(index) {
+            map.flyTo([locations[index].lat, locations[index].lng], 8, { duration: 2 });
+            setTimeout(() => markers[index].openPopup(), 900);
+        }
+
+        function resetMap() {
+            const group = L.featureGroup(markers);
+            map.flyToBounds(group.getBounds().pad(0.3));
+        }
+
+        window.onload = () => {
+            initMap();
+            setTimeout(() => focusLocation(0), 1600);
+        };
+    </script>
+</body>
+</html>
