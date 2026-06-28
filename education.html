@@ -19,8 +19,7 @@
         }
 
         .hero-bg {
-            background: linear-gradient(rgba(15, 23, 42, 0.93), rgba(15, 23, 42, 0.95)), 
-                        url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CRECF.jpg') center/cover no-repeat fixed;
+            background: url('https://raw.githubusercontent.com/bikas-basnet/bikas-basnet.github.io/main/CRECF.jpg') center/cover no-repeat fixed;
         }
 
         .map-container {
@@ -69,15 +68,17 @@
     <!-- Hero Header -->
     <div class="hero-bg text-white py-24">
         <div class="max-w-screen-2xl mx-auto px-8 md:px-16">
-            <div class="max-w-2xl">
-                <div class="inline-flex items-center gap-x-2 px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 mb-6">
+           <div class="max-w-2xl mx-auto text-center">
+                <div class="inline-flex items-center gap-x-2 px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 mb-6 text-white font-bold">
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <span class="text-sm font-medium tracking-widest">ACADEMIC JOURNEY</span>
+                    <span class="text-sm tracking-widest font-bold">ACADEMIC JOURNEY</span>
                 </div>
-                <h1 class="heading-font text-6xl md:text-7xl font-semibold tracking-tighter leading-none mb-6">
+
+                <h1 class="heading-font text-5xl md:text-6xl font-bold tracking-tighter leading-none mb-6 text-white">
                     Education &amp; Research Path
                 </h1>
-                <p class="text-xl text-white/80 max-w-md">
+
+                <p class="text-xl text-white/90 font-medium max-w-md mx-auto">
                     A dedicated journey from the hills of Nepal to the research laboratories of the United States.
                 </p>
             </div>
@@ -223,7 +224,6 @@
         function initMap() {
             map = L.map('education-map', { zoomControl: true }).setView([27, -10], 2.8);
             
-            // High-quality Satellite View
             L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                 attribution: '&copy; Esri',
                 maxZoom: 19
